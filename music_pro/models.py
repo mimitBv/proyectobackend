@@ -40,6 +40,7 @@ class Product(models.Model):
     price = models.PositiveIntegerField("precio")
     stock = models.PositiveIntegerField("stock", default=0)
     icon = models.CharField("ícono", max_length=40, default="music_note")
+    image = models.CharField("imagen", max_length=120, default="images/products/instrumentos.svg")
     active = models.BooleanField("activo", default=True)
 
     class Meta:
