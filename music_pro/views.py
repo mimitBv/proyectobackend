@@ -8,6 +8,10 @@ from .forms import CheckoutForm, FranchiseInquiryForm, RegisterForm
 from .models import Branch, Order, OrderItem, Product
 
 
+def home(request):
+    return render(request, "music_pro/home.html")
+
+
 def branches_and_franchises(request):
     if request.method == "POST":
         form = FranchiseInquiryForm(request.POST)

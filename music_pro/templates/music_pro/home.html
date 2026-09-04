@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Music Pro | Elige tu experiencia</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body{background:#111317;color:#e2e2e8;font-family:Inter,system-ui,sans-serif}.accent{color:#ffc174}.panel{background:#1a1c20;border:1px solid #534434}.panel:hover{border-color:#ffc174;transform:translateY(-4px);box-shadow:0 18px 45px #0006}</style>
+</head>
+<body class="min-h-screen">
+  <header class="border-b border-[#534434] bg-[#0c0e12]">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-5">
+      <a href="{% url 'home' %}" class="text-xl font-bold accent">Music Pro</a>
+      <span class="text-xs uppercase tracking-widest text-[#d8c3ad]">Precision audio systems</span>
+    </div>
+  </header>
+  <main class="mx-auto flex min-h-[calc(100vh-77px)] max-w-6xl items-center px-5 py-12">
+    <div class="w-full">
+      <div class="max-w-2xl"><p class="text-xs uppercase tracking-[.2em] accent">Bienvenido a Music Pro</p><h1 class="mt-4 text-4xl font-bold leading-tight sm:text-6xl">¿Qué quieres explorar?</h1><p class="mt-5 text-lg leading-8 text-[#d8c3ad]">Elige entre nuestra tienda de instrumentos y equipos profesionales o conoce la red de sucursales y oportunidades de franquicia.</p></div>
+      <div class="mt-12 grid gap-5 md:grid-cols-2">
+        <a href="{% url 'shop' %}" class="panel group rounded-2xl p-7 transition duration-300"><div class="flex items-center justify-between"><span class="text-5xl accent">♪</span><span class="text-2xl text-[#ffc174] transition group-hover:translate-x-1">→</span></div><p class="mt-10 text-xs uppercase tracking-widest text-[#56e5a9]">Compra online</p><h2 class="mt-2 text-3xl font-bold">Tienda web</h2><p class="mt-3 max-w-md leading-7 text-[#d8c3ad]">Encuentra instrumentos, micrófonos, interfaces y equipos de audio. Agrega productos al carrito y compra con despacho o retiro en sucursal.</p><span class="mt-7 inline-block rounded-lg bg-[#f59e0b] px-4 py-3 font-semibold text-[#472a00]">Ver productos</span></a>
+        <a href="{% url 'branches-and-franchises' %}" class="panel group rounded-2xl p-7 transition duration-300"><div class="flex items-center justify-between"><span class="text-5xl text-[#56e5a9]">⌂</span><span class="text-2xl text-[#56e5a9] transition group-hover:translate-x-1">→</span></div><p class="mt-10 text-xs uppercase tracking-widest text-[#ffc174]">Red comercial</p><h2 class="mt-2 text-3xl font-bold">Sucursales y franquicias</h2><p class="mt-3 max-w-md leading-7 text-[#d8c3ad]">Conoce nuestra operación de bodega, puntos de venta, logística, fidelización y el modelo para abrir una nueva franquicia Music Pro.</p><span class="mt-7 inline-block rounded-lg border border-[#56e5a9]/50 px-4 py-3 font-semibold text-[#56e5a9]">Explorar la red</span></a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
