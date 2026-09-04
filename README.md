@@ -1,4 +1,4 @@
-# Music Pro
+# Music Pro / proyectobackend
 
 Proyecto Django para la gestion de sucursales, franquicias y solicitudes comerciales de Music Pro.
 
