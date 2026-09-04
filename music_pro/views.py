@@ -58,6 +58,21 @@ def remove_from_cart(request, product_id):
     return redirect("cart")
 
 
+def decrease_cart_quantity(request, product_id):
+    cart = request.session.get("cart", {})
+    product_key = str(product_id)
+    quantity = cart.get(product_key, 0)
+    if quantity:
+        if quantity == 1:
+            del cart[product_key]
+        else:
+            cart[product_key] = quantity - 1
+        Product.objects.filter(pk=product_id).update(stock=F("stock") + 1)
+        request.session["cart"] = cart
+        messages.success(request, "Una unidad fue retirada del carrito.")
+    return redirect("cart")
+
+
 def cart(request):
     cart_data = request.session.get("cart", {})
     products = Product.objects.filter(pk__in=cart_data.keys(), active=True)
