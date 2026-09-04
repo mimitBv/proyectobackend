@@ -1,0 +1,352 @@
+<!DOCTYPE html><html class="dark" lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Music Pro - Ficha de Producto &amp; Carrito</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=JetBrains+Mono:wght@100..900&amp;family=Space+Grotesk:wght@100..900&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary-fixed": "#2a1700",
+            "on-error": "#690005",
+            "on-background": "#e2e2e8",
+            "on-surface-variant": "#d8c3ad",
+            "outline": "#a08e7a",
+            "tertiary-fixed": "#6ffbbe",
+            "on-primary-fixed-variant": "#653e00",
+            "secondary-fixed-dim": "#ffb77d",
+            "error": "#ffb4ab",
+            "secondary": "#ffb77d",
+            "tertiary-fixed-dim": "#4edea3",
+            "on-tertiary": "#003824",
+            "surface-container-low": "#1a1c20",
+            "on-secondary-container": "#432100",
+            "tertiary": "#56e5a9",
+            "surface-tint": "#ffb95f",
+            "primary-container": "#f59e0b",
+            "outline-variant": "#534434",
+            "on-primary-container": "#613b00",
+            "primary-fixed": "#ffddb8",
+            "surface-container-highest": "#333539",
+            "tertiary-container": "#30c88f",
+            "surface-dim": "#111317",
+            "on-secondary-fixed": "#2f1500",
+            "surface-container-high": "#282a2e",
+            "on-primary": "#472a00",
+            "on-error-container": "#ffdad6",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-tertiary-container": "#004e34",
+            "primary-fixed-dim": "#ffb95f",
+            "on-tertiary-fixed": "#002113",
+            "secondary-fixed": "#ffdcc3",
+            "primary": "#ffc174",
+            "inverse-on-surface": "#2f3035",
+            "on-secondary-fixed-variant": "#6e3900",
+            "on-secondary": "#4d2600",
+            "error-container": "#93000a",
+            "on-surface": "#e2e2e8",
+            "background": "#111317",
+            "surface-bright": "#37393e",
+            "surface": "#111317",
+            "inverse-primary": "#855300",
+            "surface-container-lowest": "#0c0e12",
+            "inverse-surface": "#e2e2e8",
+            "surface-variant": "#333539",
+            "surface-container": "#1e2024",
+            "secondary-container": "#d97707"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-3xl": "4rem",
+            "space-sm": "0.75rem",
+            "margin-tablet": "2rem",
+            "space-lg": "1.5rem",
+            "gutter-mobile": "1rem",
+            "space-2xl": "3rem",
+            "space-xl": "2rem",
+            "space-2xs": "0.25rem",
+            "gutter-tablet": "1.5rem",
+            "gutter-desktop": "1.5rem",
+            "margin-desktop": "3rem",
+            "space-3xs": "0.125rem",
+            "space-xs": "0.5rem",
+            "space-md": "1rem",
+            "margin-mobile": "1rem"
+          },
+          "fontFamily": {
+            "label-sm": ["JetBrains Mono"],
+            "display-lg": ["Space Grotesk"],
+            "label-md": ["JetBrains Mono"],
+            "headline-lg": ["Space Grotesk"],
+            "label-lg": ["JetBrains Mono"],
+            "body-sm": ["Inter"],
+            "headline-xl-mobile": ["Space Grotesk"],
+            "headline-sm": ["Space Grotesk"],
+            "body-lg": ["Inter"],
+            "headline-md": ["Space Grotesk"],
+            "display-lg-mobile": ["Space Grotesk"],
+            "headline-xl": ["Space Grotesk"],
+            "body-md": ["Inter"]
+          },
+          "fontSize": {
+            "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "600" }],
+            "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+            "label-md": ["11px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "500" }],
+            "headline-lg": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-lg": ["13px", { "lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "500" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "display-lg-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #111317;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #333539;
+      border-radius: 2px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #ffc174;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col font-body-md selection:bg-primary-container selection:text-on-primary-fixed">
+<!-- TopNavBar (Shared Component) -->
+<header class="w-full bg-surface border-b border-outline-variant shadow-sm sticky top-0 z-30">
+<div class="w-full px-space-lg md:px-margin-desktop h-16 flex items-center justify-between">
+<!-- Brand & Search -->
+<div class="flex items-center gap-space-xl">
+<a class="text-headline-md font-headline-md font-bold tracking-tight text-primary flex items-center gap-space-xs" href="#">
+<span class="material-symbols-outlined text-primary text-[28px]" data-icon="graphic_eq">graphic_eq</span>
+          Music Pro
+        </a>
+<!-- Search Bar (on_left) -->
+<div class="hidden lg:flex items-center bg-surface-container-lowest border border-outline-variant px-space-md py-space-xs rounded-lg w-72 focus-within:border-primary">
+<span class="material-symbols-outlined text-outline mr-space-xs text-[18px]" data-icon="search">search</span>
+<input class="bg-transparent text-body-sm font-body-sm text-on-surface placeholder-outline focus:outline-none w-full" placeholder="Buscar módulos rack, micrófonos..." type="text">
+<kbd class="font-label-sm text-label-sm text-outline px-1.5 py-0.5 bg-surface-container rounded border border-outline-variant">⌘K</kbd>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="hidden xl:flex items-center space-x-space-lg">
+<a class="text-on-surface-variant pb-1 font-medium hover:text-primary hover:border-primary transition-colors duration-150 font-label-md text-label-md" href="#">Monitores de Estudio</a>
+<a class="text-primary border-b-2 border-primary pb-1 font-medium font-label-md text-label-md" href="#">Micrófonos</a>
+<a class="text-on-surface-variant pb-1 font-medium hover:text-primary hover:border-primary transition-colors duration-150 font-label-md text-label-md" href="#">Guitarras y Bajos</a>
+<a class="text-on-surface-variant pb-1 font-medium hover:text-primary hover:border-primary transition-colors duration-150 font-label-md text-label-md" href="#">Equipos de Estudio</a>
+<a class="text-on-surface-variant pb-1 font-medium hover:text-primary hover:border-primary transition-colors duration-150 font-label-md text-label-md" href="#">Sonido en Vivo</a>
+<a class="text-on-surface-variant pb-1 font-medium hover:text-primary hover:border-primary transition-colors duration-150 font-label-md text-label-md" href="#">Matriz de Inventario</a>
+</nav>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-space-md">
+<button class="text-on-surface-variant hover:text-primary transition-colors p-1" title="Calibración y Filtros">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors p-1 relative" title="Notificaciones de Rack">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-primary-container rounded-full animate-ping"></span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-primary-container rounded-full"></span>
+</button>
+<!-- Cart Action Drawer Trigger -->
+<button class="bg-surface-container-high border border-outline-variant hover:border-primary px-space-md py-space-xs rounded-lg flex items-center gap-space-xs text-primary transition-all" id="openCartBtn">
+<span class="material-symbols-outlined text-[20px]" data-icon="shopping_bag">shopping_bag</span>
+<span class="font-label-md text-label-md">Carrito (3)</span>
+</button>
+<a class="hidden sm:inline-block font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors ml-space-xs" href="#">Iniciar Sesión</a>
+</div>
+</div>
+</header>
+<!-- Breadcrumb and Context Header -->
+<div class="bg-surface-container-lowest border-b border-outline-variant py-space-xs px-space-lg md:px-margin-desktop">
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-outline uppercase tracking-wider overflow-x-auto whitespace-nowrap">
+<a class="hover:text-primary" href="#">Inicio</a>
+<span class="">/</span>
+<a class="hover:text-primary" href="#">Equipos de Estudio</a>
+<span class="">/</span>
+<a class="hover:text-primary" href="#">Packs de Grabación / Consolas Rack</a>
+<span class="">/</span>
+<span class="text-primary font-bold">Interfaz Focusrite Scarlett 18i20 4th Gen &amp; Micrófono Shure SM7B</span>
+</div>
+</div>
+<!-- Main Canvas Container -->
+<main class="flex-1 w-full max-w-7xl mx-auto px-space-lg md:px-margin-desktop py-space-xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
+<!-- Left Column: Media Gallery (7 Cols) -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<!-- Main High-Res Viewport -->
+<div class="relative bg-gradient-to-b from-surface-container-lowest to-surface-container rounded-lg border border-outline-variant overflow-hidden group aspect-[4/3] flex items-center justify-center p-space-lg">
+<div class="absolute top-space-md left-space-md flex flex-col gap-space-2xs z-10">
+<span class="bg-primary-container/20 border border-primary text-primary font-label-sm text-label-sm px-2 py-0.5 rounded uppercase">Edición Master Studio</span>
+<span class="bg-surface-container-lowest/80 backdrop-blur border border-outline-variant text-on-surface font-label-sm text-label-sm px-2 py-0.5 rounded">Gen 4 Spec 192 kHz</span>
+</div>
+<button class="absolute top-space-md right-space-md bg-surface-container-low/90 text-outline hover:text-primary border border-outline-variant p-space-xs rounded-lg transition-colors z-10">
+<span class="material-symbols-outlined text-[20px]" data-icon="fullscreen">fullscreen</span>
+</button>
+<!-- Main Product Image -->
+<img class="w-full h-full object-contain filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.8)] transition-transform duration-300 group-hover:scale-105" data-alt="Professional recording studio gear bundle showing a Focusrite Scarlett 18i20 rackmount audio interface paired with a Shure SM7B dynamic microphone on an obsidian surface. Warm amber and vintage brass lighting reflects subtly off aluminum dials, brushed metal chassis, and XLR connectors with an ultra-clean high-end dark pro-audio aesthetic." id="mainProductImage" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPAqIbTNUVFe_4RUZjSXYYo-X9vf5DYVaWloLof8GG46x3odTsd4fgSX1tt9yeifALk1oEAv3qXZqG6Y-9OBi1V_PyTAarnGxIhpxbWnG2SrBJSY5S352ykCEBwH2Q0ExWF7_14BvY-oMwsv55bijj9Z-8u7TR3ME_y6esQW1WsJRbJHPvf0kdvFllqSxWUVje3tflHR0gCiUvG0emw2F95RrBT8W30G_t7xtuxm89KagJi0wP1qdK">
+<!-- Precision Badge Overlay -->
+<div class="absolute bottom-space-md right-space-md bg-surface-container-lowest/90 border border-outline-variant px-space-sm py-1 rounded font-label-sm text-label-sm text-tertiary flex items-center gap-1.5 backdrop-blur">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+            Testeo en Banco Calibrado OK
+          </div>
+</div>
+<!-- Thumbnails Reel -->
+<div class="grid grid-cols-4 gap-space-sm">
+<button class="border-2 border-primary bg-surface-container-low rounded p-1 transition-all">
+<img class="w-full h-16 object-cover rounded" data-alt="Front view angle of Focusrite Scarlett 18i20 showing vintage glowing LED meters and analog gain knobs, warm ambient pro-audio lighting on dark rack background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC15rhyTYsfNkO8K4y9pEquXspy62hMU912L1LVrzFkHCsCyc8DldgpORtVnkR0WnPJhpk28ob4aD8Ils_-OUiIWQh-clYruMQVxppwYPX-nOe01R8RioCaQnyqZ6qiD8iUQjshv-q76YvAvffD8UtpiNtdHtScGEtE3NLmCJuy9tUV0aBmkWD-5C5YXU-sH9iurKc8Lr9_N2Etq-1jDlo3H3U8Pc10whbcMq3TIaY8riNByCjvUo7u">
+</button>
+<button class="border border-outline-variant hover:border-primary bg-surface-container-low rounded p-1 transition-all">
+<img class="w-full h-16 object-cover rounded" data-alt="Macro close up of Shure SM7B dynamic vocal microphone with custom foam windscreen and metallic bracket against dark studio acoustic foam." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1ZIaaYPp4jC3362Cl5tDlS73RzSvHm0dkh-vE-Yd5CXtzpJRIIhVkFjMVQDSbI3UdmHADhaPZ8SDEQ-Bm6D-QFk1sTIDSPCHITQlW4ByMwshyO7jtgqU3uIOdzDKQaogmicF2WT4ZIO6vVcKA8iYVlOI7VJJhmI1rgT93XnGvnGAkzpQhJ2hHZi3anauFmSnP_xTaUJKUH4zHl68e6aNezWnr4WU7DmlCea4jkvvyqY9nTZo61_9B">
+</button>
+<button class="border border-outline-variant hover:border-primary bg-surface-container-low rounded p-1 transition-all">
+<img class="w-full h-16 object-cover rounded" data-alt="Rear panel interface connectivity view displaying ADAT optical ports, dual TRS monitor outputs, and balanced XLR inputs in pristine dark metallic finish." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQs2u-X7015ELnXaOdxmEXI5OV6rrI_4gbhuuU3r2qs_Q5mNHFXRlbour438kGked4PpDOVM20j3RBeCVYRlDGoNxT8B-bsNKsDYdt3f96IwbmC81lRKGy1fcYivGF47E593DK6jNj2WSyDlFC23J0PUZPvcGzjrfiASYarJFTbDeZ3HgpFs4ISIaMuTxzrHRStOvYprKwJK3GnfCOrsRzu4gmilkTz58cOpUB-0-25jJcyfhH6C8D">
+</button>
+<button class="border border-outline-variant hover:border-primary bg-surface-container-low rounded p-1 transition-all">
+<img class="w-full h-16 object-cover rounded" data-alt="Studio bundle kit contents laid out neatly including heavy-duty braided Neutrik gold plated XLR cables and shock mount hardware on low-reflectance charcoal table." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnBt_eViKKof84ahgYKPaS40U1RIpRTTduB1A3azFurNKzZs5y6qgTposoCnQKBCPp1NJ3l7FQxipK060a5sZp41bQTV2jd0ZnlPznJCG4baQQJ2Qcm46jgLDW7EYZ364SwK0IWv4EpwkQPkzWFEtK39qpLr_8DI8CFvrdr0nLRPShwaVmmt2jcXKcAM-gO1CpiS6AoN6nOqozVnFmIOdA1qBc0tA-R27vN4aeI68i8WZHe5EpqfD0">
+</button>
+</div>
+<!-- Real-Time Telemetry Bar -->
+<div class="bg-surface-container-low border border-outline-variant p-space-md rounded-lg flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="verified">verified</span>
+<span class="">Garantía Oficial de 3 Años Focusrite Pro</span>
+</div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-tertiary text-[18px]" data-icon="precision_manufacturing">precision_manufacturing</span>
+<span class="">Muestreo 24-bit / 192 kHz Nativo</span>
+</div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-outline">
+<span class="material-symbols-outlined text-[18px]" data-icon="terminal">terminal</span>
+<span class="">Firmware v4.2.1 Preinstalado</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Product Detail & Purchase Engine (5 Cols) -->
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<!-- Header Info -->
+<div class="border-b border-outline-variant pb-space-md">
+<div class="flex items-center justify-between gap-space-xs mb-space-xs">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest font-semibold">SKU: PRO-BDL-18I20-SM7B</span>
+<div class="flex items-center text-primary-fixed-dim text-body-sm font-label-sm">
+<span class="material-symbols-outlined text-[16px] fill-current" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px] fill-current" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px] fill-current" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px] fill-current" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px] fill-current" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-outline ml-1">(48 reseñas verificadas)</span>
+</div>
+</div>
+<h1 class="text-headline-lg font-headline-lg font-bold text-on-surface leading-tight">
+            Interfaz de Audio Focusrite Scarlett 18i20 4th Gen &amp; Micrófono Shure SM7B
+          </h1>
+<p class="text-body-sm font-body-sm text-outline mt-space-2xs">
+            Sistema insignia de grabación multipista para rack con preamplificadores transparentes de ultra bajo ruido y el micrófono vocal estándar de la industria.
+          </p>
+</div>
+<!-- Pricing & Terms Block -->
+<div class="bg-surface-container-low p-space-md rounded-lg border border-outline-variant">
+<div class="flex items-baseline gap-space-sm">
+<span class="text-headline-xl font-headline-xl font-bold text-primary">$1.189.900 CLP</span>
+<span class="text-body-md font-body-md text-outline line-through">$1.399.990 CLP</span>
+<span class="bg-error-container text-on-error font-label-sm text-label-sm px-2 py-0.5 rounded font-bold">-15% DCTO</span>
+</div>
+<!-- Installment Options -->
+<div class="mt-space-xs flex items-center gap-space-xs text-body-sm font-body-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="credit_card">credit_card</span>
+<span class="">Hasta <strong>12 cuotas sin interés</strong> de <strong>$99.158 CLP</strong></span>
+</div>
+<!-- Stock Indicator Badge -->
+<div class="mt-space-md pt-space-xs border-t border-outline-variant/60 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary shadow-[0_0_8px_#10B981]"></span>
+<span class="font-label-sm text-label-sm text-tertiary font-bold tracking-wider uppercase">14 unidades disponibles en Bodega Pudahuel</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Despacho Inmediato</span>
+</div>
+</div>
+<!-- Variant Selector -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Configuración de Pack</label>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-xs">
+<!-- Bundle Estándar (Selected) -->
+<div class="border-2 border-primary bg-surface-container p-space-sm rounded cursor-pointer relative">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Pack Estándar / 192kHz</span>
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<p class="text-body-sm font-body-sm text-outline mt-1">Interfaz 18i20 + Micrófono SM7B + XLR Pro Neutrik 3m</p>
+</div>
+<!-- Bundle con Audífonos Monitoreo -->
+<div class="border border-outline-variant hover:border-primary/50 bg-surface-container-lowest p-space-sm rounded cursor-pointer transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface-variant font-medium">+ Audífonos de Estudio</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">+$129.900 CLP</span>
+</div>
+<p class="text-body-sm font-body-sm text-outline mt-1">Suma Shure SRH840A Calibración Plana</p>
+</div>
+</div>
+</div>
+<!-- Quantity and Direct Action -->
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center border border-outline-variant rounded bg-surface-container-lowest h-10 px-1">
+<button class="w-8 h-full flex items-center justify-center text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="remove">remove</span>
+</button>
+<span class="w-10 text-center font-label-md text-label-md text-on-surface font-semibold">1</span>
+<button class="w-8 h-full flex items-center justify-center text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="add">add</span>
+</button>
+</div>
+<button class="flex-1 bg-primary-container hover:bg-secondary-container text-on-primary-container font-headline-sm text-headline-sm font-bold h-10 px-space-md rounded flex items-center justify-center gap-space-xs transition-colors shadow-sm" id="addToCartTrigger">
+<span class="material-symbols-outlined text-[20px]" data-icon="add_shopping_cart">add_shopping_cart</span>
+            Añadir a Rack y Ver Carrito
+          </button>
+</div>
+<!-- Shipping & Delivery Calculator -->
+<div class="bg-surface-container-low rounded-lg border border-outline-variant p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="local_shipping">local_shipping</span>
+              Calcular Despacho a Domicilio
+            </span>
+<span class="font-label-sm text-label-sm text-tertiary">Cobertura Nacional 24/48h</span>
+</div>
+<div class="flex gap-space-xs">
+<input class="flex-1 bg-surface-container-lowest border border-outline-variant text-body-sm font-body-sm text-on-surface px-space-sm py-1.5 rounded focus:border-primary focus:outline-none" type="text" value="Santiago (Región Metropolitana)">
+<button class="bg-surface-container-high border border-outline-variant hover:border-primary text-primary font-label-sm text-label-sm px-space-sm py-1.5 rounded transition-colors">
+              Recalcular
+            </button>
+</div>
+<!-- Delivery Modes -->
+<div class="flex flex-col gap-space-xs mt-1">
+<div class="flex items-center justify-between bg-surface-container-lowest p-space-xs rounded border border-

@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Pro | Sucursales y Franquicias</title>
+    <meta
+      name="description"
+      content="Descubre las sucursales Music Pro y el modelo de franquicias para expandir la experiencia musical y profesional en Chile."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              surface: "#111317",
+              "surface-dim": "#111317",
+              "surface-bright": "#37393e",
+              "surface-container-lowest": "#0c0e12",
+              "surface-container-low": "#1a1c20",
+              "surface-container": "#1e2024",
+              "surface-container-high": "#282a2e",
+              "surface-container-highest": "#333539",
+              "on-surface": "#e2e2e8",
+              "on-surface-variant": "#d8c3ad",
+              "inverse-surface": "#e2e2e8",
+              "inverse-on-surface": "#2f3035",
+              outline: "#a08e7a",
+              "outline-variant": "#534434",
+              "surface-tint": "#ffb95f",
+              primary: "#ffc174",
+              "on-primary": "#472a00",
+              "primary-container": "#f59e0b",
+              "on-primary-container": "#613b00",
+              "inverse-primary": "#855300",
+              secondary: "#ffb77d",
+              "on-secondary": "#4d2600",
+              "secondary-container": "#d97707",
+              "on-secondary-container": "#432100",
+              tertiary: "#56e5a9",
+              "on-tertiary": "#003824",
+              "tertiary-container": "#30c88f",
+              "on-tertiary-container": "#004e34",
+              error: "#ffb4ab",
+              "on-error": "#690005",
+              "error-container": "#93000a",
+              "on-error-container": "#ffdad6",
+              "primary-fixed": "#ffddb8",
+              "primary-fixed-dim": "#ffb95f",
+              "on-primary-fixed": "#2a1700",
+              "on-primary-fixed-variant": "#653e00",
+              "secondary-fixed": "#ffdcc3",
+              "secondary-fixed-dim": "#ffb77d",
+              "on-secondary-fixed": "#2f1500",
+              "on-secondary-fixed-variant": "#6e3900",
+              "tertiary-fixed": "#6ffbbe",
+              "tertiary-fixed-dim": "#4edea3",
+              "on-tertiary-fixed": "#002113",
+              "on-tertiary-fixed-variant": "#005236",
+              background: "#111317",
+              "on-background": "#e2e2e8",
+              "surface-variant": "#333539"
+            },
+            fontFamily: {
+              display: ["Space Grotesk", "sans-serif"],
+              body: ["Inter", "sans-serif"],
+              mono: ["JetBrains Mono", "monospace"]
+            }
+          }
+        }
+      };
+    </script>
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background: #111317;
+      }
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 1;
+      }
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 4px;
+        height: 4px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: #0c0e12;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #333539;
+        border-radius: 2px;
+      }
+      .grid-glow {
+        background-image:
+          linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+        background-size: 24px 24px;
+      }
+      .amber-glow {
+        box-shadow: 0 0 18px rgba(245, 158, 11, 0.25);
+      }
+    </style>
+  </head>
+  <body class="bg-surface text-on-surface antialiased min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+    <header class="sticky top-0 z-50 border-b border-outline-variant bg-surface/90 backdrop-blur-xl">
+      <div class="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-4 py-3 md:px-8 lg:px-12">
+        <a href="#top" class="flex items-center gap-3">
+          <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-primary-container text-on-primary">
+            <span class="material-symbols-outlined text-[24px]">tune</span>
+          </div>
+          <div>
+            <p class="font-display text-[18px] font-bold text-primary">Music Pro</p>
+          </div>
+        </a>
+
+        <nav class="hidden items-center gap-6 text-sm md:flex">
+          <a href="#sucursales" class="text-on-surface-variant transition hover:text-primary">Sucursales</a>
+          <a href="#franquicias" class="text-on-surface-variant transition hover:text-primary">Franquicias</a>
+          <a href="#proceso" class="text-on-surface-variant transition hover:text-primary">Proceso</a>
+          <a href="#contacto" class="text-on-surface-variant transition hover:text-primary">Contacto</a>
+        </nav>
+
+        <div class="flex items-center gap-2">
+          <button class="hidden rounded-lg border border-outline-variant bg-surface-container-low px-3 py-2 text-sm text-on-surface-variant md:inline-flex">
+            Buscar tienda
+          </button>
+          <a href="#contacto" class="inline-flex items-center gap-2 rounded-lg bg-primary-container px-4 py-2 text-sm font-semibold text-on-primary-container transition hover:bg-secondary-container">
+            <span class="material-symbols-outlined text-base">location_on</span>
+            Abrir solicitud
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main id="top" class="mx-auto w-full max-w-7xl px-4 pb-20 pt-8 md:px-8 lg:px-12">
+      <section class="relative overflow-hidden rounded-2xl border border-outline-variant bg-gradient-to-br from-surface-container-low via-surface-container to-surface-container-lowest p-6 shadow-2xl md:p-10">
+        <div class="grid-glow absolute inset-0 opacity-40"></div>
+        <div class="absolute right-0 top-0 h-64 w-64 rounded-full bg-primary-container/10 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 h-52 w-52 rounded-full bg-tertiary/10 blur-3xl"></div>
+
+        <div class="relative grid items-center gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+          <div>
+            <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-surface-container-high px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.12em] text-primary">
+              <span class="material-symbols-outlined text-sm">storefront</span>
+              Sistema integral de Music Pro
+            </div>
+
+            <h1 class="font-display text-4xl font-bold leading-tight tracking-tight text-on-surface md:text-5xl lg:text-6xl">
+              Bodega, <span class="bg-gradient-to-r from-primary via-secondary to-primary-container bg-clip-text text-transparent">sucursales</span>
+              <br />y franquicias conectadas.
+            </h1>
+
+            <p class="mt-5 max-w-xl text-base text-on-surface-variant md:text-lg">
+              Music Pro requiere una solución tecnológica que unifique la gestión de inventario, la tienda en línea, la atención en sucursales, la logística de despachos y la fidelización de clientes para operar con mayor velocidad, trazabilidad y seguridad.
+            </p>
+
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a href="#sucursales" class="inline-flex items-center gap-2 rounded-lg bg-primary-container px-5 py-3 font-semibold text-on-primary-container transition hover:bg-secondary-container">
+                Ver sucursales
+                <span class="material-symbols-outlined">arrow_forward</span>
+              </a>
+              <a href="#franquicias" class="inline-flex items-center gap-2 rounded-lg border border-outline-variant bg-surface-container-low px-5 py-3 font-semibold text-on-surface transition hover:border-primary hover:text-primary">
+                Quiero franquiciar
+              </a>
+            </div>
+
+            <div class="mt-8 flex flex-wrap gap-4">
+              <div class="rounded-xl border border-outline-variant bg-surface-container-low px-4 py-3">
+                <div class="font-mono text-[11px] uppercase tracking-[0.08em] text-on-surface-variant">Cobertura</div>
+                <div class="mt-1 text-2xl font-bold text-on-surface">+12</div>
+                <div class="text-sm text-on-surface-variant">regiones estratégicas</div>
+              </div>
+              <div class="rounded-xl border border-outline-variant bg-surface-container-low px-4 py-3">
+                <div class="font-mono text-[11px] uppercase tracking-[0.08em] text-on-surface-variant">Atención</div>
+                <div class="mt-1 text-2xl font-bold text-on-surface">24/7</div>
+                <div class="text-sm text-on-surface-variant">online y soporte</div>
+              </div>
+              <div class="rounded-xl border border-outline-variant bg-surface-container-low px-4 py-3">
+                <div class="font-mono text-[11px] uppercase tracking-[0.08em] text-on-surface-variant">Expertos</div>
+                <div class="mt-1 text-2xl font-bold text-on-surface">+150</div>
+                <div class="text-sm text-on-surface-variant">profesionales</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="amber-glow rounded-2xl border border-primary/25 bg-surface-container p-5">
+              <div class="flex items-center justify-between border-b border-outline-variant pb-4">
+                <div>
+                  <p class="font-mono text-[11px] uppercase tracking-[0.12em] text-on-surface-variant">Estado operativo</p>
+                  <h2 class="mt-2 text-2xl font-bold text-on-surface">Red Music Pro</h2>
+                </div>
+                <span class="inline-flex items-center gap-2 rounded-full bg-tertiary/10 px-2.5 py-1 text-xs font-medium text-tertiary border border-tertiary/30">
+                  <span class="h-2.5 w-2.5 rounded-full bg-tertiary animate-pulse"></span>
+                  En línea
+                </span>
+              </div>
+
+              <div class="mt-5 space-y-4">
+                <div class="rounded-xl border border-outline-variant bg-surface-container-low p-4">
+                  <div class="flex items-center justify-between">
+                    <span class="font-mono text-[11px] uppercase tracking-[0.08em] text-on-surface-variant">Santiago centro</span>
+                    <span class="text-sm font-medium text-tertiary">Abierto</span>
+                  </div>
+                  <div class="mt-2 text-lg font-semibold text-on-surface">Av. Libertador Bernardo O'Higgins 1400</div>
+                </div>
+                <div class="rounded-xl border border-outline-variant bg-surface-container-low p-4">
+                  <div class="flex items-center justify-between">
+                    <span class="font-mono text-[11px] uppercase tracking-[0.08em] text-on-surface-variant">Viña del Mar</span>
+                    <span class="text-sm font-medium text-primary">Servicio VIP</span>
+                  </div>
+                  <div class="mt-2 text-lg font-semibold text-on-surface">Mall Marina / Paseo de la Playa</div>
+                </div>
+                <div class="rounded-xl border border-outline-variant bg-surface-container-low p-4">
+                  <div class="flex items-center justify-between">
+                    <span class="font-mono text-[11px] uppercase tracking-[0.08em] text-on-surface-variant">Concepción</span>
+                    <span class="text-sm font-medium text-tertiary">Stock activo</span>
+                  </div>
+                  <div class="mt-2 text-lg font-semibold text-on-surface">Centro comercial y operativo</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="sucursales" class="mt-16">
+        <div class="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="font-mono text-[11px] uppercase tracking-[0.12em] text-primary">Sistema de sucursal</p>
+            <h2 class="mt-2 font-display text-3xl font-bold text-on-surface md:text-4xl">Punto de venta / vitrina</h2>
+          </div>
+          <div class="inline-flex items-center gap-2 rounded-full border border-outline-variant bg-surface-container-low px-3 py-1.5 text-sm text-on-surface-variant">
+            <span class="material-symbols-outlined text-base text-tertiary">storefront</span>
+            Comercio electrónico y atención directa
+          </div>
+        </div>
+
+        <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <article class="rounded-2xl border border-outline-variant bg-surface-container-low p-5 transition hover:border-primary/40 hover:bg-surface-container">
+            <div class="mb-4 flex items-center justify-between">
+              <span class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-2 py-1 text-[10px] font-medium uppercase tracking-[0.08em] text-primary border border-primary/20">Bodega</span>
+              <span class="material-symbols-outlined text-primary">warehouse</span>
+            </div>
+            <h3 class="text-xl font-semibold text-on-surface">Gestión de inventario</h3>
+            <p class="mt-3 text-sm leading-6 text-on-surface-variant">Registro de ingreso y salida de productos, stock disponible, ubicaciones reales y alertas por nivel mínimo de inventario.</p>
+            <ul class="mt-4 space-y-2 text-sm text-on-surface">
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-base text-primary">inventory_2</span> Control de existencias</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-base text-primary">history</span> Historial de movimientos</li>
+            </ul>
+          </article>
+
+          <article class="rounded-2xl border border-outline-variant bg-surface-container-low p-5 transition hover:border-primary/40 hover:bg-surface-container">
+            <div class="mb-4 flex items-center justify-between">
+              <span class="inline-flex items-center gap-2 rounded-full bg-tertiary/10 px-2 py-1 text-[10px] font-medium uppercase tracking-[0.08em] text-tertiary border border-tertiary/20">Tienda</span>
+              <span class="material-symbols-outlined text-tertiary">shopping_bag</span>
+            </div>
+            <h3 class="text-xl font-semibold text-on-surface">Catálogo y carrito</h3>
+            <p class="mt-3 text-sm leading-6 text-on-surface-variant">Catálogo con categorías, filtrado, búsqueda, agregación al carrito y revisión del total antes del pago.</p>
+            <ul class="mt-4 space-y-2 text-sm text-on-surface">
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-base text-primary">search</span> Búsqueda y filtros</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-base text-primary">payments</span> Compra y gestión de pedidos</li>
+            </ul>
+          </article>
+
+          <article class="rounded-2xl border border-outline-variant bg-surface-container-low p-5 transition hover:border-primary/40 hover:bg-surface-container">
+            <div class="mb-4 flex items-center justify-between">
+              <span class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-2 py-1 text-[10px] font-medium uppercase tracking-[0.08em] text-primary border border-primary/20">Logística</span>
+              <span class="material-symbols-outlined text-primary">local_shipping</span>
+            </div>
+            <h3 class="text-xl font-semibold text-on-surface">Despachos y trazabilidad</h3>
+            <p class="mt-3 text-sm leading-6 text-on-surface-variant">Planificación de rutas, programación por días y ventanas horarias, seguimiento GPS y entregas con evidencia digital.</p>
+            <ul class="mt-4 space-y-2 text-sm text-on-surface">
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-base text-primary">route</span> Rutas y ETA</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-base text-primary">gps_fixed</span> Monitoreo en tiempo real</li>
+            </ul>
+          </article>
+
+          <article class="rounded-2xl border border-outline-variant bg-surface-container-low p-5 transition hover:border-primary/40 hover:bg-surface-container">
+            <div class="mb-4 flex items-center justify-between">
+              <span class="inline-flex items-center gap-2 rounded-full bg-tertiary/10 px-2 py-1 text-[10px] font-medium uppercase tracking-[0.08em] text-tertiary border border-tertiary/20">Fidelización</span>
+              <span class="material-symbols-outlined text-tertiary">card_membership</span>
+            </div>
+            <h3 class="text-xl font-semibold text-on-surface">BeatPay Virtual</h3>
+            <p class="mt-3 text-sm leading-6 text-on-surface-variant">Tarjeta virtual, saldo, transacciones, gestión de fondos y pagos seguros para conciertos, eventos y comercio digital.</p>
+            <ul class="mt-4 space-y-2 text-sm text-on-surface">
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-base text-primary">credit_card</span> Tarjeta y saldo</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-base text-primary">security</span> Seguridad y autenticación</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="franquicias" class="mt-20 rounded-2xl border border-outline-variant bg-surface-container-low p-6 md:p-8">
+        <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <p class="font-mono text-[11px] uppercase tracking-[0.12em] text-primary">Franquicias</p>
+            <h2 class="mt-2 font-display text-3xl font-bold text-on-surface md:text-4xl">Expansión de sucursales y red comercial</h2>
+            <p class="mt-4 text-base leading-7 text-on-surface-variant">
+              La estrategia de Music Pro contempla la expansión con sucursales y franquicias que reciban productos desde la bodega principal, operen como puntos de venta o vitrina, y mantengan un control actualizado de inventario, pedidos y entregas.
+            </p>
+
+            <div class="mt-6 space-y-4">
+              <div class="flex items-start gap-3 rounded-xl border border-outline-variant bg-surface-container p-4">
+                <span class="material-symbols-outlined text-primary">verified</span>
+                <div>
+                  <h3 class="font-semibold text-on-surface">Distribución y abastecimiento</h3>
+                  <p class="text-sm text-on-surface-variant">Conexión directa entre bodega principal, sucursales y franquicias para evitar quiebres de inventario.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 rounded-xl border border-outline-variant bg-surface-container p-4">
+                <span class="material-symbols-outlined text-primary">support_agent</span>
+                <div>
+                  <h3 class="font-semibold text-on-surface">Atención y servicio</h3>
+                  <p class="text-sm text-on-surface-variant">Personal capacitado para operaciones, ventas, apoyo técnico y atención al cliente en cada punto de venta.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 rounded-xl border border-outline-variant bg-surface-container p-4">
+                <span class="material-symbols-outlined text-primary">trending_up</span>
+                <div>
+                  <h3 class="font-semibold text-on-surface">Escalabilidad</h3>
+                  <p class="text-sm text-on-surface-variant">Modelo pensado para ciudades, malls, universidades, salones de eventos y nuevas aperturas a nivel regional.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div class="rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/10 via-surface-container-low to-surface-container p-5">
+              <div class="flex items-center justify-between">
+                <p class="font-mono text-[11px] uppercase tracking-[0.12em] text-on-surface-variant">Objetivo operativo</p>
+                <span class="material-symbols-outlined text-primary">groups</span>
+              </div>
+              <div class="mt-5 grid gap-4 sm:grid-cols-3">
+                <div class="rounded-xl border border-outline-variant bg-surface-container p-4">
+                  <div class="font-mono text-[10px] uppercase tracking-[0.08em] text-on-surface-variant">Integración</div>
+                  <div class="mt-2 text-2xl font-bold text-on-surface">4</div>
+                  <div class="text-xl font-semibold text-primary">sistemas</div>
+                </div>
+                <div class="rounded-xl border border-outline-variant bg-surface-container p-4">
+                  <div class="font-mono text-[10px] uppercase tracking-[0.08em] text-on-surface-variant">Tráfico</div>
+                  <div class="mt-2 text-2xl font-bold text-on-surface">24h</div>
+                  <div class="text-xl font-semibold text-primary">stock</div>
+                </div>
+                <div class="rounded-xl border border-outline-variant bg-surface-container p-4">
+                  <div class="font-mono text-[10px] uppercase tracking-[0.08em] text-on-surface-variant">Cobertura</div>
+                  <div class="mt-2 text-2xl font-bold text-on-surface">Chile</div>
+                  <div class="text-xl font-semibold text-primary">nacional</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="rounded-2xl border border-outline-variant bg-surface-container p-5">
+              <h3 class="text-xl font-semibold text-on-surface">Qué deben soportar las sucursales</h3>
+              <div class="mt-4 grid gap-3 sm:grid-cols-2">
+                <div class="flex gap-3 rounded-xl border border-outline-variant bg-surface-container-low p-3">
+                  <span class="material-symbols-outlined text-primary">inventory_2</span>
+                  <span class="text-sm text-on-surface">Stock y ubicaciones de productos</span>
+                </div>
+                <div class="flex gap-3 rounded-xl border border-outline-variant bg-surface-container-low p-3">
+                  <span class="material-symbols-outlined text-primary">receipt_long</span>
+                  <span class="text-sm text-on-surface">Recepción y preparación de pedidos</span>
+                </div>
+                <div class="flex gap-3 rounded-xl border border-outline-variant bg-surface-container-low p-3">
+                  <span class="material-symbols-outlined text-primary">route</span>
+                  <span class="text-sm text-on-surface">Despachos logísticos y seguimiento</span>
+                </div>
+                <div class="flex gap-3 rounded-xl border border-outline-variant bg-surface-container-low p-3">
+                  <span class="material-symbols-outlined text-primary">security</span>
+                  <span class="text-sm text-on-surface">Seguridad, autenticación y control de acceso</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="proceso" class="mt-20">
+        <div class="mb-6 text-center">
+          <p class="font-mono text-[11px] uppercase tracking-[0.12em] text-primary">Proceso</p>
+          <h2 class="mt-2 font-display text-3xl font-bold text-on-surface md:text-4xl">Cómo se activa una sucursal o franquicia</h2>
+        </div>
+
+        <div class="grid gap-5 md:grid-cols-4">
+          <div class="rounded-2xl border border-outline-variant bg-surface-container-low p-5">
+            <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary-container text-lg font-bold text-on-primary-container">1</div>
+            <h3 class="text-lg font-semibold text-on-surface">Diagnóstico</h3>
+            <p class="mt-3 text-sm leading-6 text-on-surface-variant">Evaluamos mercado, demanda local, posición geográfica y potencial de crecimiento.</p>
+          </div>
+          <div class="rounded-2xl border border-outline-variant bg-surface-container-low p-5">
+            <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary-container text-lg font-bold text-on-primary-container">2</div>
+            <h3 class="text-lg font-semibold text-on-surface">Alineación</h3>
+            <p class="mt-3 text-sm leading-6 text-on-surface-variant">Definimos formato, inversiones, stock base y soporte comercial para la primera etapa.</p>
+          </div>
+          <div class="rounded-2xl border border-outline-variant bg-surface-container-low p-5">
+            <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary-container text-lg font-bold text-on-primary-container">3</div>
+            <h3 class="text-lg font-semibold text-on-surface">Implementación</h3>
+            <p class="mt-3 text-sm leading-6 text-on-surface-variant">Trabajamos en diseño, equipamiento, logistica y personal para activar la operación.</p>
+          </div>
+          <div class="rounded-2xl border border-outline-variant bg-surface-container-low p-5">
+            <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary-container text-lg font-bold text-on-primary-container">4</div>
+            <h3 class="text-lg font-semibold text-on-surface">Optimización</h3>
+            <p class="mt-3 text-sm leading-6 text-on-surface-variant">Seguimiento comercial, KPI, marketing local y mejora continua del servicio.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="mt-20 rounded-2xl border border-outline-variant bg-surface-container-low p-6 md:p-8">
+        <div class="grid gap-8 lg:grid-cols-2">
+          <div>
+            <p class="font-mono text-[11px] uppercase tracking-[0.12em] text-primary">Beneficios</p>
+            <h2 class="mt-2 font-display text-3xl font-bold text-on-surface">¿Por qué formar parte de la red?</h2>
+            <div class="mt-6 space-y-4">
+              <div class="flex gap-4 rounded-xl border border-outline-variant bg-surface-container p-4">
+                <span class="material-symbols-outlined text-primary text-3xl">groups</span>
+                <div>
+                  <h3 class="font-semibold text-on-surface">Cobertura de comunidad musical</h3>
+                  <p class="text-sm text-on-surface-variant">Conectas con músicos, salas, escuelas, artistas, productores y técnicos en una red activa.</p>
+                </div>
+              </div>
+              <div class="flex gap-4 rounded-xl border border-outline-variant bg-surface-container p-4">
+                <span class="material-symbols-outlined text-primary text-3xl">lightbulb</span>
+                <div>
+                  <h3 class="font-semibold text-on-surface">Asesoría técnica y comercial</h3>
+                  <p class="text-sm text-on-surface-variant">Servicio profesional con recomendación de equipos según necesidades reales del cliente.</p>
+                </div>
+              </div>
+              <div class="flex gap-4 rounded-xl border border-outline-variant bg-surface-container p-4">
+                <span class="material-symbols-outlined text-primary text-3xl">rocket_launch</span>
+                <div>
+                  <h3 class="font-semibold text-on-surface">Crecimiento sostenido</h3>
+                  <p class="text-sm text-on-surface-variant">Tu local cuenta con procesos, campañas y soporte para escalar de forma ordenada.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-2xl border border-outline-variant bg-surface-container p-5">
+            <p class="font-mono text-[11px] uppercase tracking-[0.12em] text-primary">Datos clave</p>
+            <div class="mt-5 space-y-4">
+              <div class="flex items-center justify-between border-b border-outline-variant pb-3">
+                <span class="text-on-surface-variant">Ingreso promedio mensual</span>
+                <span class="text-xl font-bold text-on-surface">CLP 25M+</span>
+              </div>
+              <div class="flex items-center justify-between border-b border-outline-variant pb-3">
+                <span class="text-on-surface-variant">Cobertura de servicio</span>
+                <span class="text-xl font-bold text-on-surface">Chile</span>
+              </div>
+              <div class="flex items-center justify-between border-b border-outline-variant pb-3">
+                <span class="text-on-surface-variant">Rubro principal</span>
+                <span class="text-xl font-bold text-on-surface">Audio / Música</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-on-surface-variant">Soporte</span>
+                <span class="text-xl font-bold text-on-surface">Especializado</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto" class="mt-20 rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/10 via-surface-container to-surface-container-low p-6 md:p-8">
+        <div class="grid gap-8 lg:grid-cols-[1fr_0.9fr]">
+          <div>
+            <p class="font-mono text-[11px] uppercase tracking-[0.12em] text-primary">Contacto</p>
+            <h2 class="mt-2 font-display text-3xl font-bold text-on-surface md:text-4xl">Agenda tu conversación con Music Pro</h2>
+            <p class="mt-4 max-w-xl text-base leading-7 text-on-surface-variant">
+              Si buscas abrir una sucursal, invertir en una franquicia o impulsar una presencia física en tu ciudad, nuestro equipo te ayuda a evaluar la mejor alternativa para tu operación.
+            </p>
+
+            <div class="mt-6 flex flex-wrap gap-3 text-sm">
+              <div class="inline-flex items-center gap-2 rounded-full border border-outline-variant bg-surface-container-low px-3 py-2 text-on-surface">
+                <span class="material-symbols-outlined text-primary">call</span>
+                +56 9 8200 7010
+              </div>
+              <div class="inline-flex items-center gap-2 rounded-full border border-outline-variant bg-surface-container-low px-3 py-2 text-on-surface">
+                <span class="material-symbols-outlined text-primary">mail</span>
+                franquicias@musicpro.cl
+              </div>
+            </div>
+          </div>
+
+          <form method="post" class="rounded-2xl border border-outline-variant bg-surface-container p-5">
+            {% csrf_token %}
+            {% if messages %}
+              {% for message in messages %}
+                <div class="mb-4 rounded-lg border border-tertiary/30 bg-tertiary/10 px-3 py-2 text-sm text-tertiary">{{ message }}</div>
+              {% endfor %}
+            {% endif %}
+            <div class="grid gap-4 sm:grid-cols-2">
+              <label class="block">
+                <span class="mb-2 block font-mono text-[11px] uppercase tracking-[0.08em] text-on-surface-variant">Nombre</span>
+                {{ form.name }}
+              </label>
+              <label class="block">
+                <span class="mb-2 block font-mono text-[11px] uppercase tracking-[0.08em] text-on-surface-variant">Ciudad</span>
+                {{ form.city }}
+              </label>
+            </div>
+            <label class="mt-4 block">
+              <span class="mb-2 block font-mono text-[11px] uppercase tracking-[0.08em] text-on-surface-variant">Correo</span>
+              {{ form.email }}
+            </label>
+            <label class="mt-4 block">
+              <span class="mb-2 block font-mono text-[11px] uppercase tracking-[0.08em] text-on-surface-variant">Mensaje</span>
+              {{ form.message }}
+            </label>
+
+            <button type="submit" class="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary-container px-4 py-3 font-semibold text-on-primary-container transition hover:bg-secondary-container">
+              Enviar solicitud
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-outline-variant bg-surface-container-lowest">
+      <div class="mx-auto flex w-full max-w-7xl flex-col gap-4 px-4 py-6 text-sm text-on-surface-variant md:flex-row md:items-center md:justify-between md:px-8 lg:px-12">
+        <div class="flex items-center gap-2">
+          <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary-container text-on-primary">
+            <span class="material-symbols-outlined text-base">tune</span>
+          </div>
+          Music Pro © 2024
+        </div>
+        <div class="flex flex-wrap gap-4">
+          <a href="#sucursales" class="hover:text-primary">Sucursales</a>
+          <a href="#franquicias" class="hover:text-primary">Franquicias</a>
+          <a href="#proceso" class="hover:text-primary">Proceso</a>
+          <a href="#contacto" class="hover:text-primary">Contacto</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

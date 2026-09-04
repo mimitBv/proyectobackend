@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Music Pro - Mi Cuenta y Gestión de Clientes</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "on-primary-fixed": "#2a1700",
+                  "on-error": "#690005",
+                  "on-background": "#e2e2e8",
+                  "on-surface-variant": "#d8c3ad",
+                  "outline": "#a08e7a",
+                  "tertiary-fixed": "#6ffbbe",
+                  "on-primary-fixed-variant": "#653e00",
+                  "secondary-fixed-dim": "#ffb77d",
+                  "error": "#ffb4ab",
+                  "secondary": "#ffb77d",
+                  "tertiary-fixed-dim": "#4edea3",
+                  "on-tertiary": "#003824",
+                  "surface-container-low": "#1a1c20",
+                  "on-secondary-container": "#432100",
+                  "tertiary": "#56e5a9",
+                  "surface-tint": "#ffb95f",
+                  "primary-container": "#f59e0b",
+                  "outline-variant": "#534434",
+                  "on-primary-container": "#613b00",
+                  "primary-fixed": "#ffddb8",
+                  "surface-container-highest": "#333539",
+                  "tertiary-container": "#30c88f",
+                  "surface-dim": "#111317",
+                  "on-secondary-fixed": "#2f1500",
+                  "surface-container-high": "#282a2e",
+                  "on-primary": "#472a00",
+                  "on-error-container": "#ffdad6",
+                  "on-tertiary-fixed-variant": "#005236",
+                  "on-tertiary-container": "#004e34",
+                  "primary-fixed-dim": "#ffb95f",
+                  "on-tertiary-fixed": "#002113",
+                  "secondary-fixed": "#ffdcc3",
+                  "primary": "#ffc174",
+                  "inverse-on-surface": "#2f3035",
+                  "on-secondary-fixed-variant": "#6e3900",
+                  "on-secondary": "#4d2600",
+                  "error-container": "#93000a",
+                  "on-surface": "#e2e2e8",
+                  "background": "#111317",
+                  "surface-bright": "#37393e",
+                  "surface": "#111317",
+                  "inverse-primary": "#855300",
+                  "surface-container-lowest": "#0c0e12",
+                  "inverse-surface": "#e2e2e8",
+                  "surface-variant": "#333539",
+                  "surface-container": "#1e2024",
+                  "secondary-container": "#d97707"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.125rem",
+                  "lg": "0.25rem",
+                  "xl": "0.5rem",
+                  "full": "0.75rem"
+          },
+          "spacing": {
+                  "space-3xl": "4rem",
+                  "space-sm": "0.75rem",
+                  "margin-tablet": "2rem",
+                  "space-lg": "1.5rem",
+                  "gutter-mobile": "1rem",
+                  "space-2xl": "3rem",
+                  "space-xl": "2rem",
+                  "space-2xs": "0.25rem",
+                  "gutter-tablet": "1.5rem",
+                  "gutter-desktop": "1.5rem",
+                  "margin-desktop": "3rem",
+                  "space-3xs": "0.125rem",
+                  "space-xs": "0.5rem",
+                  "space-md": "1rem",
+                  "margin-mobile": "1rem"
+          },
+          "fontFamily": {
+                  "label-sm": ["JetBrains Mono"],
+                  "display-lg": ["Space Grotesk"],
+                  "label-md": ["JetBrains Mono"],
+                  "headline-lg": ["Space Grotesk"],
+                  "label-lg": ["JetBrains Mono"],
+                  "body-sm": ["Inter"],
+                  "headline-xl-mobile": ["Space Grotesk"],
+                  "headline-sm": ["Space Grotesk"],
+                  "body-lg": ["Inter"],
+                  "headline-md": ["Space Grotesk"],
+                  "display-lg-mobile": ["Space Grotesk"],
+                  "headline-xl": ["Space Grotesk"],
+                  "body-md": ["Inter"]
+          },
+          "fontSize": {
+                  "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "600" }],
+                  "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+                  "label-md": ["11px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "500" }],
+                  "headline-lg": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                  "label-lg": ["13px", { "lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "500" }],
+                  "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }],
+                  "headline-xl-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                  "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "500" }],
+                  "body-lg": ["16px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                  "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "0em", "fontWeight": "500" }],
+                  "display-lg-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                  "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                  "body-md": ["14px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400" }]
+          }
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md antialiased min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container">
+<!-- TOP APP BAR -->
+<header class="w-full bg-surface dark:bg-surface border-b border-outline-variant dark:border-outline-variant shadow-sm sticky top-0 z-50">
+<div class="w-full px-space-lg md:px-margin-desktop h-16 flex items-center justify-between gap-space-md">
+<!-- Brand & Search cluster -->
+<div class="flex items-center gap-space-xl flex-1 max-w-2xl">
+<a class="text-headline-md font-headline-md font-bold tracking-tight text-primary dark:text-primary flex items-center gap-space-xs shrink-0" href="#">
+<span class="material-symbols-outlined text-primary" data-icon="album">album</span>
+<span>Music Pro</span>
+</a>
+<!-- Search Bar (on_left) -->
+<div class="relative w-full max-w-md hidden sm:block">
+<span class="absolute inset-y-0 left-3 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="search">search</span>
+</span>
+<input class="w-full bg-surface-container-lowest text-on-surface placeholder-outline-variant border border-outline-variant rounded-lg pl-9 pr-14 py-space-xs text-body-sm font-body-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-150" placeholder="Buscar por serie, modelo o SKU..." type="text"/>
+<span class="absolute inset-y-0 right-2.5 flex items-center pointer-events-none">
+<kbd class="bg-surface-container-high text-on-surface-variant border border-outline-variant text-[9px] font-label-sm px-1.5 py-0.5 rounded">⌘K</kbd>
+</span>
+</div>
+</div>
+<!-- Navigation Links (Web Desktop) -->
+<nav class="hidden xl:flex items-center gap-space-lg">
+<a class="text-on-surface-variant dark:text-on-surface-variant pb-1 font-medium hover:text-primary dark:hover:text-primary hover:border-primary transition-colors duration-150 text-label-md font-label-md" href="#">Studio Monitors</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant pb-1 font-medium hover:text-primary dark:hover:text-primary hover:border-primary transition-colors duration-150 text-label-md font-label-md" href="#">Microphones</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant pb-1 font-medium hover:text-primary dark:hover:text-primary hover:border-primary transition-colors duration-150 text-label-md font-label-md" href="#">Guitars &amp; Bass</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant pb-1 font-medium hover:text-primary dark:hover:text-primary hover:border-primary transition-colors duration-150 text-label-md font-label-md" href="#">Outboard Gear</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant pb-1 font-medium hover:text-primary dark:hover:text-primary hover:border-primary transition-colors duration-150 text-label-md font-label-md" href="#">Live Sound</a>
+<a class="text-primary dark:text-primary border-b-2 border-primary pb-1 font-medium text-label-md font-label-md" href="#">Inventory Matrix</a>
+</nav>
+<!-- Trailing user cluster -->
+<div class="flex items-center gap-space-md shrink-0">
+<!-- Notification trigger -->
+<button class="relative p-2 text-on-surface-variant hover:text-primary transition-colors duration-150 rounded-lg" title="Notificaciones de despacho">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+</button>
+<!-- Cart Action -->
+<a class="hidden sm:flex items-center gap-space-2xs bg-surface-container-high px-space-sm py-1.5 rounded-lg border border-outline-variant hover:border-primary transition-colors text-body-sm font-body-sm text-on-surface" href="#">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="shopping_bag">shopping_bag</span>
+<span class="font-label-md text-label-md font-medium text-primary">Cart (3)</span>
+</a>
+<!-- User profile badge (Active session: Mateo Silva) -->
+<div class="flex items-center gap-space-xs pl-space-xs border-l border-outline-variant">
+<div class="relative w-8 h-8 rounded-full border border-primary overflow-hidden shrink-0 bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="A sophisticated editorial portrait photograph of an audio engineer named Mateo Silva with subtle backlighting inside a professional analog recording studio with mixing faders and VU meters blurred in the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCn0dHa5AsrRS-dUa29cTYAcFIUAuEL6vbRbPk4dbftaNLiNuRA32qXC2HaK4ibtBK0qE0PxzS6wg8eW1d9hFrDnqBWW_lKBrPcu9zg7bYVZET8HVIJl5l4KOXf4IFzubC72Y3pnO3hQKkcbZ1aONTxijTYMukL9ZtBmAHITwWC19xtmgoey2v3tRfZxgNQcQtmKVpoc9yG5aZk4Ia4A7--pKbxJ1ayb77eo--NMdPwbS3neU-kU3W8"/>
+</div>
+<div class="hidden lg:flex flex-col text-left">
+<span class="text-body-sm font-body-sm font-semibold text-on-surface leading-none">Hola, Mateo Silva</span>
+<span class="text-[10px] font-label-sm text-tertiary uppercase tracking-wider mt-0.5">VIP Studio Tech #042</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- MAIN APP CONTAINER (Console SideNav + Main Dashboard Canvas) -->
+<div class="flex-1 w-full max-w-[1720px] mx-auto flex">
+<!-- ACCOUNT PORTAL SIDEBAR -->
+<aside class="w-72 hidden md:flex flex-col shrink-0 bg-surface-container-low dark:bg-surface-container-low border-r border-outline-variant dark:border-outline-variant py-space-lg px-space-md justify-between min-h-[calc(100vh-4rem)]">
+<div class="flex flex-col gap-space-lg">
+<!-- Profile summary card -->
+<div class="p-space-md bg-surface-container rounded-lg border border-outline-variant">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high border border-outline-variant flex items-center justify-center text-primary font-bold">
+              MS
+            </div>
+<div class="overflow-hidden">
+<h2 class="text-body-md font-body-md font-semibold text-on-surface truncate">Mateo Silva</h2>
+<p class="text-[11px] font-label-sm text-on-surface-variant truncate">m.silva@mastering.pro</p>
+</div>
+</div>
+<div class="mt-3 pt-3 border-t border-outline-variant flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant">NIVEL CLIENTE</span>
+<span class="text-primary font-semibold">ESTUDIO PRO SELECT</span>
+</div>
+</div>
+<!-- Navigation Rail Links -->
+<div class="flex flex-col gap-1">
+<p class="px-space-sm text-[10px] font-label-sm uppercase tracking-widest text-outline mb-1">Centro de Mando</p>
+<!-- Active tab: Mis Pedidos & Compras -->
+<a class="flex items-center gap-space-sm text-primary dark:text-primary bg-surface-container-high dark:bg-surface-container-high border-l-2 border-primary px-space-sm py-2 rounded-r-lg font-medium text-body-sm font-body-sm transition-all duration-100" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="receipt_long">receipt_long</span>
+<span>Mis Pedidos &amp; Compras</span>
+</a>
+<a class="flex items-center gap-space-sm text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface px-space-sm py-2 rounded-lg font-normal text-body-sm font-body-sm transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="local_shipping">local_shipping</span>
+<span>Seguimiento Activo</span>
+<span class="ml-auto text-[10px] font-label-sm bg-primary-container text-on-primary-fixed px-1.5 py-0.5 rounded font-bold">1</span>
+</a>
+<a class="flex items-center gap-space-sm text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface px-space-sm py-2 rounded-lg font-normal text-body-sm font-body-sm transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="album">album</span>
+<span>Mis Instrumentos &amp; Garantías Registradas</span>
+</a>
+<a class="flex items-center gap-space-sm text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface px-space-sm py-2 rounded-lg font-normal text-body-sm font-body-sm transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="location_on">location_on</span>
+<span>Direcciones de Despacho</span>
+</a>
+<a class="flex items-center gap-space-sm text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface px-space-sm py-2 rounded-lg font-normal text-body-sm font-body-sm transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="credit_card">credit_card</span>
+<span>Métodos de Pago Guardados</span>
+</a>
+<a class="flex items-center gap-space-sm text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface px-space-sm py-2 rounded-lg font-normal text-body-sm font-body-sm transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="support_agent">support_agent</span>
+<span>Soporte &amp; Tickets</span>
+<span class="ml-auto w-2 h-2 rounded-full bg-tertiary"></span>
+</a>
+</div>
+</div>
+<!-- Sidebar Footer Telemetry Module -->
+<div class="pt-space-md border-t border-outline-variant flex flex-col gap-2">
+<div class="bg-surface-container-lowest p-space-sm rounded-lg border border-outline-variant">
+<div class="flex items-center justify-between text-[11px] font-label-sm text-on-surface-variant mb-1">
+<span>SOPORTE DE BANCO TÉCNICO</span>
+<span class="text-tertiary font-bold">ONLINE</span>
+</div>
+<p class="text-[12px] font-body-sm text-on-surface">Mesa Central Santiago &amp; Valparaíso</p>
+<div class="mt-2 text-[10px] font-label-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="call">call</span>
+            +56 2 2840 9300
+          </div>
+</div>
+<button class="w-full flex items-center justify-center gap-space-xs py-2 text-on-surface-variant hover:text-error transition-colors text-body-sm font-body-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="logout">logout</span>
+<span>Cerrar Sesión Segura</span>
+</button>
+</div>
+</aside>
+<!-- CONTENT CANVAS -->
+<main class="flex-1 p-space-md sm:p-space-lg lg:p-space-xl overflow-y-auto">
+<!-- Top banner / telemetry intro -->
+<div class="mb-space-xl flex flex-col md:flex-row md:items-center justify-between gap-space-md border-b border-outline-variant pb-space-lg">
+<div>
+<div class="flex items-center gap-space-xs text-[11px] font-label-sm text-on-surface-variant mb-1">
+<span>PORTAL DEL CLIENTE</span>
+<span>/</span>
+<span class="text-primary font-medium">HISTORIAL &amp; TELEMETRÍA</span>
+</div>
+<h1 class="text-headline-lg font-headline-lg text-on-surface tracking-tight">Historial de Pedidos y Estado de Compras</h1>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1">Supervisa despachos en tiempo real, certificaciones técnicas de banco y facturación electrónica de estudio.</p>
+</div>
+<!-- Metric badges -->
+<div class="flex items-center gap-space-sm shrink-0">
+<div class="bg-surface-container px-space-md py-2 rounded-lg border border-outline-variant">
+<div class="text-[10px] font-label-sm uppercase text-outline">Garantías Vigentes</div>
+<div class="text-headline-sm font-headline-sm text-primary font-bold">3 Unidades</div>
+</div>
+<div class="bg-surface-container px-space-md py-2 rounded-lg border border-outline-variant">
+<div class="text-[10px] font-label-sm uppercase text-outline">Despacho Activo</div>
+<div class="text-headline-sm font-headline-sm text-tertiary flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+              En Ruta
+            </div>
+</div>
+</div>
+</div>
+<!-- SECTION 1: PURCHASES & EXPANDABLE ORDERS -->
+<section class="mb-space-2xl">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="inventory">inventory</span>
+<h2 class="text-headline-sm font-headline-sm text-on-surface font-semibold">Órdenes Recientes &amp; Seguimiento</h2>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">3 Órdenes registradas en 2024</span>
+</div>
+<!-- ORDER CARDS STACK -->
+<div class="flex flex-col gap-space-md">
+<!-- ORDER 1: EN CAMINO (EXPANDED BY DEFAULT) -->
+<article class="bg-surface-container-low border border-outline-variant rounded-xl overflow-hidden transition-all duration-200 hover:border-outline">
+<!-- Order Header Row -->
+<div class="p-space-md sm:p-space-lg flex flex-col lg:flex-row lg:items-center justify-between gap-space-md bg-surface-container/60">
+<div class="flex flex-wrap items-center gap-x-space-lg gap-y-space-xs">
+<div>
+<span class="block text-[10px] font-label-sm uppercase text-outline">Nº de Orden</span>
+<span class="font-label-lg text-label-lg font-bold text-primary">ORD-2024-9842</span>
+</div>
+<div>
+<span class="block text-[10px] font-label-sm uppercase text-outline">Fecha de Emisión</span>
+<span class="text-body-md font-body-md text-on-surface">18 Octubre, 2024</span>
+</div>
+<div>
+<span class="block text-[10px] font-label-sm uppercase text-outline">Total Pagado (IVA Incl.)</span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">$2.849.990 CLP</span>
+</div>
+<div>
+<span class="block text-[10px] font-label-sm uppercase text-outline">Destino</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Estudio A, Providencia</span>
+</div>
+</div>
+<!-- Status badge -->
+<div class="flex items-center gap-space-sm">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-container/15 border border-primary-container/40 text-primary font-label-sm text-label-sm font-semibold tracking-wider uppercase">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span>
+                  En camino (Ruta Norte)
+                </span>
+</div>
+</div>
+<!-- Products previews & Live Progress -->
+<div class="p-space-md sm:p-space-lg border-t border-outline-variant">
+<!-- Telemetry Delivery Progress Bar -->
+<div class="mb-space-lg p-space-md bg-surface-container-lowest rounded-lg border border-outline-variant">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="local_shipping">local_shipping</span>
+<span class="text-body-sm font-body-sm font-semibold text-on-surface">Transporte Blindado Especializado ProLogistics</span>
+</div>
+<span class="text-[11px] font-label-sm text-tertiary">Entrega estimada: Hoy antes de las 18:30 hrs</span>
+</div>
+<!-- Progress Line -->
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden flex">
+<div class="bg-primary-container h-full w-3/4 rounded-full transition-all duration-500"></div>
+</div>
+<div class="grid grid-cols-4 mt-2 text-[10px] font-label-sm text-on-surface-variant text-center">
+<span class="text-left text-primary font-semibold">✓ Verificado Banco</span>
+<span class="text-primary font-semibold">✓ Despachado CD</span>
+<span class="text-primary font-semibold font-bold">● En Tránsito Móvil</span>
+<span class="text-right text-outline">Entrega Final</span>
+</div>
+</div>
+<!-- Purchased Products List Inside Order -->
+<div class="divide-y divide-outline-variant/60">
+<div class="py-space-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-16 h-16 rounded-lg bg-surface-container-lowest border border-outline-variant overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A studio reference photograph of high-end active studio monitors Genelec 8351B with dark aluminum enclosure isolated against an obsidian studio tabletop with subtle warm amber reflections." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsHJ4SRftXLU-GJcfU8O1MCWikW-gCPtPdCxEkRmjg9D2EjzhwbVeYFuglN5XXreuppMieJoql3yStQSYTac5vBVNUR5QCQDIBdrqWKtJhkJUw5XOcW55ElE5DWUgzYIq_c33gLGVluAfPDEyT2StJYmVJ5OV3AlxCSaXjA5hMywgrao3iDR5hO6barT6Vg2SbWHDzZT4UwTU_nOQ__tDx41nU2pG9Q9CWKjIcffCOIjc-9LJL5-k0"/>
+</div>
+<div>
+<h3 class="text-body-md font-body-md font-semibold text-on-surface">Genelec 8351B SAM™ Studio Monitor (Par Calibrado)</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Acabado Dark Grey • S/N: GL-8351-99201A / GL-8351-99201B</p>
+<span class="text-[11px] font-label-sm text-outline">Incluye micrófono de calibración GLM 4.2</span>
+</div>
+</div>
+<div class="text-right sm:shrink-0">
+<span class="font-label-md text-label-md font-semibold text-on-surface">$2.499.990 CLP</span>
+<span class="block text-[10px] font-label-sm text-on-surface-variant">Cant: 1 par</span>
+</div>
+</div>
+<div class="py-space-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-16 h-16 rounded-lg bg-surface-container-lowest border border-outline-variant overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A macro studio shot of Mogami Gold Studio XLR cables with gold plated Neutrik connectors coiled neatly on a matte black console chassis." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw76vZMn6LT6oBtojsm_3GLplmcNCuugQIsSaWUoHqhea3ru9KTVTMUrARVYhDYEeWFSH8zP8KnAvL1sQ0aORWunnhhzGCMIk1AeHDzMrTtvzqLTISeEkhSsSJ8Jqhw36T-5xe_MvhmwO8TfkuItat4efscRlH7o43rgIdLBMjgT8h1hHi6Ugnp2ZR3HhS-p5Wl8TsOUDNy2YdRvw_bBlsqRgB2IS584kpKGUUv6yhloDPOn8ZY9-p"/>
+</div>
+<div>
+<h3 class="text-body-md font-body-md font-semibold text-on-surface">Mogami Gold Studio XLR Cable 10m (Par)</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Conectores Neutrik Gold EMC-X Series</p>
+</div>
+</div>
+<div class="text-right sm:shrink-0">
+<span class="font-label-md text-label-md font-semibold text-on-surface">$350.000 CLP</span>
+<span class="block text-[10px] font-label-sm text-on-surface-variant">Cant: 2 uds</span>
+</div>
+</div>
+</div>
+<!-- Action triggers footer -->
+<div class="mt-space-lg pt-space-md border-t border-outline-variant flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="inline-flex items-center gap-1.5 px-space-md py-2 rounded-lg bg-primary-container hover:bg-secondary-container text-on-primary-container font-semibold text-body-sm font-body-sm transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="radar">radar</span>
+<span>Ver Seguimiento en Vivo</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-space-md py-2 rounded-lg bg-surface-container-high hover:border-primary border border-outline-variant text-on-surface text-body-sm font-body-sm transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="description">description</span>
+<span>Descargar Factura Electrónica (PDF)</span>
+</button>
+</div>
+<button class="inline-flex items-center gap-1.5 text-on-surface-variant hover:text-primary transition-colors text-body-sm font-body-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="build_circle">build_circle</span>
+<span>Solicitar Garantía / Taller Oficial</span>
+</button>
+</div>
+</div>
+</article>
+<!-- ORDER 2: PREPARANDO EN BODEGA -->
+<article class="bg-surface-container-low border border-outline-variant rounded-xl overflow-hidden transition-all duration-200 hover:border-outline">
+<div class="p-space-md sm:p-space-lg flex flex-col lg:flex-row lg:items-center justify-between gap-space-md bg-surface-container/60">
+<div class="flex flex-wrap items-center gap-x-space-lg gap-y-space-xs">
+<div>
+<span class="block text-[10px] font-label-sm uppercase text-outline">Nº de Orden</span>
+<span class="font-label-lg text-label-lg font-bold text-primary">ORD-2024-8719</span>
+</div>
+<div>
+<span class="block text-[10px] font-label-sm uppercase text-outline">Fecha de Compra</span>
+<span class="text-body-md font-body-md text-on-surface">12 Octubre, 2024</span>
+</div>
+<div>
+<span class="block text-[10px] font-label-sm uppercase text-outline">Total Pagado</span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">$1.120.000 CLP</span>
+</div>
+</div>
+<!-- Status badge -->
+<div class="flex items-center gap-space-sm">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high border border-outline text-on-surface-variant font-label-sm text-label-sm font-medium uppercase tracking-wider">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+                  Preparando en bodega central
+                </span>
+</div>
+</div>
+<div class="p-space-md sm:p-space-lg border-t border-outline-variant flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-14 h-14 rounded-lg bg-surface-container-lowest border border-outline-variant overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A professional vintage style ribbon studio microphone Royer R-121 displayed on a metallic microphone shockmount against a dark velvet studio background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0Et6nJurTzVMOakrDEbdgKb4y-bXL4z2dzF4GyMGCeFib8pvQqbV3i-XJo6Da37p5OVUmT-x-KAJ7xa8oyu5G4shyOcmPbLQLMnDmAYgmJyI_JSYWnhToeykpp4FukZDEKdRGT-rlKR8iHdL2ewc3AJSxkap-tnmG_gtyrTHUr6t4LfSusazk9i2h4ti5bAhVyPLVVP64ktaohZtBInI-qCjTsSO1fkpT8-rDOVKllBk74GbK6Hid"/>
+</div>
+<div>
+<h3 class="text-body-md font-body-md font-semibold text-on-surface">Royer Labs R-121 Studio Ribbon Microphone</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Inspección acústica de diafragma en curso por luthier electrónico.</p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm w-full sm:w-auto justify-end">
+<button class="inline-flex items-center gap-1.5 px-space-md py-1.5 rounded-lg bg-surface-container-high border border-outline-variant text-body-sm font-body-sm hover:border-primary text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="description">description</span>
+<span>Boleta Electrónica</span>
+</button>
+</div>
+</div>
+</article>
+<!-- ORDER 3: ENTREGADO -->
+<article class="bg-surface-container-low border border-outline-variant rounded-xl overflow-hidden transition-all duration-200 hover:border-outline">
+<div class="p-space-md sm:p-space-lg flex flex-col lg:flex-row lg:items-center justify-between gap-space-md bg-surface-container/60">
+<div class="flex flex-wrap items-center gap-x-space-lg gap-y-space-xs">
+<div>
+<span class="block text-[10px] font-label-sm uppercase text-outline">Nº de Orden</span>
+<span class="font-label-lg text-label-lg font-bold text-primary">ORD-2024-6510</span>
+</div>
+<div>
+<span class="block text-[10px] font-label-sm uppercase text-outline">Fecha de Compra</span>
+<span class="text-body-md font-body-md text-on-surface">24 Agosto, 2024</span>
+</div>
+<div>
+<span class="block text-[10px] font-label-sm uppercase text-outline">Total Pagado</span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">$3.450.000 CLP</span>
+</div>
+</div>
+<!-- Status badge -->
+<div class="flex items-center gap-space-sm">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tertiary/10 border border-tertiary/30 text-tertiary font-label-sm text-label-sm font-semibold tracking-wider uppercase">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+                  Entregado con Certificado de Conformidad
+                </span>
+</div>
+</div>
+<div class="p-space-md sm:p-space-lg border-t border-outline-variant flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-14 h-14 rounded-lg bg-surface-container-lowest border border-outline-variant overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="An electric solid-body custom shop guitar Fender Telecaster with vintage butterscotch finish leaning against an authentic Tweed tube guitar amplifier in a dim studio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAipB5OXMX8YLBrPBT-CbvocUGVqfZCxNkevaT5lctT5jCqt4Xv3EYNm7Wu_zuJDRFFLIIHLOCAFAD1TQTmWED2ogsSjFpskQ4VeSXJvUFiMQHdlTmgOMDMwcz2WXtLOlnq_dXGd-CEdouDLoyxSJoexBQT7hbtIX5lsa5ZiIkUqmbGtKuskuh0hkHMxGGYYgSnw5VmX-Zg1q7i8XFkuy0d4r0QO5w0FZH7ulzRqsTosXJtkf3kZG8w"/>
+</div>
+<div>
+<h3 class="text-body-md font-body-md font-semibold text-on-surface">Fender Custom Shop '52 Telecaster Relic</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">S/N: CS-529041 • Entregado en mano con estuche rígido Tweed.</p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm w-full sm:w-auto justify-end">
+<button class="inline-flex items-center gap-1.5 px-space-md py-1.5 rounded-lg bg-surface-container-high border border-outline-variant text-body-sm font-body-sm hover:border-primary text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="description">description</span>
+<span>Factura #9084</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-space-md py-1.5 rounded-lg bg-surface-container-high border border-outline-variant text-body-sm font-body-sm hover:border-primary text-primary transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="handyman">handyman</span>
+<span>Agendar Mantención</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- SECTION 2: REGISTERED INSTRUMENTS & BENCH SERVICE -->
+<section class="mb-space-2xl">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs mb-space-md border-b border-outline-variant pb-space-sm">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[22px]" data-icon="verified">verified</span>
+<h2 class="text-headline-sm font-headline-sm text-on-surface font-semibold">Instrumentos Registrados &amp; Servicio Técnico</h2>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">Control de números de serie, vigencia de garantía y fechas asignadas de calibración periódica de taller.</p>
+</div>
+<button class="inline-flex items-center gap-1.5 px-space-sm py-1.5 rounded-lg border border-primary text-primary hover:bg-primary-container/10 text-label-sm font-label-sm self-start sm:self-auto transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="add">add</span>
+<span>REGISTRAR NUEVO SERIAL</span>
+</button>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-space-md">
+<!-- Instrument Card 1 -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-space-md flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between gap-space-sm mb-space-sm">
+<div>
+<span class="text-[10px] font-label-sm uppercase tracking-widest text-outline">GUITARRA ELÉCTRICA / CUSTOM SHOP</span>
+<h3 class="text-body-lg font-body-lg font-bold text-on-surface">Fender Custom Shop '52 Telecaster</h3>
+</div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-tertiary/10 border border-tertiary/30 text-tertiary text-label-sm font-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                  GARANTÍA ACTIVA
+                </span>
+</div>
+<!-- Technical Spec Table Strip -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant p-space-sm space-y-1.5 text-[11px] font-label-sm mb-space-md">
+<div class="flex justify-between border-b border-outline-variant/40 pb-1">
+<span class="text-on-surface-variant">NÚMERO DE SERIE:</span>
+<span class="font-semibold text-primary">CS-529041-USA</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant/40 pb-1">
+<span class="text-on-surface-variant">VIGENCIA GARANTÍA:</span>
+<span class="text-on-surface">Hasta 24 Agosto, 2026 (22 meses rest.)</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant">CALIBRACIÓN ANUAL GRATUITA:</span>
+<span class="text-tertiary font-bold">15 Noviembre, 2024 (Sugerida)</span>
+</div>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-space-md">
+                Incluye calibración de octavación, hidratación de diapasón con aceites naturales y test de electrónica CTS en el Laboratorio Oficial Music Pro Santiago.
+              </p>
+</div>
+<div class="flex items-center gap-space-sm pt-space-sm border-t border-outline-variant">
+<button class="flex-1 py-2 px-space-sm bg-primary-container hover:bg-secondary-container text-on-primary-container rounded-lg text-body-sm font-body-sm font-semibold transition-colors flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]" data-icon="calendar_month">calendar_month</span>
+<span>Agendar Calibración Gratuita</span>
+</button>
+<button class="p-2 border border-outline-variant rounded-lg text-on-surface-variant hover:text-on-surface hover:border-primary transition-colors" title="Descargar Certificado de Autenticidad">
+<span class="material-symbols-outlined text-[18px]" data-icon="workspace_premium">workspace_premium</span>
+</button>
+</div>
+</div>
+<!-- Instrument Card 2 -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-space-md flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between gap-space-sm mb-space-sm">
+<div>
+<span class="text-[10px] font-label-sm uppercase tracking-widest text-outline">SINTETIZADOR ANALÓGICO / HARDWARE RACK</span>
+<h3 class="text-body-lg font-body-lg font-bold text-on-surface">Moog Subsequent 37 Paraphonic</h3>
+</div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-tertiary/10 border border-tertiary/30 text-tertiary text-label-sm font-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                  GARANTÍA ACTIVA
+                </span>
+</div>
+<!-- Technical Spec Table Strip -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant p-space-sm space-y-1.5 text-[11px] font-label-sm mb-space-md">
+<div class="flex justify-between border-b border-outline-variant/40 pb-1">
+<span class="text-on-surface-variant">NÚMERO DE SERIE:</span>
+<span class="font-semibold text-primary">MOOG-SUB37-8812B</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant/40 pb-1">
+<span class="text-on-surface-variant">VIGENCIA GARANTÍA:</span>
+<span class="text-on-surface">Hasta 10 Marzo, 2025 (5 meses rest.)</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant">AJUSTE OSCILADORES VCO:</span>
+<span class="text-primary font-bold">Revisión Recomendada (6 meses)</span>
+</div>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-space-md">
+                Alineación térmica de generadores de onda analógica y actualización de firmware con osciloscopio certificado Tektronix.
+              </p>
+</div>
+<div class="flex items-center gap-space-sm pt-space-sm border-t border-outline-variant">
+<button class="flex-1 py-2 px-space-sm bg-surface-container-high hover:border-primary border border-outline-variant text-on-surface rounded-lg text-body-sm font-body-sm font-semibold transition-colors flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]" data-icon="tune">tune</span>
+<span>Solicitar Test de Osciladores</span>
+</button>
+<button class="p-2 border border-outline-variant rounded-lg text-on-surface-variant hover:text-on-surface hover:border-primary transition-colors" title="Historial de Servicio">
+<span class="material-symbols-outlined text-[18px]" data-icon="history">history</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: QUICK ACCESS (DISPATCH ADDRESSES & NOTIFICATIONS) -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-space-lg mb-space-xl">
+<!-- Quick Access: Shipping Addresses -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-space-md sm:p-space-lg">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="local_shipping">local_shipping</span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold">Direcciones de Despacho</h3>
+</div>
+<button class="text-[11px] font-label-sm text-primary hover:underline font-semibold">+ AÑADIR DIRECCIÓN</button>
+</div>
+<div class="space-y-space-sm">
+<!-- Address 1 (Default Studio) -->
+<div class="p-space-md rounded-lg bg-surface-container-lowest border-2 border-primary/60 relative">
+<span class="absolute top-2.5 right-2.5 text-[9px] font-label-sm bg-primary-container text-on-primary-container px-2 py-0.5 rounded font-bold">PREDETERMINADA</span>
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="home_pin">home_pin</span>
+<span class="text-body-md font-body-md font-semibold text-on-surface">Estudio A - Master Sound Santiago</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Av. Nueva Costanera 3820, Nivel -1 (Recepción Blindada Acústica)</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Vitacura, Región Metropolitana • +56 9 9123 4567</p>
+<div class="mt-3 flex items-center gap-space-md text-[11px] font-label-sm text-outline">
+<button class="text-primary hover:underline">Editar detalles</button>
+<span>•</span>
+<span class="text-on-surface-variant">Acceso para camión 3.5T validado</span>
+</div>
+</div>
+<!-- Address 2 (Secondary) -->
+<div class="p-space-md rounded-lg bg-surface-container border border-outline-variant">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant" data-icon="apartment">apartment</span>
+<span class="text-body-md font-body-md font-semibold text-on-surface">Sala de Ensayo &amp; Bodega Valparaíso</span>
+</div>
+<button class="text-[10px] font-label-sm text-primary hover:underline">Establecer Principal</button>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Calle Blanco 1145, Depto 402, Valparaíso</p>
+</div>
+</div>
+</div>
+<!-- Quick Access: SMS / WhatsApp Dispatch Preferences -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-space-md sm:p-space-lg flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="cell_tower">cell_tower</span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold">Preferencias de Notificación</h3>
+</div>
+<span class="text-[10px] font-label-sm text-tertiary">CANAL SEGURO</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-space-md">
+              Selecciona los canales prioritarios para recibir alertas de salida de bodega, geolocalización de furgón y confirmación de entrega en mano.
+            </p>
+<div class="space-y-space-md">
+<!-- WhatsApp Toggle -->
+<div class="flex items-center justify-between p-space-sm bg-surface-container rounded-lg border border-outline-variant">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-tertiary text-[24px]" data-icon="chat">chat</span>
+<div>
+<h4 class="text-body-md font-body-md font-semibold text-on-surface">Notificaciones por WhatsApp</h4>
+<p class="text-[11px] font-label-sm text-on-surface-variant">Enlace de rastreo GPS en vivo y PIN de recepción (+56 9 9123 4567)</p>
+</div>
+</div>
+<!-- Console Rocker Active -->
+<div class="w-12 h-6 bg-primary-container rounded-full p-0.5 cursor-pointer flex items-center justify-end">
+<div class="w-5 h-5 bg-on-primary-fixed rounded-full shadow-sm"></div>
+</div>
+</div>
+<!-- SMS Toggle -->
+<div class="flex items-center justify-between p-space-sm bg-surface-container rounded-lg border border-outline-variant">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[24px]" data-icon="sms">sms</span>
+<div>
+<h4 class="text-body-md font-body-md font-semibold text-on-surface">Alertas por Mensaje SMS</h4>
+<p class="text-[11px] font-label-sm text-on-surface-variant">Respaldos ante falta de conexión de red en recintos o sótanos de estudio</p>
+</div>
+</div>
+<!-- Console Rocker Active -->
+<div class="w-12 h-6 bg-primary-container rounded-full p-0.5 cursor-pointer flex items-center justify-end">
+<div class="w-5 h-5 bg-on-primary-fixed rounded-full shadow-sm"></div>
+</div>
+</div>
+<!-- Email Technical Reports Toggle -->
+<div class="flex items-center justify-between p-space-sm bg-surface-container rounded-lg border border-outline-variant">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-[24px]" data-icon="mail">mail</span>
+<div>
+<h4 class="text-body-md font-body-md font-semibold text-on-surface">Reportes Técnicos &amp; Boleta XML</h4>
+<p class="text-[11px] font-label-sm text-on-surface-variant">Envío automático de hojas de calibración a contabilidad</p>
+</div>
+</div>
+<!-- Console Rocker Inactive -->
+<div class="w-12 h-6 bg-surface-container-high border border-outline rounded-full p-0.5 cursor-pointer flex items-center justify-start">
+<div class="w-5 h-5 bg-outline rounded-full shadow-sm"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-space-lg pt-space-sm border-t border-outline-variant flex items-center justify-between">
+<span class="text-[11px] font-label-sm text-on-surface-variant">Última actualización: Hoy, 09:14 AM</span>
+<button class="px-space-md py-1.5 bg-surface-container-high border border-outline-variant text-primary hover:border-primary rounded text-[11px] font-label-sm font-semibold transition-colors">
+              GUARDAR PREFERENCIAS
+            </button>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- INSTITUTIONAL FOOTER -->
+<footer class="w-full bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant dark:border-outline-variant">
+<div class="w-full px-space-lg md:px-margin-desktop py-space-2xl mx-auto flex flex-col gap-space-lg">
+<!-- Top footer columns -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-xl">
+<!-- Brand identity -->
+<div class="flex flex-col gap-space-xs">
+<div class="text-headline-sm font-headline-sm font-bold text-primary dark:text-primary flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary" data-icon="album">album</span>
+<span>Music Pro</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-2">
+            Ingeniería de equipamiento sonoro, abastecimiento para giras y calibración de instrumentos de precisión en Latinoamérica.
+          </p>
+<div class="text-[11px] font-label-sm text-outline mt-2">
+            TERMINAL DE AUDIO: <span class="text-tertiary">LATAM_HUB_SCL_01</span>
+</div>
+</div>
+<!-- Links column 1 -->
+<div class="flex flex-col gap-space-xs">
+<h4 class="text-label-sm font-label-sm uppercase tracking-wider text-on-surface font-semibold mb-1">Garantía &amp; Servicios</h4>
+<a class="text-on-surface-variant dark:text-on-surface-variant text-label-sm font-label-sm hover:text-primary dark:hover:text-primary transition-colors duration-150" href="#">Warranty &amp; Studio Guarantee</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant text-label-sm font-label-sm hover:text-primary dark:hover:text-primary transition-colors duration-150" href="#">Calibrated Bench Testing</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant text-label-sm font-label-sm hover:text-primary dark:hover:text-primary transition-colors duration-150" href="#">Customer Support &amp; Dispatch</a>
+</div>
+<!-- Links column 2 -->
+<div class="flex flex-col gap-space-xs">
+<h4 class="text-label-sm font-label-sm uppercase tracking-wider text-on-surface font-semibold mb-1">Logística &amp; Operaciones</h4>
+<a class="text-on-surface-variant dark:text-on-surface-variant text-label-sm font-label-sm hover:text-primary dark:hover:text-primary transition-colors duration-150" href="#">Global Freight &amp; Shipping Calculator</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant text-label-sm font-label-sm hover:text-primary dark:hover:text-primary transition-colors duration-150" href="#">B2B Warehouse Integration</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant text-label-sm font-label-sm hover:text-primary dark:hover:text-primary transition-colors duration-150" href="#">Privacy Policy</a>
+</div>
+<!-- Official Seal & Security -->
+<div class="flex flex-col gap-space-xs">
+<h4 class="text-label-sm font-label-sm uppercase tracking-wider text-on-surface font-semibold mb-1">Certificación Oficial</h4>
+<div class="p-space-sm bg-surface-container-low border border-outline-variant rounded-lg">
+<div class="flex items-center gap-2 text-tertiary text-[12px] font-label-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="lock">lock</span>
+<span>256-Bit SSL Pro Encryption</span>
+</div>
+<p class="text-[11px] font-body-sm text-on-surface-variant mt-1">Facturación validada ante el Servicio de Impuestos Internos (SII Chile).</p>
+</div>
+</div>
+</div>
+<!-- Divider & Bottom copyright string exact match -->
+<div class="pt-space-lg border-t border-outline-variant dark:border-outline-variant flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<p class="text-label-sm font-label-sm text-on-surface-variant dark:text-on-surface-variant">
+          © 2024 Music Pro Gear &amp; Operations. All rights reserved. Precision Instrument Functionalism.
+        </p>
+<div class="flex items-center gap-space-md text-[11px] font-label-sm text-on-surface-variant">
+<span>RUT: 76.892.340-K</span>
+<span>•</span>
+<span class="text-primary">Master Control Console v2.4</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

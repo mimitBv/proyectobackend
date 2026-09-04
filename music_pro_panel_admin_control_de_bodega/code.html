@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Music Pro - Sistema de Gestión de Bodega & Telemetría ERP/WMS</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&family=Space+Grotesk:wght@100..900&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary-fixed": "#2a1700",
+            "on-error": "#690005",
+            "on-background": "#e2e2e8",
+            "on-surface-variant": "#d8c3ad",
+            "outline": "#a08e7a",
+            "tertiary-fixed": "#6ffbbe",
+            "on-primary-fixed-variant": "#653e00",
+            "secondary-fixed-dim": "#ffb77d",
+            "error": "#ffb4ab",
+            "secondary": "#ffb77d",
+            "tertiary-fixed-dim": "#4edea3",
+            "on-tertiary": "#003824",
+            "surface-container-low": "#1a1c20",
+            "on-secondary-container": "#432100",
+            "tertiary": "#56e5a9",
+            "surface-tint": "#ffb95f",
+            "primary-container": "#f59e0b",
+            "outline-variant": "#534434",
+            "on-primary-container": "#613b00",
+            "primary-fixed": "#ffddb8",
+            "surface-container-highest": "#333539",
+            "tertiary-container": "#30c88f",
+            "surface-dim": "#111317",
+            "on-secondary-fixed": "#2f1500",
+            "surface-container-high": "#282a2e",
+            "on-primary": "#472a00",
+            "on-error-container": "#ffdad6",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-tertiary-container": "#004e34",
+            "primary-fixed-dim": "#ffb95f",
+            "on-tertiary-fixed": "#002113",
+            "secondary-fixed": "#ffdcc3",
+            "primary": "#ffc174",
+            "inverse-on-surface": "#2f3035",
+            "on-secondary-fixed-variant": "#6e3900",
+            "on-secondary": "#4d2600",
+            "error-container": "#93000a",
+            "on-surface": "#e2e2e8",
+            "background": "#111317",
+            "surface-bright": "#37393e",
+            "surface": "#111317",
+            "inverse-primary": "#855300",
+            "surface-container-lowest": "#0c0e12",
+            "inverse-surface": "#e2e2e8",
+            "surface-variant": "#333539",
+            "surface-container": "#1e2024",
+            "secondary-container": "#d97707"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-3xl": "4rem",
+            "space-sm": "0.75rem",
+            "margin-tablet": "2rem",
+            "space-lg": "1.5rem",
+            "gutter-mobile": "1rem",
+            "space-2xl": "3rem",
+            "space-xl": "2rem",
+            "space-2xs": "0.25rem",
+            "gutter-tablet": "1.5rem",
+            "gutter-desktop": "1.5rem",
+            "margin-desktop": "3rem",
+            "space-3xs": "0.125rem",
+            "space-xs": "0.5rem",
+            "space-md": "1rem",
+            "margin-mobile": "1rem"
+          },
+          "fontFamily": {
+            "label-sm": ["JetBrains Mono"],
+            "display-lg": ["Space Grotesk"],
+            "label-md": ["JetBrains Mono"],
+            "headline-lg": ["Space Grotesk"],
+            "label-lg": ["JetBrains Mono"],
+            "body-sm": ["Inter"],
+            "headline-xl-mobile": ["Space Grotesk"],
+            "headline-sm": ["Space Grotesk"],
+            "body-lg": ["Inter"],
+            "headline-md": ["Space Grotesk"],
+            "display-lg-mobile": ["Space Grotesk"],
+            "headline-xl": ["Space Grotesk"],
+            "body-md": ["Inter"]
+          },
+          "fontSize": {
+            "label-sm": ["10px", {"lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "600"}],
+            "display-lg": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "700"}],
+            "label-md": ["11px", {"lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "500"}],
+            "headline-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "label-lg": ["13px", {"lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "500"}],
+            "body-sm": ["12px", {"lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400"}],
+            "headline-xl-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "headline-sm": ["18px", {"lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "500"}],
+            "body-lg": ["16px", {"lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+            "headline-md": ["22px", {"lineHeight": "30px", "letterSpacing": "0em", "fontWeight": "500"}],
+            "display-lg-mobile": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+            "body-md": ["14px", {"lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400"}]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #111317;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #333539;
+      border-radius: 2px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #534434;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden min-h-screen flex selection:bg-primary-container selection:text-on-primary-container">
+<!-- ASIDE: SideNavBar (Shared Component Pattern) -->
+<aside class="fixed top-0 left-0 h-screen w-64 bg-surface-container-low border-r border-outline-variant z-40 flex flex-col justify-between p-space-md">
+<div class="flex flex-col gap-space-md">
+<!-- Admin Header Identity -->
+<div class="flex items-center gap-space-sm pb-space-sm border-b border-outline-variant">
+<div class="w-9 h-9 rounded bg-surface-container-high border border-outline-variant flex items-center justify-center text-primary shadow-inner">
+<span class="material-symbols-outlined" data-icon="album">album</span>
+</div>
+<div class="flex flex-col">
+<span class="text-headline-sm font-headline-sm font-bold text-primary tracking-tight">Music Pro Admin</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Rack Console v2.4</span>
+</div>
+</div>
+<!-- Quick Action CTA -->
+<button class="w-full h-10 bg-primary-container text-on-primary-container font-headline-sm text-body-sm font-semibold rounded flex items-center justify-center gap-space-xs shadow-sm hover:brightness-110 active:opacity-80 transition-all border-t border-white/20" onclick="toggleModal(true)">
+<span class="material-symbols-outlined text-[18px]" data-icon="add_box">add_box</span>
+<span>Recepción de Mercadería</span>
+</button>
+<!-- Navigation Tabs -->
+<nav class="flex flex-col gap-space-3xs mt-space-xs">
+<a class="flex items-center gap-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 px-space-sm py-space-xs rounded font-normal text-body-sm" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span>
+<span>Resumen General</span>
+</a>
+<a class="flex items-center gap-space-sm text-primary bg-surface-container-high border-l-2 border-primary px-space-sm py-space-xs rounded font-medium text-body-sm shadow-sm" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="warehouse" style="font-variation-settings: 'FILL' 1;">warehouse</span>
+<span>Inventario & Stock Bodega</span>
+</a>
+<a class="flex items-center gap-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 px-space-sm py-space-xs rounded font-normal text-body-sm" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="receipt_long">receipt_long</span>
+<span>Gestión de Pedidos</span>
+<span class="ml-auto bg-primary-container/20 text-primary border border-primary/30 text-label-sm font-label-sm px-1.5 py-0.5 rounded">8</span>
+</a>
+<a class="flex items-center gap-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 px-space-sm py-space-xs rounded font-normal text-body-sm" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="album">album</span>
+<span>Catálogo de Productos</span>
+</a>
+<a class="flex items-center gap-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 px-space-sm py-space-xs rounded font-normal text-body-sm" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="local_shipping">local_shipping</span>
+<span>Despacho & Rutas</span>
+<span class="ml-auto bg-surface-container-highest text-on-surface-variant text-label-sm font-label-sm px-1.5 py-0.5 rounded">14</span>
+</a>
+<a class="flex items-center gap-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 px-space-sm py-space-xs rounded font-normal text-body-sm" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+<span>Configuración de Sistema</span>
+</a>
+</nav>
+</div>
+<!-- Backoffice Drawer Footer -->
+<div class="flex flex-col gap-space-xs pt-space-sm border-t border-outline-variant">
+<a class="flex items-center gap-space-sm text-on-surface-variant hover:text-primary transition-colors text-label-sm font-label-sm px-space-sm py-space-2xs" href="#">
+<span class="material-symbols-outlined text-[16px]" data-icon="menu_book">menu_book</span>
+<span>Manual Técnico & Docs</span>
+</a>
+<a class="flex items-center gap-space-sm text-on-surface-variant hover:text-primary transition-colors text-label-sm font-label-sm px-space-sm py-space-2xs" href="#">
+<span class="material-symbols-outlined text-[16px]" data-icon="terminal">terminal</span>
+<span>Consola Diagnóstico</span>
+</a>
+<!-- Server Hardware Telemetry status block -->
+<div class="mt-space-2xs p-space-xs rounded bg-surface-container-lowest border border-outline-variant/60 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span>
+</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Rack Node #04</span>
+</div>
+<span class="text-label-sm font-label-sm text-tertiary">99.98%</span>
+</div>
+</div>
+</aside>
+<!-- MAIN WRAPPER: Shifted for Fixed SideNav -->
+<div class="ml-64 flex-1 flex flex-col min-w-0">
+<!-- TOP APP BAR: WMS Server State, Search & Admin Badge -->
+<header class="w-full h-16 bg-surface border-b border-outline-variant px-space-lg flex items-center justify-between sticky top-0 z-30 shadow-sm backdrop-blur-md bg-surface/90">
+<!-- Warehouse Server Status Anchor -->
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-space-xs bg-surface-container-low px-space-sm py-1 rounded border border-outline-variant">
+<div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_8px_rgba(86,229,169,0.5)]"></div>
+<span class="text-label-sm font-label-sm uppercase tracking-wide text-tertiary">Bodega Central: En Línea</span>
+<span class="text-outline-variant">|</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="sync">sync</span> Sincronizado hace 2 min
+          </span>
+</div>
+<!-- Global SKU Search Input -->
+<div class="relative w-80">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]" data-icon="search">search</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/80 rounded pl-9 pr-14 py-1.5 text-body-sm text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary font-body-sm" placeholder="Buscar por SKU, N° Serie o Modelo..." type="text"/>
+<span class="absolute right-2 top-1/2 -translate-y-1/2 bg-surface-container text-on-surface-variant border border-outline-variant text-[10px] font-label-sm px-1.5 py-0.5 rounded tracking-tighter">⌘K</span>
+</div>
+</div>
+<!-- Trailing Controls & User Identity -->
+<div class="flex items-center gap-space-md">
+<button class="w-9 h-9 rounded bg-surface-container-high border border-outline-variant flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-colors relative" title="Notificaciones de Stock">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-primary-container"></span>
+</button>
+<button class="w-9 h-9 rounded bg-surface-container-high border border-outline-variant flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-colors" title="Ajustes de Telemetría">
+<span class="material-symbols-outlined text-[20px]" data-icon="tune">tune</span>
+</button>
+<div class="h-6 w-px bg-outline-variant"></div>
+<!-- User Portrait Badge -->
+<div class="flex items-center gap-space-sm pl-space-xs">
+<div class="w-10 h-10 rounded border border-outline-variant overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="A professional warehouse operations director portrait in a high-tech sound equipment distribution hub with amber rack telemetry lighting in the background, modern pro-audio hardware style, atmospheric cinematic dark studio aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-zXZ3i0KqwS_1JLxYV5gJOthaI3OKxOA0xbHm6xzC8aUi3b8qPh6R5lYqOTpBkGyUerXVr9hfpfm_T8Dh_gAO-fuvXhXuKt42qzFWllOjpUfCBI5qYkzX37JNB4Xih49fE-1Fzs0NJ3jbk04Cefk1ahp8gnge6NIbO17tGs8RCg2DjsXQxKmbkrdQZxO_YGV2PNATD9kFZyvQs_SDf2t6_dDPLjo0OUqsQ04CrYnLDNBDezuhJ0uQ"/>
+</div>
+<div class="flex flex-col text-left">
+<span class="text-body-sm font-headline-sm font-semibold text-on-surface leading-tight">Carlos Méndez</span>
+<span class="text-label-sm font-label-sm text-primary tracking-wide">Jefe de Operaciones</span>
+</div>
+</div>
+</div>
+</header>
+<!-- CONTENT CANVAS -->
+<main class="p-space-lg md:p-margin-desktop flex flex-col gap-space-xl">
+<!-- HEADER BREADCRUMB & CONSOLE TITLE -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div>
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-on-surface-variant mb-1">
+<span>SISTEMA LOGÍSTICO WMS</span>
+<span class="material-symbols-outlined text-[12px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary">BODEGA CENTRAL SANTIAGO-NORTE</span>
+</div>
+<h1 class="text-headline-lg font-headline-lg text-on-surface tracking-tight">Inventario & Stock Físico</h1>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="px-space-md py-2 rounded bg-surface-container-high border border-outline-variant text-on-surface hover:border-primary hover:text-primary font-body-sm flex items-center gap-2 transition-all">
+<span class="material-symbols-outlined text-[18px]" data-icon="download">download</span>
+<span>Exportar Matriz</span>
+</button>
+<button class="px-space-md py-2 rounded bg-primary-container text-on-primary-container font-headline-sm font-semibold text-body-sm flex items-center gap-2 shadow-md hover:brightness-110 active:opacity-80 transition-all border-t border-white/25" onclick="toggleModal(true)">
+<span class="material-symbols-outlined text-[18px]" data-icon="add_circle">add_circle</span>
+<span>+ Nuevo Producto</span>
+</button>
+</div>
+</div>
+<!-- KPI OPERATIONAL TELEMETRY CARDS (Bento Grid) -->
+<section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- KPI 1: Ventas del Día -->
+<div class="bg-surface-container-low border border-outline-variant rounded p-space-md flex flex-col justify-between hover:border-outline transition-colors relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary-container/5 rounded-full blur-xl group-hover:bg-primary-container/10 transition-all"></div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="text-label-sm font-label-sm uppercase text-on-surface-variant tracking-wider">Ventas del Día</span>
+<span class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-primary border border-outline-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="payments">payments</span>
+</span>
+</div>
+<div>
+<div class="text-headline-lg font-headline-lg text-on-surface font-bold">$18.450.900</div>
+<div class="flex items-center gap-1 mt-1 text-label-sm font-label-sm text-tertiary">
+<span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span>
+<span>+12.4% vs promedio diario</span>
+</div>
+</div>
+<div class="mt-space-sm pt-space-xs border-t border-outline-variant/40 flex justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span>42 transacciones</span>
+<span class="text-primary font-medium">Ticket: $439.300</span>
+</div>
+</div>
+<!-- KPI 2: Órdenes por Preparar -->
+<div class="bg-surface-container-low border border-outline-variant rounded p-space-md flex flex-col justify-between hover:border-outline transition-colors relative overflow-hidden group">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="text-label-sm font-label-sm uppercase text-on-surface-variant tracking-wider">Órdenes por Preparar</span>
+<span class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-secondary-container border border-outline-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="inventory_2">inventory_2</span>
+</span>
+</div>
+<div>
+<div class="flex items-baseline gap-2">
+<span class="text-headline-lg font-headline-lg text-on-surface font-bold">8</span>
+<span class="text-label-md font-label-md text-secondary-container font-semibold">pendientes</span>
+</div>
+<div class="flex items-center gap-1 mt-1 text-label-sm font-label-sm text-secondary">
+<span class="material-symbols-outlined text-[14px]" data-icon="schedule">schedule</span>
+<span>4 en cola de picking urgente</span>
+</div>
+</div>
+<div class="mt-space-sm pt-space-xs border-t border-outline-variant/40 flex justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span>Rack A3 & C12</span>
+<a class="text-primary hover:underline" href="#">Ver manifiesto →</a>
+</div>
+</div>
+<!-- KPI 3: Alertas de Stock Crítico -->
+<div class="bg-surface-container-low border border-error-container/60 rounded p-space-md flex flex-col justify-between hover:border-error transition-colors relative overflow-hidden">
+<div class="absolute right-0 top-0 w-1 h-full bg-error"></div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="text-label-sm font-label-sm uppercase text-error tracking-wider font-bold">Stock Crítico</span>
+<span class="w-8 h-8 rounded bg-error-container/30 flex items-center justify-center text-error border border-error/40">
+<span class="material-symbols-outlined text-[18px]" data-icon="warning">warning</span>
+</span>
+</div>
+<div>
+<div class="flex items-baseline gap-2">
+<span class="text-headline-lg font-headline-lg text-on-surface font-bold">3</span>
+<span class="text-label-md font-label-md text-error font-semibold">ítems en umbral</span>
+</div>
+<div class="flex items-center gap-1 mt-1 text-label-sm font-label-sm text-error">
+<span class="material-symbols-outlined text-[14px]" data-icon="priority_high">priority_high</span>
+<span>Ruptura inminente de stock</span>
+</div>
+</div>
+<div class="mt-space-sm pt-space-xs border-t border-outline-variant/40 flex justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span class="text-error font-medium">Reorden recomendada</span>
+<button class="text-primary hover:underline" onclick="filterLowStock()">Filtrar tabla</button>
+</div>
+</div>
+<!-- KPI 4: Despachos en Tránsito -->
+<div class="bg-surface-container-low border border-outline-variant rounded p-space-md flex flex-col justify-between hover:border-outline transition-colors relative overflow-hidden group">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="text-label-sm font-label-sm uppercase text-on-surface-variant tracking-wider">Despachos en Tránsito</span>
+<span class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-tertiary border border-outline-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="local_shipping">local_shipping</span>
+</span>
+</div>
+<div>
+<div class="flex items-baseline gap-2">
+<span class="text-headline-lg font-headline-lg text-on-surface font-bold">14</span>
+<span class="text-label-md font-label-md text-tertiary font-semibold">entregas hoy</span>
+</div>
+<div class="flex items-center gap-1 mt-1 text-label-sm font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px] text-tertiary" data-icon="check_circle">check_circle</span>
+<span>6 completadas • 8 en ruta</span>
+</div>
+</div>
+<div class="mt-space-sm pt-space-xs border-t border-outline-variant/40 flex justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span>Flota Logística Pro</span>
+<span class="text-tertiary font-medium">ETA Prom: 42m</span>
+</div>
+</div>
+</section>
+<!-- DATA CONTROLLER & CRUD TOOLBAR -->
+<section class="bg-surface-container-low border border-outline-variant rounded p-space-md flex flex-col lg:flex-row items-center justify-between gap-space-md">
+<!-- Left Filter Group -->
+<div class="flex flex-wrap items-center gap-space-sm w-full lg:w-auto">
+<!-- Category Selector -->
+<div class="flex items-center bg-surface-container-lowest border border-outline-variant rounded px-space-sm py-1.5">
+<span class="text-label-sm font-label-sm text-on-surface-variant mr-2">CATEGORÍA:</span>
+<select class="bg-transparent text-body-sm text-on-surface focus:outline-none cursor-pointer pr-4 font-body-sm">
+<option class="bg-surface-container text-on-surface" value="all">Todas las Categorías</option>
+<option class="bg-surface-container text-on-surface" value="monitors">Studio Monitors</option>
+<option class="bg-surface-container text-on-surface" value="mics">Microphones</option>
+<option class="bg-surface-container text-on-surface" value="outboard">Outboard Gear</option>
+<option class="bg-surface-container text-on-surface" value="guitars">Guitars & Bass</option>
+<option class="bg-surface-container text-on-surface" value="live">Live Sound</option>
+</select>
+</div>
+<!-- Low Stock Toggle Chip Filter -->
+<button class="flex items-center gap-2 px-space-sm py-1.5 rounded border border-outline-variant bg-surface-container hover:border-primary text-on-surface-variant text-label-sm font-label-sm transition-colors" id="alertFilterBtn" onclick="toggleStockAlertFilter()">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span>Alertas de Stock Bajo</span>
+<span class="bg-primary-container/20 text-primary text-[10px] px-1 rounded">3</span>
+</button>
+<!-- Warehouse Location Switcher -->
+<div class="flex items-center bg-surface-container-lowest border border-outline-variant rounded px-space-sm py-1.5">
+<span class="text-label-sm font-label-sm text-on-surface-variant mr-2">BODEGA:</span>
+<select class="bg-transparent text-body-sm text-on-surface focus:outline-none cursor-pointer font-body-sm">
+<option class="bg-surface-container text-on-surface">Bodega Central (Rack A-H)</option>
+<option class="bg-surface-container text-on-surface">Hub Regional Sur (Concepción)</option>
+<option class="bg-surface-container text-on-surface">Showroom Vitacura</option>
+</select>
+</div>
+</div>
+<!-- Right Quick Actions Group -->
+<div class="flex items-center gap-space-sm w-full lg:w-auto justify-end">
+<button class="px-space-sm py-1.5 rounded bg-surface-container border border-outline-variant text-on-surface hover:border-primary text-body-sm font-body-sm flex items-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="file_upload">file_upload</span>
+<span>Importar CSV/Excel</span>
+</button>
+<button class="px-space-sm py-1.5 rounded bg-surface-container border border-outline-variant text-on-surface hover:border-primary text-body-sm font-body-sm flex items-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="print">print</span>
+<span>Imprimir Rótulos QR</span>
+</button>
+<button class="w-8 h-8 rounded bg-surface-container-high border border-outline-variant flex items-center justify-center text-on-surface-variant hover:text-on-surface" title="Recargar inventario">
+<span class="material-symbols-outlined text-[18px]" data-icon="refresh">refresh</span>
+</button>
+</div>
+</section>
+<!-- INTERACTIVE HIGH-DENSITY CRUD TABLE -->
+<section class="bg-surface-container-low border border-outline-variant rounded overflow-hidden shadow-sm">
+<div class="overflow-x-auto custom-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high border-b border-outline-variant text-label-sm font-label-sm text-on-surface-variant">
+<th class="py-space-sm px-space-md w-10 text-center">
+<input class="rounded bg-surface-container-lowest border-outline-variant text-primary-container focus:ring-0 w-4 h-4 cursor-pointer" type="checkbox"/>
+</th>
+<th class="py-space-sm px-space-md tracking-wider">SKU / CÓDIGO</th>
+<th class="py-space-sm px-space-md tracking-wider">EQUIPO & MINIATURA</th>
+<th class="py-space-sm px-space-md tracking-wider">CATEGORÍA</th>
+<th class="py-space-sm px-space-md tracking-wider text-right">PRECIO VENTA</th>
+<th class="py-space-sm px-space-md tracking-wider text-right">STOCK FÍSICO</th>
+<th class="py-space-sm px-space-md tracking-wider text-right">RESERVADO</th>
+<th class="py-space-sm px-space-md tracking-wider text-center">ESTADO CANAL</th>
+<th class="py-space-sm px-space-md tracking-wider text-center">ACCIONES</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/40 text-body-sm font-body-sm">
+<!-- ROW 1: Studio Monitor Genelec -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-space-sm px-space-md text-center">
+<input class="rounded bg-surface-container-lowest border-outline-variant text-primary-container focus:ring-0 w-4 h-4 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-space-sm px-space-md font-label-sm text-primary font-semibold">
+<span class="cursor-pointer hover:underline" title="Copiar SKU">GEN-8341APM</span>
+<span class="block text-[10px] text-on-surface-variant/70 font-normal">Rack B-04-12</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded bg-surface-container-lowest border border-outline-variant overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="High-end studio coaxial monitor loudspeaker in dark aluminum cast enclosure with orange illuminated power LED against a dark acoustic foam control room background, high resolution product photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDS5yd4g_oYuROr-rlgB90_VIhqVGBAw2-Z8fmjaUMJ7lTJ1gRUD-DzpUq9tK9jkW5j5Qqib9MF-BGw_RJ-7kJNwYGwkRpTBOOl5s6IH3UB_d-k10Gyzl7nbMWKdgwrf5jhQu25vljD9PZUnzQsppRHhlxQHkybs4e66RjECSWrhQaUHWo30W8teZlclSzz1bbuqKk_pNHHWuYinamIXd2HNT1uZg_Gnwl-TCFtJ6ZsKN1K8DVXaNTE"/>
+</div>
+<div>
+<div class="font-headline-sm font-semibold text-on-surface text-body-md group-hover:text-primary transition-colors">Genelec The Ones 8341A SAM</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">Coaxial Activo Tri-Amplificado 550W DSP</div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="bg-surface-container px-2 py-0.5 rounded text-label-sm font-label-sm text-on-surface-variant border border-outline-variant/60">Studio Monitors</span>
+</td>
+<td class="py-space-sm px-space-md text-right font-label-md text-on-surface font-semibold">
+                  $2.890.000
+                </td>
+<td class="py-space-sm px-space-md text-right font-label-md">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-tertiary/10 border border-tertiary/30 text-tertiary">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+<span>18 un</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right font-label-md text-on-surface-variant">
+                  4 un
+                </td>
+<td class="py-space-sm px-space-md text-center">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-surface peer-checked:bg-primary-container after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all"></div>
+</label>
+<span class="block text-[10px] font-label-sm text-tertiary mt-0.5">Activo</span>
+</td>
+<td class="py-space-sm px-space-md text-center">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-primary transition-colors" onclick="quickRefill('GEN-8341APM', 'Genelec The Ones 8341A')" title="Reabastecer / Entrada">
+<span class="material-symbols-outlined text-[18px]" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" title="Editar Producto">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-error transition-colors" title="Pausar / Desactivar">
+<span class="material-symbols-outlined text-[18px]" data-icon="block">block</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 2: Microphone Neumann (Stock Crítico) -->
+<tr class="hover:bg-surface-container transition-colors group bg-error-container/5">
+<td class="py-space-sm px-space-md text-center">
+<input class="rounded bg-surface-container-lowest border-outline-variant text-primary-container focus:ring-0 w-4 h-4 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-space-sm px-space-md font-label-sm text-primary font-semibold">
+<span class="cursor-pointer hover:underline" title="Copiar SKU">NEU-U87AI-SET</span>
+<span class="block text-[10px] text-on-surface-variant/70 font-normal">Rack A-01-03</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded bg-surface-container-lowest border border-outline-variant overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Iconic vintage nickel studio condenser microphone with shockmount inside an acoustic recording booth with low ambient warm tungsten studio light, professional audio engineering gear aesthetics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3bvY7IeJXVGGbTi-MxgKufBbBEv5Y6GhhSAFZfkZ_OQxcAiMAUcLC_g8pk_f-pOHJM8k4Des80tswGF_32TdD8A4bJzkn3VVHBQBtFL9cy6cegnWRJcse1z429QLU6u9HaeRHy61GakmpkqBuAWB5r9PkH_gPYyrRPQGibjvNIIdrBDZrmFMmBc7P_4zCBQ4gTKEWJ48Eyi5e7Ne6tk3MpgcLZQLkA_0rZ4-MgMsxm2HXMfxhaOIR"/>
+</div>
+<div>
+<div class="font-headline-sm font-semibold text-on-surface text-body-md group-hover:text-primary transition-colors">Neumann U87 Ai Studio Set</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">Micrófono Condensador Patrones Múltiples con Suspensión</div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="bg-surface-container px-2 py-0.5 rounded text-label-sm font-label-sm text-on-surface-variant border border-outline-variant/60">Microphones</span>
+</td>
+<td class="py-space-sm px-space-md text-right font-label-md text-on-surface font-semibold">
+                  $3.650.000
+                </td>
+<td class="py-space-sm px-space-md text-right font-label-md">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-error/10 border border-error/30 text-error">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+<span class="font-bold">1 un</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right font-label-md text-on-surface-variant">
+                  2 un
+                </td>
+<td class="py-space-sm px-space-md text-center">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-surface peer-checked:bg-primary-container after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all"></div>
+</label>
+<span class="block text-[10px] font-label-sm text-primary-container mt-0.5">Crítico</span>
+</td>
+<td class="py-space-sm px-space-md text-center">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1.5 rounded bg-primary-container/20 text-primary border border-primary/40 hover:bg-primary-container hover:text-on-primary-container transition-colors" onclick="quickRefill('NEU-U87AI-SET', 'Neumann U87 Ai Studio Set')" title="Reabastecer Urgente">
+<span class="material-symbols-outlined text-[18px]" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="block">block</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 3: Outboard Compressor Teletronix -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-space-sm px-space-md text-center">
+<input class="rounded bg-surface-container-lowest border-outline-variant text-primary-container focus:ring-0 w-4 h-4 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-space-sm px-space-md font-label-sm text-primary font-semibold">
+<span class="cursor-pointer hover:underline" title="Copiar SKU">UA-LA2A-TUBE</span>
+<span class="block text-[10px] text-on-surface-variant/70 font-normal">Rack R-02-01</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded bg-surface-container-lowest border border-outline-variant overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Classic analog optical tube limiter hardware rack unit with lighted retro VU meter, brushed grey aluminum faceplate, bakelite gain knobs in dark studio control room." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcYCW1CZlsM3-zVEH8yvwI3U0kICj9rFbL7mOHljUuM1-yYZE9MH3Nii_N3Vu8Mlk323hEQSi782dos_Qdw7zit5O3sf1WoFFD-MRqVthSPzrQt8P9Dj3eqO_GI-fKyaVmRXGm8URUVz9sGnOHcemDcCWBoLmkh5FVzWPCdTiqfa0Ixd-Ss-PMFaDA78AR92P1eR7btnROx1BsyBkJAy1ERZLs_XdQjmp4Ll-E829nR8YJuA-uE9Yg"/>
+</div>
+<div>
+<div class="font-headline-sm font-semibold text-on-surface text-body-md group-hover:text-primary transition-colors">Universal Audio Teletronix LA-2A</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">Compresor Óptico Valvular Clásico de Masterización</div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="bg-surface-container px-2 py-0.5 rounded text-label-sm font-label-sm text-on-surface-variant border border-outline-variant/60">Outboard Gear</span>
+</td>
+<td class="py-space-sm px-space-md text-right font-label-md text-on-surface font-semibold">
+                  $4.890.000
+                </td>
+<td class="py-space-sm px-space-md text-right font-label-md">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-tertiary/10 border border-tertiary/30 text-tertiary">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>5 un</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right font-label-md text-on-surface-variant">
+                  1 un
+                </td>
+<td class="py-space-sm px-space-md text-center">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-surface peer-checked:bg-primary-container after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all"></div>
+</label>
+<span class="block text-[10px] font-label-sm text-tertiary mt-0.5">Activo</span>
+</td>
+<td class="py-space-sm px-space-md text-center">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-primary transition-colors" onclick="quickRefill('UA-LA2A-TUBE', 'Universal Audio Teletronix LA-2A')">
+<span class="material-symbols-outlined text-[18px]" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="block">block</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 4: Guitar Custom Shop Fender (Pausado) -->
+<tr class="hover:bg-surface-container transition-colors group opacity-85">
+<td class="py-space-sm px-space-md text-center">
+<input class="rounded bg-surface-container-lowest border-outline-variant text-primary-container focus:ring-0 w-4 h-4 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-space-sm px-space-md font-label-sm text-on-surface-variant font-semibold">
+<span class="cursor-pointer hover:underline" title="Copiar SKU">FEN-CS-59ST-SB</span>
+<span class="block text-[10px] text-on-surface-variant/70 font-normal">Bodega Fina Clima G-02</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded bg-surface-container-lowest border border-outline-variant overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="High-end relic sunburst electric guitar close up on maple neck and chrome hardware, dark luxury velvet case interior background, hyper detailed instrument texture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBB0vU34VJUlOSCkYK21u21cF137xGKB1c6kGqugnDIcAcatQRwawDazfbe1eL3tLttTM9hPAF3_PtDxVUQkd_ZPTCsxfFavjZQe8OyV4RgBVYoi13v8o4xWO4h8UTFADy3M96jiGASwG5ND5ViguQKbJ_TGH1vwTj0N3poI9rudIuSy-yQETklC0KVE2z5CRiovB6oS13ZQ1Hg1nyn0w6J1hZ0fqjF3UVOe1dRhRtDMUMMhJ4AYXLf"/>
+</div>
+<div>
+<div class="font-headline-sm font-semibold text-on-surface text-body-md group-hover:text-primary transition-colors">Fender Custom Shop '59 Stratocaster</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">Heavy Relic Sunburst 3-Color Nitrolaca Handwound</div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="bg-surface-container px-2 py-0.5 rounded text-label-sm font-label-sm text-on-surface-variant border border-outline-variant/60">Guitars & Bass</span>
+</td>
+<td class="py-space-sm px-space-md text-right font-label-md text-on-surface font-semibold">
+                  $5.450.000
+                </td>
+<td class="py-space-sm px-space-md text-right font-label-md">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container border border-outline-variant text-on-surface-variant">
+<span>2 un</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right font-label-md text-on-surface-variant">
+                  0 un
+                </td>
+<td class="py-space-sm px-space-md text-center">
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-surface peer-checked:bg-primary-container after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all"></div>
+</label>
+<span class="block text-[10px] font-label-sm text-on-surface-variant mt-0.5">Pausado</span>
+</td>
+<td class="py-space-sm px-space-md text-center">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-primary transition-colors" onclick="quickRefill('FEN-CS-59ST-SB', 'Fender Custom Shop 59')">
+<span class="material-symbols-outlined text-[18px]" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-tertiary transition-colors" title="Reactivar">
+<span class="material-symbols-outlined text-[18px]" data-icon="play_arrow">play_arrow</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 5: Live Sound Mixing Console Behringer/Midas -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-space-sm px-space-md text-center">
+<input class="rounded bg-surface-container-lowest border-outline-variant text-primary-container focus:ring-0 w-4 h-4 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-space-sm px-space-md font-label-sm text-primary font-semibold">
+<span class="cursor-pointer hover:underline" title="Copiar SKU">MID-M32R-LIVE</span>
+<span class="block text-[10px] text-on-surface-variant/70 font-normal">Rack D-08-01</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded bg-surface-container-lowest border border-outline-variant overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Digital professional live sound mixing console with motorized faders, colorful LED meter bridge, digital display in low stage environment lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYLD--zG77HBFPQGVwMJuGI5BpY_O6C7CNDaO6T48dkTeaAp95cV54jZSqTjjjUcvMiGa-zLXPN13ntcGEse2zkd_z9h3fbcef47Tnwc2911aU_BMpuH0Zcij-mr-RejP267OqCNPeSDXhm7ZnPfZ65WflMmHUuDK5M69DRxoxLPt6LerupwmzbrYVkKa103CXETh_ycsU9kDGLRmpTWTTVlG3i2jSjhdt8KXEozqWG_1xti6pP7aU"/>
+</div>
+<div>
+<div class="font-headline-sm font-semibold text-on-surface text-body-md group-hover:text-primary transition-colors">Midas M32R Live Console</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">Consola Digital 40 Canales con Grabación USB Multitrack</div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="bg-surface-container px-2 py-0.5 rounded text-label-sm font-label-sm text-on-surface-variant border border-outline-variant/60">Live Sound</span>
+</td>
+<td class="py-space-sm px-space-md text-right font-label-md text-on-surface font-semibold">
+                  $3.190.000
+                </td>
+<td class="py-space-sm px-space-md text-right font-label-md">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-secondary-container/15 border border-secondary-container/35 text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>3 un</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right font-label-md text-on-surface-variant">
+                  1 un
+                </td>
+<td class="py-space-sm px-space-md text-center">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-surface peer-checked:bg-primary-container after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all"></div>
+</label>
+<span class="block text-[10px] font-label-sm text-tertiary mt-0.5">Activo</span>
+</td>
+<td class="py-space-sm px-space-md text-center">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-primary transition-colors" onclick="quickRefill('MID-M32R-LIVE', 'Midas M32R Live Console')">
+<span class="material-symbols-outlined text-[18px]" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="block">block</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- TABLE PAGINATION TELEMETRY -->
+<div class="p-space-sm bg-surface-container-high border-t border-outline-variant flex flex-col sm:flex-row items-center justify-between gap-space-sm text-label-sm font-label-sm text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span>Mostrando 1 a 5 de 142 referencias registradas en Bodega Central</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="mr-2">Filas por página:</span>
+<select class="bg-surface-container-lowest border border-outline-variant rounded px-2 py-1 text-on-surface">
+<option>5</option>
+<option selected="">10</option>
+<option>25</option>
+<option>50</option>
+</select>
+<div class="flex items-center gap-1 ml-4">
+<button class="w-7 h-7 rounded border border-outline-variant flex items-center justify-center hover:bg-surface-container" disabled="">
+<span class="material-symbols-outlined text-[16px]" data-icon="chevron_left">chevron_left</span>
+</button>
+<span class="px-2 py-1 bg-primary-container text-on-primary-container rounded font-bold">1</span>
+<button class="w-7 h-7 rounded border border-outline-variant flex items-center justify-center hover:bg-surface-container">2</button>
+<button class="w-7 h-7 rounded border border-outline-variant flex items-center justify-center hover:bg-surface-container">3</button>
+<span>...</span>
+<button class="w-7 h-7 rounded border border-outline-variant flex items-center justify-center hover:bg-surface-container">15</button>
+<button class="w-7 h-7 rounded border border-outline-variant flex items-center justify-center hover:bg-surface-container">
+<span class="material-symbols-outlined text-[16px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- AUDIT LOG & RECENT STOCK MOVEMENTS MINI WIDGET -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-space-md">
+<div class="lg:col-span-2 bg-surface-container-low border border-outline-variant rounded p-space-md">
+<div class="flex items-center justify-between mb-space-sm pb-space-xs border-b border-outline-variant/60">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="history">history</span>
+<h3 class="text-headline-sm font-headline-sm font-semibold text-on-surface">Bitácora de Movimientos Recientes</h3>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Últimas 24 horas</span>
+</div>
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between p-2 rounded bg-surface-container border border-outline-variant/30 text-body-sm">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-label-sm text-primary">ENTRADA</span>
+<span>+6 un Genelec 8341A • Factura Importación #FI-9023</span>
+</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">Hoy, 14:20 • Operador: J. Duarte</div>
+</div>
+<div class="flex items-center justify-between p-2 rounded bg-surface-container border border-outline-variant/30 text-body-sm">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-secondary">PICKING</span>
+<span>-2 un Universal Audio LA-2A • Pedido Cliente #ORD-8411</span>
+</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">Hoy, 11:45 • Operador: M. Castro</div>
+</div>
+<div class="flex items-center justify-between p-2 rounded bg-surface-container border border-outline-variant/30 text-body-sm">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span class="font-label-sm text-error">MERMA</span>
+<span>-1 un Soporte K&M 210/9 • Daño de embalaje en tránsito</span>
+</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">Ayer, 18:10 • Aprobado: C. Méndez</div>
+</div>
+</div>
+</div>
+<!-- Telemetry Spec Widget: Rack Capacity -->
+<div class="bg-surface-container-low border border-outline-variant rounded p-space-md flex flex-col justify-between">
+<div class="flex items-center justify-between pb-space-xs border-b border-outline-variant/60">
+<h3 class="text-headline-sm font-headline-sm font-semibold text-on-surface">Ocupación Bodega Central</h3>
+<span class="text-label-sm font-label-sm text-primary">78% LLENO</span>
+</div>
+<div class="my-space-sm space-y-3">
+<div>
+<div class="flex justify-between text-label-sm font-label-sm mb-1">
+<span class="text-on-surface-variant">Racks A & B (Monitores / Valvulares)</span>
+<span class="text-on-surface font-semibold">92%</span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 92%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-label-sm font-label-sm mb-1">
+<span class="text-on-surface-variant">Zona C (Cables, Microfonía & DSP)</span>
+<span class="text-on-surface font-semibold">64%</span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 64%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-label-sm font-label-sm mb-1">
+<span class="text-on-surface-variant">Zona D (Consolas Live & Iluminación)</span>
+<span class="text-on-surface font-semibold">78%</span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-secondary-container h-full rounded-full" style="width: 78%"></div>
+</div>
+</div>
+</div>
+<button class="w-full py-2 bg-surface-container hover:bg-surface-container-high border border-outline-variant rounded text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors">
+            Ver Mapa 3D de Estanterías
+          </button>
+</div>
+</section>
+</main>
+<!-- FOOTER (Shared Component Alignment) -->
+<footer class="w-full bg-surface-container-lowest border-t border-outline-variant px-space-lg md:px-margin-desktop py-space-xl mt-auto">
+<div class="flex flex-col md:flex-row items-center justify-between gap-space-md text-label-sm font-label-sm text-on-surface-variant">
+<div class="flex items-center gap-space-sm">
+<span class="text-primary font-bold">Music Pro ERP/WMS</span>
+<span>•</span>
+<span>© 2024 Music Pro Gear & Operations. All rights reserved. Precision Instrument Functionalism.</span>
+</div>
+<div class="flex flex-wrap items-center gap-space-md">
+<a class="hover:text-primary transition-colors" href="#">Calibrated Bench Testing</a>
+<a class="hover:text-primary transition-colors" href="#">B2B Warehouse Integration</a>
+<a class="hover:text-primary transition-colors" href="#">Customer Support & Dispatch</a>
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+</div>
+</div>
+</footer>
+</div>
+<!-- MODAL / FLYOUT DRAWER: Actualizar Stock / Recepción de Mercadería -->
+<div class="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 flex justify-end hidden opacity-0 transition-opacity duration-200" id="stockModal">
+<div class="w-full max-w-lg bg-surface-container-high border-l border-outline-variant h-full p-space-lg flex flex-col justify-between overflow-y-auto shadow-2xl">
+<div>
+<!-- Modal Header -->
+<div class="flex items-center justify-between pb-space-md border-b border-outline-variant mb-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-primary-container/20 text-primary border border-primary/40 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="input">input</span>
+</div>
+<div>
+<h2 class="text-headline-sm font-headline-sm font-bold text-on-surface">Recepción de Mercadería</h2>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Ingreso a Bodega Central & Validación de Lote</p>
+</div>
+</div>
+<button class="w-8 h-8 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface flex items-center justify-center" onclick="toggleModal(false)">
+<span class="material-symbols-outlined text-[20px]" data-icon="close">close</span>
+</button>
+</div>
+<!-- Form Fields -->
+<form class="space-y-space-md text-body-sm">
+<div>
+<label class="block text-label-sm font-label-sm text-on-surface-variant uppercase mb-1">SKU o Producto Seleccionado</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded px-space-sm py-2 text-on-surface font-label-md focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none" id="modalSkuInput" type="text" value="NEU-U87AI-SET"/>
+<p class="text-label-sm font-label-sm text-primary mt-1" id="modalProductName">Neumann U87 Ai Studio Set (Stock Actual: 1 un)</p>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<div>
+<label class="block text-label-sm font-label-sm text-on-surface-variant uppercase mb-1">Cantidad a Ingresar</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded px-space-sm py-2 text-on-surface font-label-md focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none" min="1" type="number" value="10"/>
+</div>
+<div>
+<label class="block text-label-sm font-label-sm text-on-surface-variant uppercase mb-1">N° Guía / Factura</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded px-space-sm py-2 text-on-surface font-label-md focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none" placeholder="GD-892014" type="text"/>
+</div>
+</div>
+<div>
+<label class="block text-label-sm font-label-sm text-on-surface-variant uppercase mb-1">Proveedor / Fabricante Origen</label>
+<select class="w-full bg-surface-container-lowest border border-outline-variant rounded px-space-sm py-2 text-on-surface font-body-sm focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none">
+<option>Sennheiser / Neumann GmbH Germany (Directo)</option>
+<option>Genelec OY Finland Import Logistics</option>
+<option>Universal Audio Inc. Scotts Valley California</option>
+<option>Fender Musical Instruments Corp Corona CA</option>
+</select>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<div>
+<label class="block text-label-sm font-label-sm text-on-surface-variant uppercase mb-1">N° de Lote de Producción</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded px-space-sm py-2 text-on-surface font-label-md focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none" placeholder="LOT-2024-DE-088" type="text"/>
+</div>
+<div>
+<label class="block text-label-sm font-label-sm text-on-surface-variant uppercase mb-1">Ubicación de Estante</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded px-space-sm py-2 text-on-surface font-label-md focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none" placeholder="Rack A-01-03" type="text" value="Rack A-01-03"/>
+</div>
+</div>
+<div>
+<label class="block text-label-sm font-label-sm text-on-surface-variant uppercase mb-1">Inspección de Control de Calidad (QC)</label>
+<div class="space-y-2 p-space-sm bg-surface-container-lowest border border-outline-variant rounded">
+<label class="flex items-center gap-2 cursor-pointer">
+<input checked="" class="rounded bg-surface-container border-outline-variant text-primary focus:ring-0" type="checkbox"/>
+<span class="text-body-sm text-on-surface">Sellos de fábrica intactos y números de serie verificados</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input checked="" class="rounded bg-surface-container border-outline-variant text-primary focus:ring-0" type="checkbox"/>
+<span class="text-body-sm text-on-surface">Bench testing acústico de muestra superado</span>
+</label>
+</div>
+</div>
+<div>
+<label class="block text-label-sm font-label-sm text-on-surface-variant uppercase mb-1">Notas de Recepción de Bodega</label>
+<textarea class="w-full bg-surface-container-lowest border border-outline-variant rounded px-space-sm py-2 text-on-surface font-body-sm focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none" placeholder="Observaciones sobre pallets, temperatura de descarga o estado de embalajes exteriores..." rows="2"></textarea>
+</div>
+</form>
+</div>
+<!-- Action Footer -->
+<div class="pt-space-md border-t border-outline-variant flex items-center justify-end gap-space-sm">
+<button class="px-space-md py-2 rounded bg-surface-container hover:bg-surface-container-highest border border-outline-variant text-on-surface text-body-sm" onclick="toggleModal(false)">
+          Cancelar
+        </button>
+<button class="px-space-lg py-2 rounded bg-primary-container text-on-primary-container font-headline-sm font-semibold text-body-sm hover:brightness-110 active:opacity-80 transition-all shadow-md flex items-center gap-2" onclick="confirmStockReceipt()">
+<span class="material-symbols-outlined text-[18px]" data-icon="check">check</span>
+<span>Registrar Recepción</span>
+</button>
+</div>
+</div>
+</div>
+<!-- TOAST NOTIFICATION -->
+<div class="fixed bottom-6 right-6 bg-surface-container-highest border border-primary text-on-surface px-space-md py-space-sm rounded shadow-2xl z-50 flex items-center gap-3 translate-y-20 opacity-0 transition-all duration-300" id="toastNotification">
+<span class="material-symbols-outlined text-primary text-[22px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<div class="font-headline-sm text-body-sm font-semibold text-primary">Operación Exitosa</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant" id="toastMessage">Recepción de mercadería ingresada a base de datos.</div>
+</div>
+</div>
+<!-- Interactive JavaScript Logic -->
+<script>
+    function toggleModal(show) {
+      const modal = document.getElementById('stockModal');
+      if (show) {
+        modal.classList.remove('hidden');
+        setTimeout(() => {
+          modal.classList.remove('opacity-0');
+        }, 10);
+      } else {
+        modal.classList.add('opacity-0');
+        setTimeout(() => {
+          modal.classList.add('hidden');
+        }, 200);
+      }
+    }
+
+    function quickRefill(sku, name) {
+      document.getElementById('modalSkuInput').value = sku;
+      document.getElementById('modalProductName').innerText = `${name} (Ingreso inmediato)`;
+      toggleModal(true);
+    }
+
+    function toggleStockAlertFilter() {
+      const btn = document.getElementById('alertFilterBtn');
+      const isFiltered = btn.classList.toggle('bg-primary-container/20');
+      btn.classList.toggle('border-primary');
+      showToast(isFiltered ? 'Filtrando ítems con alerta de bajo inventario.' : 'Filtro removido. Mostrando catálogo completo.');
+    }
+
+    function filterLowStock() {
+      toggleStockAlertFilter();
+    }
+
+    function confirmStockReceipt() {
+      toggleModal(false);
+      showToast('10 unidades agregadas satisfactoriamente al Rack A-01-03.');
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toastNotification');
+      const msgElem = document.getElementById('toastMessage');
+      msgElem.innerText = msg;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 3500);
+    }
+  </script>
+</body></html>

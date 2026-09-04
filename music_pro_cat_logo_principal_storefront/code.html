@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Music Pro | Catálogo Oficial de Instrumentos y Audio Profesional</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary-fixed": "#2a1700",
+            "on-error": "#690005",
+            "on-background": "#e2e2e8",
+            "on-surface-variant": "#d8c3ad",
+            "outline": "#a08e7a",
+            "tertiary-fixed": "#6ffbbe",
+            "on-primary-fixed-variant": "#653e00",
+            "secondary-fixed-dim": "#ffb77d",
+            "error": "#ffb4ab",
+            "secondary": "#ffb77d",
+            "tertiary-fixed-dim": "#4edea3",
+            "on-tertiary": "#003824",
+            "surface-container-low": "#1a1c20",
+            "on-secondary-container": "#432100",
+            "tertiary": "#56e5a9",
+            "surface-tint": "#ffb95f",
+            "primary-container": "#f59e0b",
+            "outline-variant": "#534434",
+            "on-primary-container": "#613b00",
+            "primary-fixed": "#ffddb8",
+            "surface-container-highest": "#333539",
+            "tertiary-container": "#30c88f",
+            "surface-dim": "#111317",
+            "on-secondary-fixed": "#2f1500",
+            "surface-container-high": "#282a2e",
+            "on-primary": "#472a00",
+            "on-error-container": "#ffdad6",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-tertiary-container": "#004e34",
+            "primary-fixed-dim": "#ffb95f",
+            "on-tertiary-fixed": "#002113",
+            "secondary-fixed": "#ffdcc3",
+            "primary": "#ffc174",
+            "inverse-on-surface": "#2f3035",
+            "on-secondary-fixed-variant": "#6e3900",
+            "on-secondary": "#4d2600",
+            "error-container": "#93000a",
+            "on-surface": "#e2e2e8",
+            "background": "#111317",
+            "surface-bright": "#37393e",
+            "surface": "#111317",
+            "inverse-primary": "#855300",
+            "surface-container-lowest": "#0c0e12",
+            "inverse-surface": "#e2e2e8",
+            "surface-variant": "#333539",
+            "surface-container": "#1e2024",
+            "secondary-container": "#d97707"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-3xl": "4rem",
+            "space-sm": "0.75rem",
+            "margin-tablet": "2rem",
+            "space-lg": "1.5rem",
+            "gutter-mobile": "1rem",
+            "space-2xl": "3rem",
+            "space-xl": "2rem",
+            "space-2xs": "0.25rem",
+            "gutter-tablet": "1.5rem",
+            "gutter-desktop": "1.5rem",
+            "margin-desktop": "3rem",
+            "space-3xs": "0.125rem",
+            "space-xs": "0.5rem",
+            "space-md": "1rem",
+            "margin-mobile": "1rem"
+          },
+          "fontFamily": {
+            "label-sm": ["JetBrains Mono"],
+            "display-lg": ["Space Grotesk"],
+            "label-md": ["JetBrains Mono"],
+            "headline-lg": ["Space Grotesk"],
+            "label-lg": ["JetBrains Mono"],
+            "body-sm": ["Inter"],
+            "headline-xl-mobile": ["Space Grotesk"],
+            "headline-sm": ["Space Grotesk"],
+            "body-lg": ["Inter"],
+            "headline-md": ["Space Grotesk"],
+            "display-lg-mobile": ["Space Grotesk"],
+            "headline-xl": ["Space Grotesk"],
+            "body-md": ["Inter"]
+          },
+          "fontSize": {
+            "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "600" }],
+            "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+            "label-md": ["11px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "500" }],
+            "headline-lg": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-lg": ["13px", { "lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "500" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "display-lg-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0c0e12;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #333539;
+      border-radius: 2px;
+    }
+    .amber-glow {
+      box-shadow: 0 0 16px rgba(245, 158, 11, 0.25);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen selection:bg-primary-container selection:text-on-primary-container font-body-md text-body-md flex flex-col">
+<!-- TOP HEADER / NAVBAR (Shared Component: TopNavBar Anchor) -->
+<header class="sticky top-0 z-50 bg-surface shadow-sm border-b border-outline-variant">
+<div class="w-full px-space-lg md:px-margin-desktop h-16 flex items-center justify-between gap-space-md">
+<!-- Brand Logo & Quick Search Anchor -->
+<div class="flex items-center gap-space-xl flex-1 max-w-xl">
+<a class="flex items-center gap-space-xs group" href="#">
+<div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center text-on-primary font-headline-md font-bold shadow-sm">
+<span class="material-symbols-outlined text-on-primary-fixed" data-icon="tune">tune</span>
+</div>
+<span class="text-headline-md font-headline-md font-bold tracking-tight text-primary">Music Pro</span>
+</a>
+<!-- Search Bar with KBD Chip -->
+<div class="relative w-full hidden sm:block">
+<div class="absolute inset-y-0 left-0 pl-space-sm flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline text-lg" data-icon="search">search</span>
+</div>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg pl-9 pr-14 py-space-xs text-on-surface placeholder:text-outline-variant font-body-sm text-body-sm focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all" placeholder="Buscar guitarras, sintetizadores, micrófonos, marcas..." type="text"/>
+<div class="absolute inset-y-0 right-0 pr-space-xs flex items-center pointer-events-none">
+<kbd class="bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm px-1.5 py-0.5 rounded border border-outline-variant">⌘K</kbd>
+</div>
+</div>
+</div>
+<!-- Action Utilities & Trailing Clusters -->
+<div class="flex items-center gap-space-sm">
+<!-- Live Telemetry Status Pill (Pro Audio Warehouse) -->
+<div class="hidden xl:flex items-center gap-2 px-space-sm py-1 bg-surface-container-low border border-outline-variant rounded-lg">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-tertiary">BODEGA CENTRAL EN LÍNEA</span>
+</div>
+<!-- Telemetry & Settings Icon -->
+<button class="p-2 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" title="Ajustes de audio / Telemetría">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+</button>
+<!-- Notification Trigger -->
+<button class="p-2 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors relative" title="Notificaciones de stock">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-primary-container"></span>
+</button>
+<!-- Cart Action Trailing -->
+<button class="flex items-center gap-2 bg-surface-container-high hover:bg-surface-container-highest text-on-surface px-space-sm py-2 rounded-lg border border-outline-variant transition-colors group">
+<span class="material-symbols-outlined text-primary group-hover:scale-105 transition-transform" data-icon="shopping_bag">shopping_bag</span>
+<span class="font-label-md text-label-md font-medium text-primary">Cart (3)</span>
+</button>
+<!-- Sign In / Account Secondary Action -->
+<button class="hidden md:flex items-center gap-2 bg-primary-container hover:bg-secondary-container text-on-primary-fixed px-space-md py-2 rounded-lg font-headline-sm text-label-lg font-semibold shadow-sm transition-all hover:shadow-md">
+<span class="material-symbols-outlined text-base" data-icon="account_circle">account_circle</span>
+<span>Mi Cuenta</span>
+</button>
+</div>
+</div>
+<!-- Category Subnav Strip (Horizontal Hierarchy) -->
+<div class="border-t border-outline-variant bg-surface-container-lowest px-space-lg md:px-margin-desktop overflow-x-auto custom-scrollbar">
+<nav class="flex items-center gap-space-lg h-10 min-w-max">
+<a class="text-primary border-b-2 border-primary pb-1 font-medium font-label-md text-label-md flex items-center gap-1.5" href="#guitarras">
+<span class="material-symbols-outlined text-sm" data-icon="music_note">music_note</span> Guitarras y Bajos
+        </a>
+<a class="text-on-surface-variant hover:text-primary transition-colors pb-1 font-medium font-label-md text-label-md flex items-center gap-1.5" href="#baterias">
+<span class="material-symbols-outlined text-sm" data-icon="radio">radio</span> Baterías y Percusión
+        </a>
+<a class="text-on-surface-variant hover:text-primary transition-colors pb-1 font-medium font-label-md text-label-md flex items-center gap-1.5" href="#audio-pro">
+<span class="material-symbols-outlined text-sm" data-icon="mic">mic</span> Audio Pro y Grabación
+        </a>
+<a class="text-on-surface-variant hover:text-primary transition-colors pb-1 font-medium font-label-md text-label-md flex items-center gap-1.5" href="#teclados">
+<span class="material-symbols-outlined text-sm" data-icon="piano">piano</span> Teclados y Sintetizadores
+        </a>
+<a class="text-on-surface-variant hover:text-primary transition-colors pb-1 font-medium font-label-md text-label-md flex items-center gap-1.5" href="#accesorios">
+<span class="material-symbols-outlined text-sm" data-icon="cable">cable</span> Accesorios &amp; Cables
+        </a>
+<div class="h-4 w-px bg-outline-variant ml-auto"></div>
+<a class="text-tertiary hover:text-tertiary-fixed transition-colors pb-1 font-label-sm text-label-sm uppercase flex items-center gap-1" href="#matriz-stock">
+<span class="material-symbols-outlined text-sm" data-icon="warehouse">warehouse</span> Matriz de Stock 24h
+        </a>
+</nav>
+</div>
+</header>
+<!-- MAIN CANVAS -->
+<main class="flex-1 w-full max-w-7xl mx-auto px-space-md sm:px-space-lg md:px-margin-desktop py-space-xl space-y-space-2xl">
+<!-- HERO SHOWCASE: Bento / High-Impact Rack Section -->
+<section class="relative rounded-xl overflow-hidden border border-outline-variant bg-gradient-to-br from-surface-container-low via-surface-container to-surface-container-lowest p-space-lg md:p-space-2xl shadow-xl">
+<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary-container/10 via-transparent to-transparent pointer-events-none"></div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center relative z-10">
+<!-- Left Hero Copy -->
+<div class="lg:col-span-7 space-y-space-md">
+<div class="inline-flex items-center gap-2 px-space-sm py-1 rounded bg-surface-container-high border border-primary-container/30 text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="album">album</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Nueva Generación de Hardware 2024</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl md:text-display-lg text-on-surface tracking-tight font-bold leading-none">
+            Calibración Pura.<br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary-fixed to-primary-container">
+              Precisión de Estudio.
+            </span>
+</h1>
+<p class="text-on-surface-variant font-body-lg text-body-lg max-w-xl">
+            Descubre consolas análogas, sintetizadores polifónicos y microfonía de grado mastering con certificación de banco acústico Music Pro y despacho prioritario.
+          </p>
+<!-- Technical Spec Pill Indicators -->
+<div class="flex flex-wrap gap-space-sm py-space-xs">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded bg-surface-container-lowest border border-outline-variant">
+<span class="material-symbols-outlined text-tertiary text-sm" data-icon="verified">verified</span>
+<span class="font-label-sm text-label-sm text-on-surface">Banco de Prueba 192kHz/32-Bit</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-1.5 rounded bg-surface-container-lowest border border-outline-variant">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="local_shipping">local_shipping</span>
+<span class="font-label-sm text-label-sm text-on-surface">Despacho Refrigerado/Anti-Shock</span>
+</div>
+</div>
+<!-- CTAs -->
+<div class="flex flex-wrap items-center gap-space-md pt-space-xs">
+<button class="bg-primary-container hover:bg-secondary-container text-on-primary-fixed font-headline-sm text-label-lg font-semibold px-space-xl py-3 rounded shadow-md transition-all flex items-center gap-2 group">
+<span>Explorar Novedades</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<button class="bg-surface-container-high hover:bg-surface-container-highest text-on-surface border border-outline-variant font-headline-sm text-label-lg font-medium px-space-lg py-3 rounded transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="analytics">analytics</span>
+<span>Ver Ofertas de Estudio</span>
+</button>
+</div>
+</div>
+<!-- Right Hero Image Canvas -->
+<div class="lg:col-span-5 relative">
+<div class="relative rounded-xl overflow-hidden border border-outline-variant bg-surface-container-lowest p-2 shadow-2xl">
+<img class="w-full h-80 object-cover rounded-lg" data-alt="A luxurious dark-themed pro audio recording console and flagship analog polyphonic synthesizer featuring brushed vintage brass knobs, warm amber backlit VU meters, and glowing OLED spectrum displays in an acoustically treated master suite with deep obsidian shadows and warm golden tube lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJ14tlBYkpdPXdmFNuaqplw9lg8d_hvRRNQB5zvD28F5lavKK_syw_5DtUCsJVVdLmwWSGVBrd1BIAKyEJT9-VTVoQDspGv88mQidfeCKwWQ95VOpQKKStdbviFC5spASS94zgbsi-q7jH-tfIUzrmdpScD9I2y56AvPaNKGWgvdugwNnSiO8BHYDefVuVVkf-ZJnIxoiOov8HcVW_WWxd54ZIhq9zTEzoLNwf_soxSwIcGZa7MrIO"/>
+<div class="absolute bottom-4 left-4 right-4 bg-surface-dim/90 backdrop-blur-md border border-outline-variant p-3 rounded-lg flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase">Módulo Destacado</span>
+<p class="font-headline-sm text-headline-sm text-on-surface font-semibold">Roland Jupiter-X Suite</p>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Disponibilidad</span>
+<span class="font-label-md text-label-md text-tertiary font-bold flex items-center gap-1 justify-end">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> 4 en Bodega
+                </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SHOPPING BENEFITS BAR (Valor Agregado Music Pro) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<div class="p-space-lg rounded-xl bg-surface-container-low border border-outline-variant flex items-start gap-space-md hover:border-outline transition-colors">
+<div class="p-2.5 rounded bg-surface-container-high border border-outline-variant text-primary">
+<span class="material-symbols-outlined text-2xl" data-icon="verified_user">verified_user</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Garantía Extendida de 2 Años</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Cobertura total contra fallas de fábrica y certificación directa de service oficial.</p>
+</div>
+</div>
+<div class="p-space-lg rounded-xl bg-surface-container-low border border-outline-variant flex items-start gap-space-md hover:border-outline transition-colors">
+<div class="p-2.5 rounded bg-surface-container-high border border-outline-variant text-primary">
+<span class="material-symbols-outlined text-2xl" data-icon="bolt">bolt</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Despacho Express en 24 Horas</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Logística climatizada y trazabilidad GPS en tiempo real para equipamiento frágil.</p>
+</div>
+</div>
+<div class="p-space-lg rounded-xl bg-surface-container-low border border-outline-variant flex items-start gap-space-md hover:border-outline transition-colors">
+<div class="p-2.5 rounded bg-surface-container-high border border-outline-variant text-primary">
+<span class="material-symbols-outlined text-2xl" data-icon="build">build</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Calibración en Taller Oficial</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Ajuste de octavación, calibración de bias y seteo de acción sin costo antes del envío.</p>
+</div>
+</div>
+</section>
+<!-- CATALOG WORKSPACE: Sidebar Filters + Products Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- FILTER SIDEBAR (Instrument & Audio Filters) -->
+<aside class="lg:col-span-3 space-y-space-lg bg-surface-container-low border border-outline-variant rounded-xl p-space-lg sticky top-24">
+<div class="flex items-center justify-between pb-space-sm border-b border-outline-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base" data-icon="filter_list">filter_list</span>
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Filtros de Catálogo</span>
+</div>
+<button class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline">Limpiar</button>
+</div>
+<!-- Categorías Primarias -->
+<div class="space-y-space-xs">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider block">Categoría</span>
+<div class="space-y-1.5 pt-1">
+<label class="flex items-center justify-between p-1.5 rounded hover:bg-surface-container cursor-pointer">
+<span class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
+<input checked="" class="w-4 h-4 rounded-sm bg-surface-container-lowest border-outline-variant text-primary-container focus:ring-0" type="checkbox"/>
+                Guitarras Eléctricas &amp; Bajos
+              </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">142</span>
+</label>
+<label class="flex items-center justify-between p-1.5 rounded hover:bg-surface-container cursor-pointer">
+<span class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
+<input class="w-4 h-4 rounded-sm bg-surface-container-lowest border-outline-variant text-primary-container focus:ring-0" type="checkbox"/>
+                Sintetizadores &amp; Workstations
+              </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">88</span>
+</label>
+<label class="flex items-center justify-between p-1.5 rounded hover:bg-surface-container cursor-pointer">
+<span class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
+<input checked="" class="w-4 h-4 rounded-sm bg-surface-container-lowest border-outline-variant text-primary-container focus:ring-0" type="checkbox"/>
+                Micrófonos de Condensador
+              </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">64</span>
+</label>
+<label class="flex items-center justify-between p-1.5 rounded hover:bg-surface-container cursor-pointer">
+<span class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
+<input class="w-4 h-4 rounded-sm bg-surface-container-lowest border-outline-variant text-primary-container focus:ring-0" type="checkbox"/>
+                Monitores de Estudio Activos
+              </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">52</span>
+</label>
+<label class="flex items-center justify-between p-1.5 rounded hover:bg-surface-container cursor-pointer">
+<span class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
+<input class="w-4 h-4 rounded-sm bg-surface-container-lowest border-outline-variant text-primary-container focus:ring-0" type="checkbox"/>
+                Interfaces de Audio Thunderbolt
+              </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">39</span>
+</label>
+</div>
+</div>
+<!-- Marcas Oficiales -->
+<div class="space-y-space-xs pt-space-xs border-t border-outline-variant">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider block">Marcas Oficiales</span>
+<div class="space-y-1.5 pt-1">
+<label class="flex items-center justify-between p-1.5 rounded hover:bg-surface-container cursor-pointer">
+<span class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
+<input checked="" class="w-4 h-4 rounded-sm bg-surface-container-lowest border-outline-variant text-primary-container focus:ring-0" type="checkbox"/>
+                Fender Custom Shop
+              </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">34</span>
+</label>
+<label class="flex items-center justify-between p-1.5 rounded hover:bg-surface-container cursor-pointer">
+<span class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
+<input checked="" class="w-4 h-4 rounded-sm bg-surface-container-lowest border-outline-variant text-primary-container focus:ring-0" type="checkbox"/>
+                Shure Pro
+              </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">28</span>
+</label>
+<label class="flex items-center justify-between p-1.5 rounded hover:bg-surface-container cursor-pointer">
+<span class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
+<input class="w-4 h-4 rounded-sm bg-surface-container-lowest border-outline-variant text-primary-container focus:ring-0" type="checkbox"/>
+                Roland Professional
+              </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">42</span>
+</label>
+<label class="flex items-center justify-between p-1.5 rounded hover:bg-surface-container cursor-pointer">
+<span class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
+<input checked="" class="w-4 h-4 rounded-sm bg-surface-container-lowest border-outline-variant text-primary-container focus:ring-0" type="checkbox"/>
+                Focusrite RedNet
+              </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">19</span>
+</label>
+<label class="flex items-center justify-between p-1.5 rounded hover:bg-surface-container cursor-pointer">
+<span class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface">
+<input class="w-4 h-4 rounded-sm bg-surface-container-lowest border-outline-variant text-primary-container focus:ring-0" type="checkbox"/>
+                Yamaha Commercial Audio
+              </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">31</span>
+</label>
+</div>
+</div>
+<!-- Rango de Precios Slider Simulado -->
+<div class="space-y-space-xs pt-space-xs border-t border-outline-variant">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Rango de Precio</span>
+<span class="font-label-sm text-label-sm text-primary">$150 - $4.500 USD</span>
+</div>
+<input class="w-full accent-primary-container bg-surface-container-highest h-1.5 rounded-lg appearance-none cursor-pointer" max="5000" min="150" type="range" value="3200"/>
+<div class="flex justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>Min: $150</span>
+<span>Max: $5.000+</span>
+</div>
+</div>
+<!-- Disponibilidad Inmediata -->
+<div class="space-y-space-xs pt-space-xs border-t border-outline-variant">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider block">Disponibilidad Telemetría</span>
+<div class="space-y-2 pt-1">
+<label class="flex items-center gap-2 p-1.5 rounded hover:bg-surface-container cursor-pointer">
+<input checked="" class="w-4 h-4 rounded-sm bg-surface-container-lowest border-outline-variant text-primary-container focus:ring-0" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span> Entrega Inmediata Bodega Central
+              </span>
+</label>
+<label class="flex items-center gap-2 p-1.5 rounded hover:bg-surface-container cursor-pointer">
+<input class="w-4 h-4 rounded-sm bg-surface-container-lowest border-outline-variant text-primary-container focus:ring-0" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span> Últimas Unidades en Stock
+              </span>
+</label>
+</div>
+</div>
+<!-- Calificación Mínima -->
+<div class="space-y-space-xs pt-space-xs border-t border-outline-variant">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider block">Calificación de Usuarios</span>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star">star</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant ml-2">(4.0+ estrellas)</span>
+</div>
+</div>
+</aside>
+<!-- CATALOG PRODUCT GRID & TOOLBAR -->
+<section class="lg:col-span-9 space-y-space-lg">
+<!-- Grid Header Toolbar -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md p-space-md bg-surface-container-low border border-outline-variant rounded-xl">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Instrumentos y Hardware</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high border border-outline-variant text-primary">
+              64 Productos Filtrados
+            </span>
+</div>
+<div class="flex items-center gap-space-sm w-full sm:w-auto">
+<span class="font-label-sm text-label-sm text-on-surface-variant whitespace-nowrap">Ordenar por:</span>
+<select class="bg-surface-container-lowest border border-outline-variant text-on-surface font-body-sm text-body-sm rounded px-space-sm py-1.5 focus:outline-none focus:border-primary">
+<option>Relevancia &amp; Disponibilidad</option>
+<option>Precio: Mayor a Menor</option>
+<option>Precio: Menor a Mayor</option>
+<option>Novedades 2024</option>
+<option>Mayor Calificación</option>
+</select>
+</div>
+</div>
+<!-- The 6-Card Product Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-space-md">
+<!-- CARD 1: Fender American Professional II -->
+<article class="rounded-xl border border-outline-variant bg-surface-container-low hover:border-outline transition-all duration-200 p-space-md flex flex-col justify-between group shadow-sm hover:shadow-lg">
+<div>
+<!-- Stock Badge & SKU Tag -->
+<div class="flex items-center justify-between mb-space-xs">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded font-label-sm text-label-sm bg-emerald-950/60 border border-emerald-500/30 text-emerald-400">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                  En Stock - Bodega Central
+                </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">SKU-FEN-774</span>
+</div>
+<!-- Product Image Well -->
+<div class="relative w-full h-52 rounded-lg bg-surface-container-lowest overflow-hidden mb-space-sm flex items-center justify-center p-2 border border-outline-variant/60">
+<img class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" data-alt="A studio photograph of an electric guitar, Fender Stratocaster in sunburst finish, resting against a dark acoustic foam background with soft golden side rim lighting, sharp hardware focus, and glossy dark finish reflections." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiv9cc2ykhpFCbzblJWIVu51eKVx6N1ku1SX-JcKHzSR4skGlLLbJiArIJNE4HK-qWlJ5Yp5TWpomJSgIulotvQmuPhAp8aNXEzud12c8uvgVIbfO1Fe0nBWHn10y-jIkHJYh8UW--y9o31gVgekUm50Ri3rg34jzYNjBboe8JIq1IaNecNIIx7ZxozTwPF29q7H9FjapNYiJsac2uX5ZsUWNCptuzkvncWYTU3BdZy0AWbvSFYWxI"/>
+<button class="absolute top-2 right-2 p-1.5 rounded-full bg-surface-container-high/80 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="favorite">favorite</span>
+</button>
+</div>
+<!-- Brand & Title -->
+<span class="font-label-sm text-label-sm uppercase text-primary tracking-wider">Fender Musical Instruments</span>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface mt-0.5 group-hover:text-primary transition-colors">
+                Stratocaster American Pro II
+              </h3>
+<!-- Color / Finish Selector -->
+<div class="flex items-center gap-2 mt-2 mb-3">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Acabado:</span>
+<button class="w-3.5 h-3.5 rounded-full bg-amber-700 border-2 border-primary-container" title="3-Color Sunburst"></button>
+<button class="w-3.5 h-3.5 rounded-full bg-slate-900 border border-outline-variant hover:border-primary" title="Piano Black"></button>
+<button class="w-3.5 h-3.5 rounded-full bg-teal-800 border border-outline-variant hover:border-primary" title="Miami Blue"></button>
+</div>
+<!-- Ratings -->
+<div class="flex items-center gap-1 text-primary text-xs mb-3">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant ml-1">(48 reseñas)</span>
+</div>
+</div>
+<!-- Price & Procurement CTAs -->
+<div class="pt-3 border-t border-outline-variant">
+<div class="flex items-baseline justify-between mb-3">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant line-through block">$1.899 USD</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">$1.649 USD</span>
+</div>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-primary-container/20 text-primary border border-primary-container/40">
+                  -13% OFF
+                </span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="bg-primary-container hover:bg-secondary-container text-on-primary-fixed font-headline-sm text-label-md font-semibold py-2 rounded flex items-center justify-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="shopping_cart">shopping_cart</span>
+<span>Añadir</span>
+</button>
+<button class="bg-surface-container-high hover:bg-surface-container-highest text-on-surface border border-outline-variant font-headline-sm text-label-md font-medium py-2 rounded transition-colors">
+                  Compra Rápida
+                </button>
+</div>
+</div>
+</article>
+<!-- CARD 2: Shure SM7B Vocal Mic -->
+<article class="rounded-xl border border-outline-variant bg-surface-container-low hover:border-outline transition-all duration-200 p-space-md flex flex-col justify-between group shadow-sm hover:shadow-lg">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded font-label-sm text-label-sm bg-emerald-950/60 border border-emerald-500/30 text-emerald-400">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                  En Stock - Bodega Central
+                </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">SKU-SHU-07B</span>
+</div>
+<div class="relative w-full h-52 rounded-lg bg-surface-container-lowest overflow-hidden mb-space-sm flex items-center justify-center p-2 border border-outline-variant/60">
+<img class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" data-alt="A precision studio photograph of a Shure SM7B dynamic studio microphone on a minimalist black boom arm, dark industrial audio studio environment, soft golden backlight emphasizing the dark metallic mesh and matte charcoal chassis." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQjcq4y8wAbaFQLoMWn3DlT9ZxESuvltVtZBAmpgDTCaDqAzso4FG7GsX56OX1lDWDzF2NGVfRkKz_IBOD4h-4G_ytwAzm1mkpBr5ev8-bXXUVG61SJicULkyY1rHUAxHdyhAKm9R6gLvYUr50ip8Z4vEfHIA9GYDj-gKB9OkhrniVQFnd2MiQBvaUC8HE3rAqsBghVwFLrQNx7DoI9rJHYpl9t8Cc5m68J8Ld4176VhmjJHLuz7Za"/>
+<button class="absolute top-2 right-2 p-1.5 rounded-full bg-surface-container-high/80 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="favorite">favorite</span>
+</button>
+</div>
+<span class="font-label-sm text-label-sm uppercase text-primary tracking-wider">Shure Pro Audio</span>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface mt-0.5 group-hover:text-primary transition-colors">
+                SM7B Micrófono Dinámico
+              </h3>
+<div class="flex items-center gap-2 mt-2 mb-3">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Patrón:</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface border border-outline-variant">Cardioide Puro</span>
+</div>
+<div class="flex items-center gap-1 text-primary text-xs mb-3">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant ml-1">(124 reseñas)</span>
+</div>
+</div>
+<div class="pt-3 border-t border-outline-variant">
+<div class="flex items-baseline justify-between mb-3">
+<div>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">$399 USD</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary">Envío Gratis 24h</span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="bg-primary-container hover:bg-secondary-container text-on-primary-fixed font-headline-sm text-label-md font-semibold py-2 rounded flex items-center justify-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="shopping_cart">shopping_cart</span>
+<span>Añadir</span>
+</button>
+<button class="bg-surface-container-high hover:bg-surface-container-highest text-on-surface border border-outline-variant font-headline-sm text-label-md font-medium py-2 rounded transition-colors">
+                  Compra Rápida
+                </button>
+</div>
+</div>
+</article>
+<!-- CARD 3: Roland Jupiter Synthesizer -->
+<article class="rounded-xl border border-outline-variant bg-surface-container-low hover:border-outline transition-all duration-200 p-space-md flex flex-col justify-between group shadow-sm hover:shadow-lg">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded font-label-sm text-label-sm bg-amber-950/60 border border-amber-500/40 text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+                  Últimas 2 Unidades
+                </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">SKU-ROL-JPX</span>
+</div>
+<div class="relative w-full h-52 rounded-lg bg-surface-container-lowest overflow-hidden mb-space-sm flex items-center justify-center p-2 border border-outline-variant/60">
+<img class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" data-alt="A dark synthesizer studio shot showing a Roland Jupiter-X flagship synthesizer keyboard with illuminated amber and orange LED sliders, solid aluminium sides, and high-contrast control dials on an obsidian studio bench." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBa64_N5dkd-x82KYI7jk8tV7Eg_ff6x5rmP1LQwkYeq7MHBc_uDm6JVSOqkD8wlJB8coxXdr91rfwboXXIUkDy6x3Vn4AqENOz5_ww8iv_hxTqQhPEhJyPdsZne1nCdZXZL7w0FkUMEwYqZFTSJUZOYNv7I42iTTAhuNGpRaiOoRm5lZT6QdLp6jkdS6dOg9ohCvZgqpmI6hFRz-auT7p62Wl0cmx5lFGEd6I7Xphh7d8zWQCGaK7v"/>
+<button class="absolute top-2 right-2 p-1.5 rounded-full bg-surface-container-high/80 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="favorite">favorite</span>
+</button>
+</div>
+<span class="font-label-sm text-label-sm uppercase text-primary tracking-wider">Roland Pro Keyboards</span>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface mt-0.5 group-hover:text-primary transition-colors">
+                Jupiter-X Sintetizador Polifónico
+              </h3>
+<div class="flex items-center gap-2 mt-2 mb-3">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Teclas:</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface border border-outline-variant">61 Acción Pesada c/ Aftertouch</span>
+</div>
+<div class="flex items-center gap-1 text-primary text-xs mb-3">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star_half" style="font-variation-settings: 'FILL' 1;">star_half</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant ml-1">(27 reseñas)</span>
+</div>
+</div>
+<div class="pt-3 border-t border-outline-variant">
+<div class="flex items-baseline justify-between mb-3">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant line-through block">$2.799 USD</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">$2.490 USD</span>
+</div>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-primary-container/20 text-primary border border-primary-container/40">
+                  Promo Audio
+                </span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="bg-primary-container hover:bg-secondary-container text-on-primary-fixed font-headline-sm text-label-md font-semibold py-2 rounded flex items-center justify-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="shopping_cart">shopping_cart</span>
+<span>Añadir</span>
+</button>
+<button class="bg-surface-container-high hover:bg-surface-container-highest text-on-surface border border-outline-variant font-headline-sm text-label-md font-medium py-2 rounded transition-colors">
+                  Compra Rápida
+                </button>
+</div>
+</div>
+</article>
+<!-- CARD 4: Focusrite Red 8Line -->
+<article class="rounded-xl border border-outline-variant bg-surface-container-low hover:border-outline transition-all duration-200 p-space-md flex flex-col justify-between group shadow-sm hover:shadow-lg">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded font-label-sm text-label-sm bg-emerald-950/60 border border-emerald-500/30 text-emerald-400">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                  En Stock - Bodega Central
+                </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">SKU-FOC-8LN</span>
+</div>
+<div class="relative w-full h-52 rounded-lg bg-surface-container-lowest overflow-hidden mb-space-sm flex items-center justify-center p-2 border border-outline-variant/60">
+<img class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" data-alt="A pro rackmount audio interface, Focusrite Red 8Line, showing metallic red faceplate with glowing high-resolution color meter screens, Thunderbolt 3 and Dante ports, isolated against an obsidian textured rack background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAa2NDFQ579A3Phsa_AGPK8rjfBd3F5suPHB_odjE91lyAvEzQ2r0dH-paSKTJrLIyO_zUKUk8MbxLZYIwvuARIs1fX9oEUafuQ23GsRjbJE_I9yJmEGZZJLfrwDp6ORL0ToFwYMHk1liFMXu6uJPX4kJ2wtCjpdSBt5SxT69BVhu_QSQh3EbaJ4kO72327bM1KV0WWnDWxSkVV4e2zdw-OYHYpDNKkA4V6lHA-_5JeGOK42d6_W4Im"/>
+<button class="absolute top-2 right-2 p-1.5 rounded-full bg-surface-container-high/80 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="favorite">favorite</span>
+</button>
+</div>
+<span class="font-label-sm text-label-sm uppercase text-primary tracking-wider">Focusrite Pro Audio</span>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface mt-0.5 group-hover:text-primary transition-colors">
+                Red 8Line Thunderbolt 3 / Dante
+              </h3>
+<div class="flex items-center gap-2 mt-2 mb-3">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Conectividad:</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface border border-outline-variant">58 In / 64 Out</span>
+</div>
+<div class="flex items-center gap-1 text-primary text-xs mb-3">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant ml-1">(15 reseñas)</span>
+</div>
+</div>
+<div class="pt-3 border-t border-outline-variant">
+<div class="flex items-baseline justify-between mb-3">
+<div>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">$2.999 USD</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary">Envío Express 24h</span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="bg-primary-container hover:bg-secondary-container text-on-primary-fixed font-headline-sm text-label-md font-semibold py-2 rounded flex items-center justify-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="shopping_cart">shopping_cart</span>
+<span>Añadir</span>
+</button>
+<button class="bg-surface-container-high hover:bg-surface-container-highest text-on-surface border border-outline-variant font-headline-sm text-label-md font-medium py-2 rounded transition-colors">
+                  Compra Rápida
+                </button>
+</div>
+</div>
+</article>
+<!-- CARD 5: Yamaha HS8 Studio Monitors Pair -->
+<article class="rounded-xl border border-outline-variant bg-surface-container-low hover:border-outline transition-all duration-200 p-space-md flex flex-col justify-between group shadow-sm hover:shadow-lg">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded font-label-sm text-label-sm bg-emerald-950/60 border border-emerald-500/30 text-emerald-400">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                  En Stock - Bodega Central
+                </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">SKU-YAM-HS8</span>
+</div>
+<div class="relative w-full h-52 rounded-lg bg-surface-container-lowest overflow-hidden mb-space-sm flex items-center justify-center p-2 border border-outline-variant/60">
+<img class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" data-alt="A detailed studio capture of Yamaha HS8 active reference nearfield monitors with iconic white cone woofers on dark acoustic decoupling pads, clean dark audio mixing suite lighting with warm amber accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBA3szuJn47ujF4U-pYbZVahpKzBQTqh9UC3V5kBL7jfReRYW24R5twrroXGWxvAjVvszMt5QVPzne2ZFNs_f7mMPyG7zqpwDTkJKqEoSl6EbCaRO0QO0aQBP_9iFudw3vjSWcVYNsnwzYXdLqzwNDJnltFPUI_BgS-PRMetfjh80RUiKhyHp7mNpjx9Swrg5w45BPlH1rzYundxdOaSWNjw-3mCbeB04w3Ul9qkkzMccG7ViKc-xAK"/>
+<button class="absolute top-2 right-2 p-1.5 rounded-full bg-surface-container-high/80 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="favorite">favorite</span>
+</button>
+</div>
+<span class="font-label-sm text-label-sm uppercase text-primary tracking-wider">Yamaha Studio</span>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface mt-0.5 group-hover:text-primary transition-colors">
+                HS8 Par de Monitores de Estudio
+              </h3>
+<div class="flex items-center gap-2 mt-2 mb-3">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Color Caja:</span>
+<button class="w-3.5 h-3.5 rounded-full bg-black border-2 border-primary-container" title="Matte Black"></button>
+<button class="w-3.5 h-3.5 rounded-full bg-zinc-200 border border-outline-variant hover:border-primary" title="Pure White"></button>
+</div>
+<div class="flex items-center gap-1 text-primary text-xs mb-3">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant ml-1">(92 reseñas)</span>
+</div>
+</div>
+<div class="pt-3 border-t border-outline-variant">
+<div class="flex items-baseline justify-between mb-3">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant line-through block">$820 USD</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">$749 USD / Par</span>
+</div>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-primary-container/20 text-primary border border-primary-container/40">
+                  Oferta Pack
+                </span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="bg-primary-container hover:bg-secondary-container text-on-primary-fixed font-headline-sm text-label-md font-semibold py-2 rounded flex items-center justify-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="shopping_cart">shopping_cart</span>
+<span>Añadir</span>
+</button>
+<button class="bg-surface-container-high hover:bg-surface-container-highest text-on-surface border border-outline-variant font-headline-sm text-label-md font-medium py-2 rounded transition-colors">
+                  Compra Rápida
+                </button>
+</div>
+</div>
+</article>
+<!-- CARD 6: Fender Jazz Bass Professional -->
+<article class="rounded-xl border border-outline-variant bg-surface-container-low hover:border-outline transition-all duration-200 p-space-md flex flex-col justify-between group shadow-sm hover:shadow-lg">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded font-label-sm text-label-sm bg-amber-950/60 border border-amber-500/40 text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+                  Últimas 2 Unidades
+                </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">SKU-FEN-JB5</span>
+</div>
+<div class="relative w-full h-52 rounded-lg bg-surface-container-lowest overflow-hidden mb-space-sm flex items-center justify-center p-2 border border-outline-variant/60">
+<img class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" data-alt="A Fender Jazz Bass 5-string electric bass guitar finished in dark roasted pine finish with tortoiseshell pickguard, chrome bridge and control plates reflecting dark studio warm ambient tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDisyJXxyfWfSvckd3nFiJXFpeXmOJMQNUu9UEWcedubvciLomRA5Xotsw7RMPXoVRr2X3dsDp4at0NouuzejEXU95wk5O7WOBnDGJkZXaW0ik-WDcAhEnKcmurgDFj5H0TuCgxuuwM5F-SpzZrZo883Etp-D_h2Yp4av-VrxUauQqqCdUS-weF-LXLFH_51oN9aZkDS-9osBcZm5gV0Z-5q73OgdytTG1aKQbzTOTHIxzVdycd87xV"/>
+<button class="absolute top-2 right-2 p-1.5 rounded-full bg-surface-container-high/80 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="favorite">favorite</span>
+</button>
+</div>
+<span class="font-label-sm text-label-sm uppercase text-primary tracking-wider">Fender Basses</span>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface mt-0.5 group-hover:text-primary transition-colors">
+                Jazz Bass American Pro II V
+              </h3>
+<div class="flex items-center gap-2 mt-2 mb-3">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Cuerdas:</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface border border-outline-variant">5 Cuerdas / Roasted Maple</span>
+</div>
+<div class="flex items-center gap-1 text-primary text-xs mb-3">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant ml-1">(34 reseñas)</span>
+</div>
+</div>
+<div class="pt-3 border-t border-outline-variant">
+<div class="flex items-baseline justify-between mb-3">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant line-through block">$1.999 USD</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">$1.790 USD</span>
+</div>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-primary-container/20 text-primary border border-primary-container/40">
+                  Ajuste Incluido
+                </span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="bg-primary-container hover:bg-secondary-container text-on-primary-fixed font-headline-sm text-label-md font-semibold py-2 rounded flex items-center justify-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="shopping_cart">shopping_cart</span>
+<span>Añadir</span>
+</button>
+<button class="bg-surface-container-high hover:bg-surface-container-highest text-on-surface border border-outline-variant font-headline-sm text-label-md font-medium py-2 rounded transition-colors">
+                  Compra Rápida
+                </button>
+</div>
+</div>
+</article>
+</div>
+<!-- Pagination & Real-time Batch Status -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-space-md p-space-md bg-surface-container-low border border-outline-variant rounded-xl">
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+            Mostrando <strong class="text-on-surface">1 - 6</strong> de 64 artículos en stock de bodega
+          </span>
+<div class="flex items-center gap-1">
+<button class="p-2 rounded bg-surface-container-high text-on-surface-variant hover:text-on-surface disabled:opacity-40">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded bg-primary-container text-on-primary font-label-sm text-label-sm font-bold">1</button>
+<button class="w-8 h-8 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-sm text-label-sm">2</button>
+<button class="w-8 h-8 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-sm text-label-sm">3</button>
+<span class="px-2 text-on-surface-variant">...</span>
+<button class="w-8 h-8 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-sm text-label-sm">11</button>
+<button class="p-2 rounded bg-surface-container-high text-on-surface hover:text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+<!-- OFFICIAL BRANDS CAROUSEL/GRID SECTION -->
+<section class="border-t border-outline-variant pt-space-xl">
+<div class="flex items-center justify-between mb-space-lg">
+<div>
+<span class="font-label-sm text-label-sm uppercase text-primary tracking-wider">Distribuidores Autorizados</span>
+<h2 class="font-headline-md text-headline-md font-semibold text-on-surface">Marcas Oficiales Music Pro</h2>
+</div>
+<a class="font-label-sm text-label-sm text-primary hover:underline flex items-center gap-1" href="#">
+          Ver todas las 85 marcas <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-space-md">
+<div class="p-space-md rounded-xl bg-surface-container-lowest border border-outline-variant hover:border-outline flex flex-col items-center justify-center gap-2 group transition-all">
+<span class="material-symbols-outlined text-3xl text-outline group-hover:text-primary transition-colors" data-icon="graphic_eq">graphic_eq</span>
+<span class="font-headline-sm text-label-lg font-bold text-on-surface">Fender</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Guitarras &amp; Amplis</span>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-lowest border border-outline-variant hover:border-outline flex flex-col items-center justify-center gap-2 group transition-all">
+<span class="material-symbols-outlined text-3xl text-outline group-hover:text-primary transition-colors" data-icon="mic">mic</span>
+<span class="font-headline-sm text-label-lg font-bold text-on-surface">Shure</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Audio &amp; Inalámbricos</span>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-lowest border border-outline-variant hover:border-outline flex flex-col items-center justify-center gap-2 group transition-all">
+<span class="material-symbols-outlined text-3xl text-outline group-hover:text-primary transition-colors" data-icon="piano">piano</span>
+<span class="font-headline-sm text-label-lg font-bold text-on-surface">Roland</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sintetizadores &amp; V-Drums</span>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-lowest border border-outline-variant hover:border-outline flex flex-col items-center justify-center gap-2 group transition-all">
+<span class="material-symbols-outlined text-3xl text-outline group-hover:text-primary transition-colors" data-icon="speaker">speaker</span>
+<span class="font-headline-sm text-label-lg font-bold text-on-surface">Yamaha</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Consolas &amp; Monitores</span>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-lowest border border-outline-variant hover:border-outline flex flex-col items-center justify-center gap-2 group transition-all">
+<span class="material-symbols-outlined text-3xl text-outline group-hover:text-primary transition-colors" data-icon="sensors">sensors</span>
+<span class="font-headline-sm text-label-lg font-bold text-on-surface">Focusrite</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Interfaces &amp; Dante Pro</span>
+</div>
+</div>
+</section>
+</main>
+<!-- CORPORATE FOOTER (Shared Component: Footer Anchor) -->
+<footer class="mt-auto bg-surface-container-lowest border-t border-outline-variant">
+<div class="w-full px-space-lg md:px-margin-desktop py-space-2xl mx-auto flex flex-col gap-space-lg">
+<!-- Top Columns -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-space-xl">
+<!-- Brand identity block -->
+<div class="space-y-space-sm">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded bg-primary-container flex items-center justify-center text-on-primary font-headline-sm font-bold">
+<span class="material-symbols-outlined text-sm" data-icon="tune">tune</span>
+</div>
+<span class="text-headline-sm font-headline-sm font-bold text-primary">Music Pro</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Plataforma especializada en suministro de instrumentos musicales de alta gama y tecnología acústica para ingenieros de sonido, recintos y músicos profesionales.
+          </p>
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-tertiary">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span>Centro de Despacho &amp; Taller: Santiago / Logística Global</span>
+</div>
+</div>
+<!-- Links Group 1: Servicios & Garantías -->
+<div class="space-y-space-xs">
+<span class="font-headline-sm text-label-md font-bold text-on-surface uppercase tracking-wider block">Servicios &amp; Soporte</span>
+<ul class="space-y-2 font-body-sm text-body-sm">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Warranty &amp; Studio Guarantee</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Global Freight &amp; Shipping Calculator</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Calibrated Bench Testing</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Customer Support &amp; Dispatch</a></li>
+</ul>
+</div>
+<!-- Links Group 2: Operaciones & Corporativo -->
+<div class="space-y-space-xs">
+<span class="font-headline-sm text-label-md font-bold text-on-surface uppercase tracking-wider block">Soluciones B2B</span>
+<ul class="space-y-2 font-body-sm text-body-sm">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">B2B Warehouse Integration</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Convenios con Productoras &amp; Estudios</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Cotizaciones de Licitación Técnica</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<!-- Telemetría & Horarios de Despacho -->
+<div class="space-y-space-xs bg-surface-container-low p-space-md rounded-xl border border-outline-variant">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider block">Despacho de Bodega Central</span>
+<p class="font-body-sm text-body-sm text-on-surface">Lunes a Viernes: 08:00 - 19:30 hrs</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Salida de camiones express anti-shock a las 11:00 y 16:30 hrs.</p>
+<div class="pt-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Línea directa mesa de audio:</span>
+<span class="font-label-md text-label-md text-primary font-mono">+56 2 2890 4400</span>
+</div>
+</div>
+</div>
+<!-- Bottom Bar with Exact Copyright String -->
+<div class="border-t border-outline-variant pt-space-md flex flex-col md:flex-row items-center justify-between gap-space-sm">
+<p class="font-body-sm text-body-sm text-on-surface-variant text-center md:text-left">
+          © 2024 Music Pro Gear &amp; Operations. All rights reserved. Precision Instrument Functionalism.
+        </p>
+<div class="flex items-center gap-space-md font-label-sm text-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="lock">lock</span> Encriptación TLS 256-Bit
+          </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-tertiary" data-icon="check_circle">check_circle</span> Servidores Pro Audio Certificados
+          </span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

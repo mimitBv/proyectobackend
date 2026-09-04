@@ -1,0 +1,38 @@
+# Accessibility Audit Report: Music Pro - Product Detail & Mini-Cart (V2)
+**Target Screen:** {{DATA:SCREEN:SCREEN_7}}
+**Audit Date:** May 2024
+**Standard:** WCAG 2.1 Level AA
+
+## 1. Executive Summary
+This audit focuses on the revised "Ficha de Producto & Carrito Desplegable" screen. While the visual design is high-fidelity and matches the brand's premium aesthetic, several technical accessibility improvements are needed to support non-visual users and keyboard navigation.
+
+## 2. Key Findings & Recommendations
+
+### A. Semantic Structure & Landmarks
+- **Issue:** The side drawer for the Mini-Cart lacks a semantic container that identifies it as supplementary content.
+- **Recommendation:** Wrap the cart drawer in an `<aside>` element or a `<div>` with `role="complementary"`. Add an `aria-labelledby` attribute pointing to the "Tu Carrito" heading.
+
+### B. Keyboard Navigation & Focus Management
+- **Issue:** When the Mini-Cart is open, keyboard focus (Tab key) can still reach background elements like the main product description and navigation links.
+- **Recommendation:** Implement a "Focus Trap" while the drawer is active. When the cart is opened, move focus to the first interactive element (usually the "Close" button) and prevent it from leaving the drawer until closed.
+
+### C. ARIA Attributes
+- **Issue:** Several icon-only buttons (Trash icon for removing items, "X" icon for closing) lack descriptive text labels for screen readers.
+- **Recommendation:** Add `aria-label="Eliminar producto"` to the trash icons and `aria-label="Cerrar carrito"` to the close button.
+- **Issue:** Dynamic price updates aren't announced.
+- **Recommendation:** Use `aria-live="polite"` on the subtotal and total price containers so users are notified of changes when they adjust quantities.
+
+### D. Form Controls
+- **Issue:** The quantity picker buttons (+/-) are functional but don't explicitly link to the input field they control.
+- **Recommendation:** Use `aria-controls` on the buttons pointing to the ID of the quantity input field.
+
+### E. Color & Contrast
+- **Status:** **PASS**. The Amber (`#F59E0B`) on Dark Surface (`#111317`) provides a contrast ratio of approximately 9.3:1, which significantly exceeds the WCAG AA requirement of 4.5:1.
+
+## 3. Recommended Implementation Plan
+1. **Targeted ARIA Labels:** Immediate fix for all icon-only buttons.
+2. **Live Regions:** Add to cart total and shipping progress bar.
+3. **Focus Trapping Logic:** Add to the drawer's open/close script.
+
+---
+*End of Report*
