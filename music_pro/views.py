@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
+from django.db import F, transaction
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 
@@ -30,13 +31,30 @@ def shop(request):
 
 
 def add_to_cart(request, product_id):
-    product = get_object_or_404(Product, pk=product_id, active=True)
+    with transaction.atomic():
+        product = get_object_or_404(Product.objects.select_for_update(), pk=product_id, active=True)
+        if product.stock < 1:
+            messages.error(request, f"{product.name} no tiene stock disponible.")
+            return redirect(request.POST.get("next") or reverse("shop"))
+        product.stock -= 1
+        product.save(update_fields=["stock"])
     cart = request.session.get("cart", {})
     product_key = str(product.pk)
-    cart[product_key] = min(cart.get(product_key, 0) + 1, product.stock)
+    cart[product_key] = cart.get(product_key, 0) + 1
     request.session["cart"] = cart
     messages.success(request, f"{product.name} agregado al carrito.")
     return redirect(request.POST.get("next") or reverse("shop"))
+
+
+def remove_from_cart(request, product_id):
+    cart = request.session.get("cart", {})
+    product_key = str(product_id)
+    quantity = cart.pop(product_key, 0)
+    if quantity:
+        Product.objects.filter(pk=product_id).update(stock=F("stock") + quantity)
+        request.session["cart"] = cart
+        messages.success(request, "Producto eliminado y stock restaurado.")
+    return redirect("cart")
 
 
 def cart(request):
