@@ -51,7 +51,7 @@ class CheckoutForm(forms.Form):
         self.fields["branch"].queryset = Branch.objects.all()
         text_class = "field"
         select_class = "field"
-        for field_name in ["first_name", "last_name", "rut", "region", "commune", "billing_address", "distance_km"]:
+        for field_name in ["first_name", "last_name", "rut", "region", "commune", "billing_address"]:
             self.fields[field_name].widget.attrs["class"] = text_class
         for field_name in ["branch", "delivery_type", "property_type", "payment_method"]:
             self.fields[field_name].widget.attrs["class"] = select_class
