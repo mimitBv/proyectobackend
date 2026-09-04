@@ -19,7 +19,7 @@
     </div>
   </nav>
 </header>
-{% if messages %}<div class="mx-auto max-w-6xl px-5 pt-5">{% for message in messages %}<div class="rounded-lg border border-[#56e5a9]/40 bg-[#56e5a9]/10 px-4 py-3 text-[#56e5a9]">{{ message }}</div>{% endfor %}</div>{% endif %}
+{% if messages %}<div class="mx-auto max-w-6xl px-5 pt-5">{% for message in messages %}<div class="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-[#56e5a9]/40 bg-[#56e5a9]/10 px-4 py-3 text-[#56e5a9]"><span>{{ message }}</span>{% if 'cart-added' in message.tags %}<a class="rounded-md border border-[#56e5a9]/50 px-3 py-1 text-sm font-semibold" href="{% url 'cart' %}">Ver carrito</a>{% endif %}</div>{% endfor %}</div>{% endif %}
 <main class="mx-auto max-w-6xl px-5 py-10">{% block content %}{% endblock %}</main>
 </body>
 </html>

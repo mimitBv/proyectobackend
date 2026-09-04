@@ -43,7 +43,7 @@ def add_to_cart(request, product_id):
     product_key = str(product.pk)
     cart[product_key] = cart.get(product_key, 0) + 1
     request.session["cart"] = cart
-    messages.success(request, f"{product.name} agregado al carrito.")
+    messages.success(request, f"{product.name} fue agregado al carrito.", extra_tags="cart-added")
     return redirect(request.POST.get("next") or reverse("shop"))
 
 
