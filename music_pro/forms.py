@@ -50,6 +50,13 @@ class CheckoutForm(forms.Form):
 
         super().__init__(*args, **kwargs)
         self.fields["branch"].queryset = Branch.objects.all()
+        text_class = "field"
+        select_class = "field"
+        for field_name in ["first_name", "last_name", "rut", "region", "commune", "billing_address", "distance_km"]:
+            self.fields[field_name].widget.attrs["class"] = text_class
+        for field_name in ["branch", "delivery_type", "property_type", "payment_method"]:
+            self.fields[field_name].widget.attrs["class"] = select_class
+        self.fields["delivery_comment"].widget.attrs["class"] = text_class
 
     def clean(self):
         cleaned_data = super().clean()
