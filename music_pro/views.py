@@ -103,8 +103,8 @@ def checkout(request):
     form = CheckoutForm(request.POST or None)
     if form.is_valid():
         data = form.cleaned_data
-        distance = data.get("distance_km") or 0
-        shipping = 0 if data["delivery_type"] == "pickup" else 3500 + (distance * 500)
+        distance = 0
+        shipping = 0 if data["delivery_type"] == "pickup" else (0 if subtotal > 70000 else 4990)
         order = Order.objects.create(
             user=request.user,
             branch=data["branch"],

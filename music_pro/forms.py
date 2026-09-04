@@ -42,7 +42,6 @@ class CheckoutForm(forms.Form):
     billing_address = forms.CharField(label="Dirección de facturación", max_length=240, required=False)
     property_type = forms.ChoiceField(label="Casa o departamento", choices=[("house", "Casa"), ("apartment", "Departamento")], required=False)
     delivery_comment = forms.CharField(label="Comentario para el repartidor (opcional)", max_length=500, required=False, widget=forms.Textarea(attrs={"rows": 3}))
-    distance_km = forms.IntegerField(label="Distancia en kilómetros", min_value=0, max_value=1000, required=False)
     payment_method = forms.ChoiceField(label="Medio de pago", choices=Order.PAYMENT_CHOICES)
 
     def __init__(self, *args, **kwargs):
@@ -74,6 +73,4 @@ class CheckoutForm(forms.Form):
             rut = cleaned_data.get("rut", "").replace(".", "").replace("-", "").upper()
             if rut and not re.fullmatch(r"\d{7,8}[0-9K]", rut):
                 self.add_error("rut", "Ingresa un RUT válido, por ejemplo 12.345.678-9.")
-            if cleaned_data.get("distance_km") is None:
-                self.add_error("distance_km", "Indica la distancia desde la sucursal para calcular el envío.")
         return cleaned_data
