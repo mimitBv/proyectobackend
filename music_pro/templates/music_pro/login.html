@@ -1,0 +1,3 @@
+{% extends "music_pro/base.html" %}
+{% block title %}Ingresar | Music Pro{% endblock %}
+{% block content %}<div class="mx-auto max-w-md"><h1 class="text-3xl font-bold">Inicia sesión para comprar</h1><p class="mt-2 text-[#d8c3ad]">Necesitamos identificarte antes de confirmar tu pedido.</p><form method="post" class="panel mt-6 space-y-4 rounded-xl p-6">{% csrf_token %}{{ form.as_p }}<button class="w-full rounded-lg bg-[#f59e0b] px-4 py-3 font-semibold text-[#472a00]">Ingresar</button><p class="text-center text-sm text-[#d8c3ad]">¿No tienes cuenta? <a class="accent" href="{% url 'register' %}">Regístrate</a></p></form></div>{% endblock %}

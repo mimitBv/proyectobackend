@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Music Pro{% endblock %}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body{background:#111317;color:#e2e2e8;font-family:Inter,system-ui,sans-serif}.accent{color:#ffc174}.panel{background:#1a1c20;border:1px solid #534434}.field{width:100%;background:#111317;border:1px solid #534434;border-radius:8px;padding:.7rem;color:#e2e2e8}.field:focus{outline:2px solid #f59e0b}</style>
+</head>
+<body class="min-h-screen">
+<header class="border-b border-[#534434] bg-[#0c0e12]">
+  <nav class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4">
+    <a href="{% url 'shop' %}" class="text-xl font-bold accent">Music Pro</a>
+    <div class="flex items-center gap-4 text-sm">
+      <a href="{% url 'shop' %}" class="hover:text-[#ffc174]">Tienda</a>
+      <a href="{% url 'branches-and-franchises' %}" class="hover:text-[#ffc174]">Sucursales y franquicias</a>
+      <a href="{% url 'cart' %}" class="rounded-lg bg-[#f59e0b] px-3 py-2 font-semibold text-[#472a00]">Carrito</a>
+      {% if user.is_authenticated %}<span class="text-[#d8c3ad]">Hola, {{ user.first_name|default:user.username }}</span><a href="{% url 'logout' %}" class="text-[#d8c3ad]">Salir</a>{% else %}<a href="{% url 'login' %}" class="text-[#d8c3ad]">Ingresar</a>{% endif %}
+    </div>
+  </nav>
+</header>
+{% if messages %}<div class="mx-auto max-w-6xl px-5 pt-5">{% for message in messages %}<div class="rounded-lg border border-[#56e5a9]/40 bg-[#56e5a9]/10 px-4 py-3 text-[#56e5a9]">{{ message }}</div>{% endfor %}</div>{% endif %}
+<main class="mx-auto max-w-6xl px-5 py-10">{% block content %}{% endblock %}</main>
+</body>
+</html>
