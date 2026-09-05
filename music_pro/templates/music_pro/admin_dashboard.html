@@ -20,11 +20,12 @@
     </div>
   </div>
 
-  <div class="mt-7 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+  <div class="mt-7 grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
     <div class="panel rounded-xl p-5"><p class="text-sm text-[#a9a5a0]">Productos activos</p><p class="mt-2 text-3xl font-bold accent">{{ product_count }}</p></div>
     <div class="panel rounded-xl p-5"><p class="text-sm text-[#a9a5a0]">Stock bajo</p><p class="mt-2 text-3xl font-bold text-[#ffb4ab]">{{ low_stock_count }}</p></div>
     <div class="panel rounded-xl p-5"><p class="text-sm text-[#a9a5a0]">Nuevas compras</p><p class="mt-2 text-3xl font-bold text-[#56e5a9]">{{ new_order_count }}</p></div>
     <div class="panel rounded-xl p-5"><p class="text-sm text-[#a9a5a0]">En despacho</p><p class="mt-2 text-3xl font-bold text-[#ffc174]">{{ dispatch_count }}</p></div>
+    <div class="panel rounded-xl p-5"><p class="text-sm text-[#a9a5a0]">Solicitudes de franquicia</p><p class="mt-2 text-3xl font-bold text-[#56e5a9]">{{ franchise_count }}</p></div>
   </div>
 
   <div class="mt-8 grid gap-6 xl:grid-cols-2">
@@ -38,5 +39,9 @@
       <div class="mt-5 space-y-3">{% for order in orders %}<div class="rounded-lg border border-[#3b332b] bg-[#111317] p-4"><div class="flex flex-wrap items-start justify-between gap-3"><div><p class="font-bold">Pedido #{{ order.id }}</p><p class="mt-1 text-xs text-[#a9a5a0]">{{ order.user.username }} · {{ order.get_delivery_type_display }}</p></div><strong class="accent">{{ order.total|clp }}</strong></div><form method="post" class="mt-3 flex gap-2">{% csrf_token %}<input type="hidden" name="action" value="order-status"><input type="hidden" name="order_id" value="{{ order.id }}"><select name="status" class="field flex-1 px-2 py-1 text-sm">{% for value, label in status_choices %}<option value="{{ value }}" {% if order.status == value %}selected{% endif %}>{{ label }}</option>{% endfor %}</select><button class="rounded-md border border-[#ffc174]/50 px-3 py-1.5 text-xs font-bold text-[#ffc174]" type="submit">Actualizar</button></form></div>{% empty %}<p class="rounded-lg border border-[#3b332b] p-4 text-sm text-[#a9a5a0]">Todavía no hay pedidos.</p>{% endfor %}</div>
     </section>
   </div>
+  <section class="panel mt-6 rounded-xl p-5">
+    <div class="flex flex-wrap items-center justify-between gap-3"><div><p class="text-xs uppercase tracking-widest text-[#56e5a9]">Franquicias</p><h2 class="mt-1 text-xl font-bold">Solicitudes para comenzar una franquicia</h2><p class="mt-1 text-sm text-[#a9a5a0]">Revisa los datos enviados desde la página de sucursales y franquicias.</p></div><a href="{% url 'admin:music_pro_franchiseinquiry_changelist' %}" class="text-sm font-semibold accent hover:underline">Gestionar todas</a></div>
+    <div class="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-3">{% for inquiry in franchise_inquiries %}<article class="rounded-lg border border-[#3b332b] bg-[#111317] p-4"><div class="flex items-start justify-between gap-3"><h3 class="font-bold">{{ inquiry.name }}</h3><span class="text-xs text-[#a9a5a0]">{{ inquiry.created_at|date:"d/m/Y" }}</span></div><p class="mt-2 text-sm text-[#ffc174]">{{ inquiry.city }}</p><a class="mt-1 block break-all text-sm text-[#d8c3ad] hover:text-[#ffc174]" href="mailto:{{ inquiry.email }}">{{ inquiry.email }}</a><p class="mt-3 text-sm leading-6 text-[#a9a5a0]">{{ inquiry.message|truncatechars:150 }}</p></article>{% empty %}<p class="rounded-lg border border-[#3b332b] p-4 text-sm text-[#a9a5a0]">Todavía no hay solicitudes de franquicia.</p>{% endfor %}</div>
+  </section>
 </div>
 {% endblock %}

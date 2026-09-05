@@ -7,7 +7,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 
 from .forms import CheckoutForm, FranchiseInquiryForm, RegisterForm
-from .models import Branch, Order, OrderItem, Product
+from .models import Branch, FranchiseInquiry, Order, OrderItem, Product
 
 
 def home(request):
@@ -41,10 +41,12 @@ def admin_dashboard(request):
         {
             "products": Product.objects.order_by("stock", "name")[:12],
             "orders": Order.objects.select_related("user", "branch")[:12],
+            "franchise_inquiries": FranchiseInquiry.objects.all()[:8],
             "product_count": Product.objects.filter(active=True).count(),
             "low_stock_count": Product.objects.filter(active=True, stock__lte=3).count(),
             "new_order_count": Order.objects.filter(status="received").count(),
             "dispatch_count": Order.objects.filter(status="dispatched").count(),
+            "franchise_count": FranchiseInquiry.objects.count(),
             "status_choices": Order.STATUS_CHOICES,
         },
     )
