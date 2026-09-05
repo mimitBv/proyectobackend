@@ -1,0 +1,42 @@
+{% extends "music_pro/base.html" %}
+{% load music_pro_prices %}
+{% block title %}Gestión administrativa | Music Pro{% endblock %}
+{% block content %}
+<style>
+  .admin-shell { background: radial-gradient(circle at 10% 0%, rgba(245, 158, 11, .12), transparent 28%), #15171b; }
+  .admin-table th, .admin-table td { padding: .8rem .75rem; text-align: left; }
+  .admin-table tbody tr { border-top: 1px solid #3b332b; }
+</style>
+<div class="admin-shell rounded-2xl border border-[#534434] p-5 shadow-2xl md:p-8">
+  <div class="flex flex-col justify-between gap-5 border-b border-[#534434] pb-7 md:flex-row md:items-end">
+    <div>
+      <p class="text-xs font-bold uppercase tracking-[.22em] text-[#ffc174]">Music Pro / Administración</p>
+      <h1 class="mt-2 text-3xl font-bold text-[#f5f1eb] md:text-4xl">Gestión de la tienda</h1>
+      <p class="mt-2 text-[#d8c3ad]">Administra productos, stock, bodega y el estado de cada compra.</p>
+    </div>
+    <div class="flex flex-wrap gap-2">
+      <a href="{% url 'admin:index' %}" class="rounded-lg border border-[#ffc174]/50 px-4 py-2 text-sm font-semibold text-[#ffc174]">Panel Django</a>
+      <a href="{% url 'logout' %}" class="rounded-lg bg-[#f59e0b] px-4 py-2 text-sm font-semibold text-[#472a00]">Cerrar sesión</a>
+    </div>
+  </div>
+
+  <div class="mt-7 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+    <div class="panel rounded-xl p-5"><p class="text-sm text-[#a9a5a0]">Productos activos</p><p class="mt-2 text-3xl font-bold accent">{{ product_count }}</p></div>
+    <div class="panel rounded-xl p-5"><p class="text-sm text-[#a9a5a0]">Stock bajo</p><p class="mt-2 text-3xl font-bold text-[#ffb4ab]">{{ low_stock_count }}</p></div>
+    <div class="panel rounded-xl p-5"><p class="text-sm text-[#a9a5a0]">Nuevas compras</p><p class="mt-2 text-3xl font-bold text-[#56e5a9]">{{ new_order_count }}</p></div>
+    <div class="panel rounded-xl p-5"><p class="text-sm text-[#a9a5a0]">En despacho</p><p class="mt-2 text-3xl font-bold text-[#ffc174]">{{ dispatch_count }}</p></div>
+  </div>
+
+  <div class="mt-8 grid gap-6 xl:grid-cols-2">
+    <section class="panel rounded-xl p-5">
+      <div class="flex items-center justify-between gap-3"><div><p class="text-xs uppercase tracking-widest text-[#56e5a9]">Productos</p><h2 class="mt-1 text-xl font-bold">Actualizar stock y bodega</h2></div><a href="{% url 'admin:music_pro_product_changelist' %}" class="text-sm font-semibold accent hover:underline">Gestionar todos</a></div>
+      <div class="mt-5 overflow-x-auto"><table class="admin-table w-full min-w-[560px] text-sm"><thead><tr class="text-[#a9a5a0]"><th>Producto</th><th>Stock</th><th>Activo</th><th>Acción</th></tr></thead><tbody>{% for product in products %}<tr><td><span class="font-semibold">{{ product.name }}</span><br><span class="text-xs text-[#a9a5a0]">{{ product.category }}</span></td><td><span class="{% if product.stock <= 3 %}text-[#ffb4ab]{% else %}text-[#56e5a9]{% endif %} font-bold">{{ product.stock }}</span></td><td>{% if product.active %}<span class="text-[#56e5a9]">Sí</span>{% else %}<span class="text-[#a9a5a0]">No</span>{% endif %}</td><td><form method="post" class="flex items-center gap-2">{% csrf_token %}<input type="hidden" name="action" value="stock"><input type="hidden" name="product_id" value="{{ product.id }}"><input name="stock" type="number" min="0" value="{{ product.stock }}" class="field w-20 px-2 py-1 text-sm"><button class="rounded-md bg-[#f59e0b] px-3 py-1.5 text-xs font-bold text-[#472a00]" type="submit">Guardar</button></form></td></tr>{% endfor %}</tbody></table></div>
+    </section>
+
+    <section class="panel rounded-xl p-5">
+      <div class="flex items-center justify-between gap-3"><div><p class="text-xs uppercase tracking-widest text-[#56e5a9]">Pedidos</p><h2 class="mt-1 text-xl font-bold">Recepción y despacho</h2></div><a href="{% url 'admin:music_pro_order_changelist' %}" class="text-sm font-semibold accent hover:underline">Gestionar todos</a></div>
+      <div class="mt-5 space-y-3">{% for order in orders %}<div class="rounded-lg border border-[#3b332b] bg-[#111317] p-4"><div class="flex flex-wrap items-start justify-between gap-3"><div><p class="font-bold">Pedido #{{ order.id }}</p><p class="mt-1 text-xs text-[#a9a5a0]">{{ order.user.username }} · {{ order.get_delivery_type_display }}</p></div><strong class="accent">{{ order.total|clp }}</strong></div><form method="post" class="mt-3 flex gap-2">{% csrf_token %}<input type="hidden" name="action" value="order-status"><input type="hidden" name="order_id" value="{{ order.id }}"><select name="status" class="field flex-1 px-2 py-1 text-sm">{% for value, label in status_choices %}<option value="{{ value }}" {% if order.status == value %}selected{% endif %}>{{ label }}</option>{% endfor %}</select><button class="rounded-md border border-[#ffc174]/50 px-3 py-1.5 text-xs font-bold text-[#ffc174]" type="submit">Actualizar</button></form></div>{% empty %}<p class="rounded-lg border border-[#3b332b] p-4 text-sm text-[#a9a5a0]">Todavía no hay pedidos.</p>{% endfor %}</div>
+    </section>
+  </div>
+</div>
+{% endblock %}

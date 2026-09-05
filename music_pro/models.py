@@ -59,6 +59,12 @@ class Order(models.Model):
         ("transfer", "Transferencia bancaria"),
     ]
     DELIVERY_CHOICES = [("pickup", "Retiro en sucursal"), ("delivery", "Despacho a domicilio")]
+    STATUS_CHOICES = [
+        ("received", "Nueva compra"),
+        ("preparing", "En preparación"),
+        ("dispatched", "Despachado"),
+        ("completed", "Completado"),
+    ]
 
     user = models.ForeignKey("auth.User", on_delete=models.PROTECT, related_name="orders")
     branch = models.ForeignKey(Branch, on_delete=models.PROTECT, verbose_name="sucursal")
@@ -74,6 +80,7 @@ class Order(models.Model):
     distance_km = models.PositiveIntegerField("distancia en km", default=0)
     shipping_cost = models.PositiveIntegerField("costo de envío", default=0)
     payment_method = models.CharField("medio de pago", max_length=20, choices=PAYMENT_CHOICES)
+    status = models.CharField("estado", max_length=20, choices=STATUS_CHOICES, default="received")
     total = models.PositiveIntegerField("total")
     created_at = models.DateTimeField("creado", auto_now_add=True)
 

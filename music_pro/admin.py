@@ -24,8 +24,10 @@ class ProductAdmin(admin.ModelAdmin):
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ("id", "user", "branch", "total", "payment_method", "created_at")
-    list_filter = ("payment_method", "delivery_type", "created_at")
+    list_display = ("id", "user", "branch", "total", "status", "payment_method", "created_at")
+    list_filter = ("status", "payment_method", "delivery_type", "created_at")
+    list_editable = ("status",)
+    search_fields = ("user__username", "first_name", "last_name", "rut")
 
 
 @admin.register(OrderItem)

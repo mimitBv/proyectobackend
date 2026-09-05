@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth import login
+from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
 from django.db.models import F
@@ -12,6 +13,40 @@ from .models import Branch, Order, OrderItem, Product
 
 def home(request):
     return render(request, "music_pro/home.html")
+
+
+@staff_member_required(login_url="/admin/login/")
+def admin_dashboard(request):
+    if request.method == "POST":
+        action = request.POST.get("action")
+        if action == "stock":
+            product = get_object_or_404(Product, pk=request.POST.get("product_id"))
+            product.stock = max(0, int(request.POST.get("stock", 0)))
+            product.save(update_fields=["stock"])
+            messages.success(request, f"Stock de {product.name} actualizado.")
+        elif action == "order-status":
+            order = get_object_or_404(Order, pk=request.POST.get("order_id"))
+            valid_statuses = {choice[0] for choice in Order.STATUS_CHOICES}
+            status = request.POST.get("status")
+            if status in valid_statuses:
+                order.status = status
+                order.save(update_fields=["status"])
+                messages.success(request, f"Estado del pedido #{order.pk} actualizado.")
+        return redirect("admin-dashboard")
+
+    return render(
+        request,
+        "music_pro/admin_dashboard.html",
+        {
+            "products": Product.objects.order_by("stock", "name")[:12],
+            "orders": Order.objects.select_related("user", "branch")[:12],
+            "product_count": Product.objects.filter(active=True).count(),
+            "low_stock_count": Product.objects.filter(active=True, stock__lte=3).count(),
+            "new_order_count": Order.objects.filter(status="received").count(),
+            "dispatch_count": Order.objects.filter(status="dispatched").count(),
+            "status_choices": Order.STATUS_CHOICES,
+        },
+    )
 
 
 def branches_and_franchises(request):

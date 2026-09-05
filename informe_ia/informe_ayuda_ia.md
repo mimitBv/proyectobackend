@@ -47,11 +47,21 @@ La IA colaboró en la revisión, implementación, validación y publicación de 
 - Se muestra una alerta cuando se intenta ingresar una letra u otro carácter no permitido.
 - El servidor también rechaza formatos inválidos aunque se envíe una solicitud manual.
 
+### Interfaz administrativa
+
+- Se creó un dashboard protegido para usuarios administrativos en `/admin/dashboard/`.
+- El acceso requiere un usuario Django con permisos `staff`.
+- El panel muestra productos activos, stock bajo, nuevas compras y pedidos en despacho.
+- Se puede actualizar el stock de productos directamente desde el dashboard.
+- Se puede cambiar el estado de los pedidos entre nueva compra, preparación, despacho y completado.
+- El panel mantiene enlaces al administrador técnico de Django para gestionar todos los registros.
+
 ## Migraciones agregadas
 
 - `0009_assign_backend_product_images.py`: asigna las imágenes PNG a los productos.
 - `0010_use_mockup_product_images.py`: actualiza las rutas para usar la carpeta `mockups`.
 - `0011_swap_product_image_paths.py`: actualiza las rutas finales para usar `products`.
+- `0012_order_status.py`: agrega estados de seguimiento para los pedidos administrativos.
 
 ## Validaciones realizadas
 
@@ -64,6 +74,7 @@ La IA colaboró en la revisión, implementación, validación y publicación de 
 - Se verificó que los 24 productos tengan imágenes existentes.
 - Django encuentra las imágenes mediante `staticfiles`.
 - La suite de tests termina correctamente, aunque actualmente no hay tests automatizados definidos.
+- El dashboard administrativo fue probado con acceso anónimo, usuario `staff` y actualización de stock.
 
 ## Publicación en GitHub
 
