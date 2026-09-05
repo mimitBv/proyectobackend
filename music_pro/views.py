@@ -1,6 +1,5 @@
 from django.contrib import messages
 from django.contrib.auth import login
-from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
 from django.db.models import F
@@ -15,8 +14,10 @@ def home(request):
     return render(request, "music_pro/home.html")
 
 
-@staff_member_required(login_url="/admin/login/")
+@login_required(login_url="/admin/login/")
 def admin_dashboard(request):
+    if not request.user.is_staff:
+        return render(request, "music_pro/admin_no_permission.html", status=403)
     if request.method == "POST":
         action = request.POST.get("action")
         if action == "stock":

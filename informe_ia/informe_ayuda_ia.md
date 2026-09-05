@@ -55,6 +55,8 @@ La IA colaboró en la revisión, implementación, validación y publicación de 
 - Se puede actualizar el stock de productos directamente desde el dashboard.
 - Se puede cambiar el estado de los pedidos entre nueva compra, preparación, despacho y completado.
 - El panel mantiene enlaces al administrador técnico de Django para gestionar todos los registros.
+- La portada incluye el enlace “Acceso administrador” debajo de las opciones de tienda y sucursales.
+- Los visitantes son enviados al login administrativo y las cuentas cliente reciben una explicación clara si no tienen permisos `staff`.
 
 ## Migraciones agregadas
 
