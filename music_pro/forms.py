@@ -34,7 +34,19 @@ class RegisterForm(UserCreationForm):
 class CheckoutForm(forms.Form):
     first_name = forms.CharField(label="Nombre", max_length=120)
     last_name = forms.CharField(label="Apellido", max_length=120)
-    rut = forms.CharField(label="RUT", max_length=12, required=False, help_text="Ejemplo: 12.345.678-9")
+    rut = forms.CharField(
+        label="RUT",
+        max_length=10,
+        required=False,
+        help_text="Usa solo dígitos y un guion. Ejemplo: 12345678-9",
+        widget=forms.TextInput(
+            attrs={
+                "inputmode": "numeric",
+                "pattern": r"[0-9]{7,8}-[0-9]",
+                "placeholder": "12345678-9",
+            }
+        ),
+    )
     branch = forms.ModelChoiceField(label="Sucursal de origen", queryset=None)
     delivery_type = forms.ChoiceField(label="Entrega", choices=Order.DELIVERY_CHOICES)
     region = forms.CharField(label="Región", max_length=120, required=False)
@@ -70,7 +82,7 @@ class CheckoutForm(forms.Form):
             for field_name, error in required_delivery_fields.items():
                 if not cleaned_data.get(field_name):
                     self.add_error(field_name, error)
-            rut = cleaned_data.get("rut", "").replace(".", "").replace("-", "").upper()
-            if rut and not re.fullmatch(r"\d{7,8}[0-9K]", rut):
-                self.add_error("rut", "Ingresa un RUT válido, por ejemplo 12.345.678-9.")
+            rut = cleaned_data.get("rut", "")
+            if rut and not re.fullmatch(r"\d{7,8}-\d", rut):
+                self.add_error("rut", "Ingresa solo dígitos y un guion, por ejemplo 12345678-9.")
         return cleaned_data

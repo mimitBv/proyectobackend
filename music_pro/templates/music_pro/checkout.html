@@ -45,6 +45,7 @@
 </div>
 <script>
   const deliverySelect = document.getElementById('id_delivery_type');
+  const rutInput = document.getElementById('id_rut');
   const subtotalElement = document.getElementById('checkout-subtotal');
   const shippingElement = document.getElementById('checkout-shipping');
   const totalElement = document.getElementById('checkout-total');
@@ -58,6 +59,14 @@
   }
 
   deliverySelect?.addEventListener('change', updateCheckoutTotal);
+  rutInput?.addEventListener('input', (event) => {
+    const originalValue = event.target.value;
+    const filteredValue = originalValue.replace(/[^0-9-]/g, '');
+    if (originalValue !== filteredValue) {
+      event.target.value = filteredValue;
+      window.alert('El RUT solo puede contener dígitos y un guion.');
+    }
+  });
   updateCheckoutTotal();
 </script>
 {% endblock %}
