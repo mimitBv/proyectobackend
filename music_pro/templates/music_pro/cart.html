@@ -1,4 +1,86 @@
 {% extends "music_pro/base.html" %}
 {% load music_pro_prices %}
+{% load static %}
 {% block title %}Carrito | Music Pro{% endblock %}
-{% block content %}<h1 class="text-4xl font-bold">Tu carrito</h1><p class="mt-3 text-[#d8c3ad]">Cada unidad agregada se descuenta inmediatamente del stock disponible.</p><div class="mt-8 grid gap-6 lg:grid-cols-[1fr_320px]"> <section class="space-y-3">{% for item in items %}<div class="panel flex flex-col gap-4 rounded-xl p-5 sm:flex-row sm:items-center sm:justify-between"><div><h2 class="font-bold">{{ item.product.name }}</h2><p class="text-sm text-[#d8c3ad]">{{ item.quantity }} unidad(es) · {{ item.product.price|clp }} c/u</p></div><div class="flex items-center justify-between gap-2"><strong class="mr-2 accent">{{ item.product.price|clp }}</strong><form method="post" action="{% url 'decrease-cart-quantity' item.product.id %}">{% csrf_token %}<button class="rounded-lg border border-[#d8c3ad]/50 px-3 py-2 text-[#d8c3ad]" type="submit" aria-label="Restar una unidad">−</button></form><form method="post" action="{% url 'add-to-cart' item.product.id %}">{% csrf_token %}<input type="hidden" name="next" value="{% url 'cart' %}"><button class="rounded-lg border border-[#ffc174]/50 px-3 py-2 text-[#ffc174]" type="submit" aria-label="Agregar otra unidad">+</button></form><form method="post" action="{% url 'remove-from-cart' item.product.id %}">{% csrf_token %}<button class="rounded-lg border border-red-300/50 px-3 py-2 text-red-300" type="submit">Eliminar</button></form></div></div>{% empty %}<div class="panel rounded-xl p-6">Tu carrito está vacío.</div>{% endfor %}</section><aside class="panel h-fit rounded-xl p-6"><p class="text-sm text-[#d8c3ad]">Subtotal</p><p class="mt-2 text-3xl font-bold accent">{{ subtotal|clp }}</p>{% if items %}<a href="{% url 'checkout' %}" class="mt-6 block rounded-lg bg-[#f59e0b] px-4 py-3 text-center font-semibold text-[#472a00]">Continuar compra</a>{% endif %}</aside></div>{% endblock %}
+{% block content %}
+<style>
+	.product-carousel {
+		display: grid;
+		grid-auto-columns: minmax(210px, 240px);
+		grid-auto-flow: column;
+		gap: 1rem;
+		overflow-x: auto;
+		padding: .25rem .15rem .75rem;
+		scroll-behavior: smooth;
+		scroll-snap-type: x mandatory;
+		scrollbar-width: thin;
+		scrollbar-color: #f59e0b #202126;
+	}
+	.product-carousel article {
+		scroll-snap-align: start;
+	}
+</style>
+<section class="mb-8">
+	<p class="mb-2 text-xs uppercase tracking-widest accent">Tu selección</p>
+	<h1 class="text-4xl font-bold">Tu carrito</h1>
+	<p class="mt-3 text-[#d8c3ad]">Cada unidad agregada se descuenta inmediatamente del stock disponible.</p>
+</section>
+<div class="grid gap-6 lg:grid-cols-[1fr_320px]">
+	<section class="space-y-3">
+		{% for item in items %}
+		<div class="panel flex flex-col gap-4 rounded-xl p-5 sm:flex-row sm:items-center sm:justify-between">
+			<div>
+				<h2 class="font-bold">{{ item.product.name }}</h2>
+				<p class="text-sm text-[#d8c3ad]">{{ item.quantity }} unidad(es) · {{ item.product.price|clp }} c/u</p>
+			</div>
+			<div class="flex items-center justify-between gap-2">
+				<strong class="mr-2 accent">{{ item.product.price|clp }}</strong>
+				<form method="post" action="{% url 'decrease-cart-quantity' item.product.id %}">{% csrf_token %}<button class="rounded-lg border border-[#d8c3ad]/50 px-3 py-2 text-[#d8c3ad]" type="submit" aria-label="Restar una unidad">−</button></form>
+				<form method="post" action="{% url 'add-to-cart' item.product.id %}">{% csrf_token %}<input type="hidden" name="next" value="{% url 'cart' %}"><button class="rounded-lg border border-[#ffc174]/50 px-3 py-2 text-[#ffc174]" type="submit" aria-label="Agregar otra unidad">+</button></form>
+				<form method="post" action="{% url 'remove-from-cart' item.product.id %}">{% csrf_token %}<button class="rounded-lg border border-red-300/50 px-3 py-2 text-red-300" type="submit">Eliminar</button></form>
+			</div>
+		</div>
+		{% empty %}
+		<div class="panel rounded-xl p-6">
+			<h2 class="text-xl font-bold">Tu carrito está vacío</h2>
+			<p class="mt-2 text-[#d8c3ad]">Agrega alguno de los productos disponibles para comenzar tu compra.</p>
+		</div>
+		{% endfor %}
+	</section>
+	<aside class="panel h-fit rounded-xl p-6">
+		<p class="text-sm text-[#d8c3ad]">Subtotal</p>
+		<p class="mt-2 text-3xl font-bold accent">{{ subtotal|clp }}</p>
+		{% if items %}<a href="{% url 'checkout' %}" class="mt-6 block rounded-lg bg-[#f59e0b] px-4 py-3 text-center font-semibold text-[#472a00]">Continuar compra</a>{% endif %}
+	</aside>
+</div>
+{% if available_products %}
+<section class="mt-12">
+	<div class="mb-5 flex flex-wrap items-end justify-between gap-3">
+		<div><p class="mb-2 text-xs uppercase tracking-widest accent">Sigue explorando</p><h2 class="text-2xl font-bold">Productos disponibles para agregar</h2></div>
+		<div class="flex items-center gap-3">
+			<a href="{% url 'shop' %}" class="text-sm font-semibold accent hover:underline">Ver toda la tienda</a>
+			<div class="hidden gap-2 sm:flex">
+				<button type="button" class="carousel-prev rounded-lg border border-[#ffc174]/50 px-3 py-1.5 text-[#ffc174]" aria-label="Productos anteriores">←</button>
+				<button type="button" class="carousel-next rounded-lg border border-[#ffc174]/50 px-3 py-1.5 text-[#ffc174]" aria-label="Productos siguientes">→</button>
+			</div>
+		</div>
+	</div>
+	<div class="product-carousel">
+		{% for product in available_products %}
+		<article class="panel rounded-xl p-3">
+			<img src="{% static product.image %}" alt="{{ product.name }}" class="mb-3 h-24 w-full rounded-lg object-cover">
+			<p class="text-xs uppercase tracking-widest text-[#56e5a9]">{{ product.category }}</p>
+			<h3 class="mt-1 min-h-10 text-sm font-bold">{{ product.name }}</h3>
+			<div class="mt-3 flex items-center justify-between gap-2"><strong class="text-sm accent">{{ product.price|clp }}</strong><span class="text-[11px] text-[#d8c3ad]">Stock: {{ product.stock }}</span></div>
+			<form method="post" action="{% url 'add-to-cart' product.id %}" class="mt-3">{% csrf_token %}<input type="hidden" name="next" value="{% url 'cart' %}"><button class="w-full rounded-lg bg-[#f59e0b] px-3 py-2 text-sm font-semibold text-[#472a00]" type="submit">Agregar</button></form>
+		</article>
+		{% endfor %}
+	</div>
+</section>
+<script>
+	const productCarousel = document.querySelector('.product-carousel');
+	document.querySelector('.carousel-prev')?.addEventListener('click', () => productCarousel?.scrollBy({ left: -260, behavior: 'smooth' }));
+	document.querySelector('.carousel-next')?.addEventListener('click', () => productCarousel?.scrollBy({ left: 260, behavior: 'smooth' }));
+</script>
+{% endif %}
+{% endblock %}

@@ -78,7 +78,12 @@ def cart(request):
     products = Product.objects.filter(pk__in=cart_data.keys(), active=True)
     items = [{"product": product, "quantity": cart_data.get(str(product.pk), 0)} for product in products]
     subtotal = sum(item["product"].price * item["quantity"] for item in items)
-    return render(request, "music_pro/cart.html", {"items": items, "subtotal": subtotal})
+    available_products = Product.objects.filter(active=True, stock__gt=0).exclude(pk__in=cart_data.keys())[:6]
+    return render(
+        request,
+        "music_pro/cart.html",
+        {"items": items, "subtotal": subtotal, "available_products": available_products},
+    )
 
 
 def register(request):
@@ -104,7 +109,7 @@ def checkout(request):
     if form.is_valid():
         data = form.cleaned_data
         distance = 0
-        shipping = 0 if data["delivery_type"] == "pickup" else (0 if subtotal > 70000 else 4990)
+        shipping = 0 if data["delivery_type"] == "pickup" else 3990
         order = Order.objects.create(
             user=request.user,
             branch=data["branch"],
