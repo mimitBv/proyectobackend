@@ -15,7 +15,7 @@
       <a href="{% url 'shop' %}" class="hover:text-[#ffc174]">Tienda</a>
       <a href="{% url 'branches-and-franchises' %}" class="hover:text-[#ffc174]">Sucursales y franquicias</a>
       <a href="{% url 'cart' %}" class="rounded-lg bg-[#f59e0b] px-3 py-2 font-semibold text-[#472a00]">Carrito</a>
-      {% if user.is_authenticated %}<span class="text-[#d8c3ad]">Hola, {{ user.first_name|default:user.username }}</span><a href="{% url 'logout' %}" class="text-[#d8c3ad]">Salir</a>{% else %}<a href="{% url 'login' %}" class="text-[#d8c3ad]">Ingresar</a>{% endif %}
+      {% if request.session.demo_user %}<span class="text-[#d8c3ad]">Hola, {{ request.session.demo_user.first_name|default:request.session.demo_user.username }}</span><a href="{% url 'logout' %}" class="text-[#d8c3ad]">Salir</a>{% else %}<a href="{% url 'login' %}" class="text-[#d8c3ad]">Ingresar</a>{% endif %}
     </div>
   </nav>
 </header>

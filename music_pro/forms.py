@@ -2,36 +2,51 @@ import re
 
 from django import forms
 
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 
-from .models import FranchiseInquiry, Order
+class LoginForm(forms.Form):
+    username = forms.CharField(label="Nombre de usuario", max_length=120)
+    password = forms.CharField(label="Contraseña", widget=forms.PasswordInput)
 
 
-class FranchiseInquiryForm(forms.ModelForm):
-    class Meta:
-        model = FranchiseInquiry
-        fields = ["name", "city", "email", "message"]
+class FranchiseInquiryForm(forms.Form):
+    name = forms.CharField(label="Nombre", max_length=120)
+    city = forms.CharField(label="Ciudad", max_length=120)
+    email = forms.EmailField(label="Correo")
+    message = forms.CharField(label="Mensaje", widget=forms.Textarea(attrs={"rows": 4}))
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         input_class = "w-full rounded-lg border border-outline-variant bg-surface-container-low px-3 py-2.5 text-on-surface placeholder:text-on-surface-variant focus:border-primary focus:outline-none"
-        widgets = {
-            "name": forms.TextInput(attrs={"placeholder": "Tu nombre", "class": input_class}),
-            "city": forms.TextInput(attrs={"placeholder": "Tu ciudad", "class": input_class}),
-            "email": forms.EmailInput(attrs={"placeholder": "correo@ejemplo.com", "class": input_class}),
-            "message": forms.Textarea(attrs={"placeholder": "Cuéntanos qué quieres abrir...", "rows": 4, "class": input_class}),
-        }
+        for field_name in ["name", "city", "email", "message"]:
+            self.fields[field_name].widget.attrs["class"] = input_class
 
 
-class RegisterForm(UserCreationForm):
+class RegisterForm(forms.Form):
     first_name = forms.CharField(label="Nombre", max_length=120)
     last_name = forms.CharField(label="Apellido", max_length=120)
     email = forms.EmailField(label="Correo")
+    username = forms.CharField(label="Nombre de usuario", max_length=120)
+    password1 = forms.CharField(label="Contraseña", widget=forms.PasswordInput)
+    password2 = forms.CharField(label="Confirmar contraseña", widget=forms.PasswordInput)
 
-    class Meta:
-        model = User
-        fields = ["first_name", "last_name", "email", "username", "password1", "password2"]
+    def clean(self):
+        cleaned_data = super().clean()
+        password1 = cleaned_data.get("password1")
+        password2 = cleaned_data.get("password2")
+        if password1 and password2 and password1 != password2:
+            self.add_error("password2", "Las contraseñas no coinciden.")
+        return cleaned_data
 
 
 class CheckoutForm(forms.Form):
+    BRANCH_CHOICES = [
+        ("santiago-centro", "Santiago Centro"),
+        ("providencia", "Providencia"),
+        ("valparaiso", "Valparaíso"),
+    ]
+    DELIVERY_CHOICES = [("pickup", "Retiro en sucursal"), ("delivery", "Despacho a domicilio")]
+    PAYMENT_CHOICES = [("debit", "Tarjeta de débito"), ("credit", "Tarjeta de crédito"), ("transfer", "Transferencia bancaria")]
+
     first_name = forms.CharField(label="Nombre", max_length=120)
     last_name = forms.CharField(label="Apellido", max_length=120)
     rut = forms.CharField(
@@ -47,20 +62,17 @@ class CheckoutForm(forms.Form):
             }
         ),
     )
-    branch = forms.ModelChoiceField(label="Sucursal de origen", queryset=None)
-    delivery_type = forms.ChoiceField(label="Entrega", choices=Order.DELIVERY_CHOICES)
+    branch = forms.ChoiceField(label="Sucursal de origen", choices=BRANCH_CHOICES)
+    delivery_type = forms.ChoiceField(label="Entrega", choices=DELIVERY_CHOICES)
     region = forms.CharField(label="Región", max_length=120, required=False)
     commune = forms.CharField(label="Comuna", max_length=120, required=False)
     billing_address = forms.CharField(label="Dirección de facturación", max_length=240, required=False)
     property_type = forms.ChoiceField(label="Casa o departamento", choices=[("house", "Casa"), ("apartment", "Departamento")], required=False)
     delivery_comment = forms.CharField(label="Comentario para el repartidor (opcional)", max_length=500, required=False, widget=forms.Textarea(attrs={"rows": 3}))
-    payment_method = forms.ChoiceField(label="Medio de pago", choices=Order.PAYMENT_CHOICES)
+    payment_method = forms.ChoiceField(label="Medio de pago", choices=PAYMENT_CHOICES)
 
     def __init__(self, *args, **kwargs):
-        from .models import Branch
-
         super().__init__(*args, **kwargs)
-        self.fields["branch"].queryset = Branch.objects.all()
         text_class = "field"
         select_class = "field"
         for field_name in ["first_name", "last_name", "rut", "region", "commune", "billing_address"]:
